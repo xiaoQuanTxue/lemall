@@ -34,7 +34,13 @@ public class MvcConfig implements WebMvcConfigurer {
 
                 SerializerFeature.WriteNullStringAsEmpty,
 
+                SerializerFeature.WriteNullNumberAsZero,
+
+                SerializerFeature.PrettyFormat
         );
+        fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
+        return  fastJsonHttpMessageConverter;
     }
     /**
      * 将消息转换器添加到mvc配置中
@@ -44,6 +50,6 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(productStringConverter());
-
+        converters.add(productFastJsonConverter());
     }
 }
