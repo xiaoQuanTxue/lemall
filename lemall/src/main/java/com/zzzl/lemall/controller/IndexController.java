@@ -27,16 +27,17 @@ public class IndexController {
     @RequestMapping("/getGoodsByTitle")
     @ResponseBody
     public List<Good> selectGoodsByTitle(String title) {
-        System.out.println(title);
+
         List<Good> goods = goodService.selectGoodsByTitle(title);
         return goods;
     }
 
-    @RequestMapping("/getGoodsByTitle")
+    @RequestMapping("/getGoodsByValue")
     @ResponseBody
-    public List<Good> selectGoodsByValues(String title) {
-        System.out.println(title);
-        List<Good> goods = goodService.selectGoodsByTitle(title);
+    public List<Good> selectGoodsByValues(String value) {
+        System.out.println(value);
+        List<Good> goods = goodService.selectGoodsByValues(value);
+        System.out.println(goods);
         return goods;
     }
 

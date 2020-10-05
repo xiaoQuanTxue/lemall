@@ -75,7 +75,7 @@
 			<div class="search-bar pr">
 				<a name="index_none_header_sysc" href="#"></a>
 				<form onsubmit="return false">
-					<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="请输入搜索内容"
+					<input id="searchInput" name="value" type="text" placeholder="请输入搜索内容"
 						autocomplete="off" style="font-size:17px;font-weight:600; ">
 					<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
 				</form>
@@ -1628,7 +1628,7 @@
 	// 首页点击搜索按钮后将输入框的数据传到session中，并跳转到搜索结果页 
 	$("#ai-topsearch").click(function () {
 		var key = $("#searchInput").val();
-		// alert(key);
+		alert(key);
 		sessionStorage.setItem("value", key);
 		if (key != null || key != "") {
 			window.location.href = "search.html";
