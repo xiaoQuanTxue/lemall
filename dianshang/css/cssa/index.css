@@ -1,0 +1,79 @@
+/* 畅销商品类 */
+.changxiao {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1%;
+}
+
+/* 推荐商品类 */
+.tuijian {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1%;
+}
+
+/* 零食类 */
+.lingshi {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1%;
+}
+
+/* 单个商品 */
+.danping:hover {
+   border: 1px solid orangered;
+   padding: 20px 20px;
+}
+
+.danping {
+    cursor: pointer;
+    padding: 20px 20px;
+    border: 1px solid transparent;
+}
+
+.danping img {
+    width: 186.28px;
+    height: 186.28px;
+}
+
+
+/* 商品描述 */
+.miaoshu {
+    margin: 0 auto;
+    line-height: 26px;
+    color: #666;
+    font-size: 16px;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+/* 现价 */
+.price1 {
+    color: #ff5000;
+    font-size: 22px;
+}
+
+/* 清除继承的伪类选择器效果 */
+.price1:hover {
+    color: #ff5000;
+    font-size: 22px;
+}
+
+/* 原价 */
+.price2 {
+    color: #999999;
+
+}
+
+/* 清除继承的伪类选择器效果 */
+.price2:hover {
+    color: #999999;
+
+}
