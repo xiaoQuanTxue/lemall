@@ -112,4 +112,21 @@ public class User {
     public void setUserMail(String userMail) {
         this.userMail = userMail == null ? null : userMail.trim();
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userNick='" + userNick + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userIcon='" + userIcon + '\'' +
+                ", userBirth=" + userBirth +
+                ", userDetails='" + userDetails + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userAdress='" + userAdress + '\'' +
+                ", userState='" + userState + '\'' +
+                ", userMail='" + userMail + '\'' +
+                '}';
+    }
 }

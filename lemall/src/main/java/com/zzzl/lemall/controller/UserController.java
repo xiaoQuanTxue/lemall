@@ -1,5 +1,6 @@
 package com.zzzl.lemall.controller;
 
+import com.zzzl.lemall.domain.User;
 import com.zzzl.lemall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,11 +19,8 @@ public class UserController {
 
     @CrossOrigin(value = "*")
     @RequestMapping("/login")
-    public String login(@RequestParam("username")String userName,
-                        @RequestParam("password") String password){
-        if (userService.login(userName,password)){
-            return "success";
-        }
-        return "failure";
+    public User login(@RequestParam("username")String userName,
+                      @RequestParam("password") String password){
+        return userService.login(userName,password);
     }
 }

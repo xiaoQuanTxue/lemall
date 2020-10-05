@@ -1,5 +1,7 @@
 package com.zzzl.lemall.service;
 
+import com.zzzl.lemall.domain.User;
+
 public interface UserService {
-    boolean login(String username,String password);
+     User login(String username, String password);
 }
