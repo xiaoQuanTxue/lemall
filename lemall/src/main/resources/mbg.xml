@@ -43,10 +43,10 @@
 
         <!-- table指定每个表的生成策略 -->
         <!--		<table tableName="newproduct" domainObjectName="NewProduct"></table>-->
-<!--        <table tableName="goods" domainObjectName="Goods"></table>-->
+        <table tableName="good" domainObjectName="Good"></table>
 <!--        <table tableName="cart" domainObjectName="Cart"></table>-->
 <!--        <table tableName="category" domainObjectName="Ctegory"></table>-->
-        <table tableName="collect" domainObjectName="Collect"></table>
+<!--        <table tableName="collect" domainObjectName="Collect"></table>-->
 <!--        <table tableName="delivery_address" domainObjectName="DeliveryAddress"></table>-->
 <!--        <table tableName="good_details" domainObjectName="GoodDetails"></table>-->
 <!--        <table tableName="orderitem" domainObjectName="Orderitem"></table>-->
