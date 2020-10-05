@@ -3,7 +3,6 @@ package com.zzzl.lemall.service.impl;
 import com.zzzl.lemall.domain.User;
 import com.zzzl.lemall.domain.UserExample;
 import com.zzzl.lemall.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,5 +26,11 @@ public class UserServiceImpl implements com.zzzl.lemall.service.UserService {
         userExample.createCriteria().andUserNameEqualTo(username).andUserPasswordEqualTo(password);
         List<User> list=userMapper.selectByExample(userExample);
         return list.get(0);
+    }
+
+    @Override
+    public String iconURL(int userid) {
+        User user=userMapper.selectByPrimaryKey(userid);
+        return user.getUserIcon();
     }
 }
