@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     UserService userService;
+
     @CrossOrigin(value = "*")
     @RequestMapping("/login")
     public String login(@RequestParam("username")String userName,@RequestParam("password") String password){
