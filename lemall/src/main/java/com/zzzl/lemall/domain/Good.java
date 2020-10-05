@@ -24,6 +24,18 @@ public class Good {
 
     private Integer categoryId;
 
+    //    一对一，添加图片字段
+    private GoodDetails pictureLocation;
+
+
+    public GoodDetails getPictureLocation() {
+        return pictureLocation;
+    }
+
+    public void setPictureLocation(GoodDetails pictureLocation) {
+        this.pictureLocation = pictureLocation;
+    }
+
     public Integer getGoodId() {
         return goodId;
     }
@@ -102,5 +114,22 @@ public class Good {
 
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                "goodId=" + goodId +
+                ", goodName='" + goodName + '\'' +
+                ", goodCurrentPrice=" + goodCurrentPrice +
+                ", goodOriginalPrice=" + goodOriginalPrice +
+                ", goodDescribe='" + goodDescribe + '\'' +
+                ", goodInventory=" + goodInventory +
+                ", goodSale=" + goodSale +
+                ", goodState='" + goodState + '\'' +
+                ", goodUpDate=" + goodUpDate +
+                ", categoryId=" + categoryId +
+                ", pictureLocation=" + pictureLocation +
+                '}';
     }
 }

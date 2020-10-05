@@ -30,4 +30,15 @@ public class GoodDetails {
     public void setGoodId(Integer goodId) {
         this.goodId = goodId;
     }
+
+    @Override
+    public String toString() {
+        return "GoodDetails{" +
+                "goodDetailsId=" + goodDetailsId +
+                ", goodDetailsIgm='" + goodDetailsIgm + '\'' +
+                ", goodId=" + goodId +
+                '}';
+    }
 }
+
+

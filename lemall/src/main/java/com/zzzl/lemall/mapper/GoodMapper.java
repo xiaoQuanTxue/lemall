@@ -2,7 +2,9 @@ package com.zzzl.lemall.mapper;
 
 import com.zzzl.lemall.domain.Good;
 import com.zzzl.lemall.domain.GoodExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface GoodMapper {
@@ -27,4 +29,13 @@ public interface GoodMapper {
     int updateByPrimaryKeySelective(Good record);
 
     int updateByPrimaryKey(Good record);
+
+
+//    自定义部分
+
+    //根据标题查找商品
+    List<Good> selectGoodsByTitle(String title);
+
+
+
 }

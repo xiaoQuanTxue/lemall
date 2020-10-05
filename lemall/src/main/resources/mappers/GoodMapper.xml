@@ -188,7 +188,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+
+    <update id="updateByExampleSelective" parameterType="map">
     update good
     <set>
       <if test="record.goodId != null">
@@ -288,4 +289,37 @@
       category_id = #{categoryId,jdbcType=INTEGER}
     where good_id = #{goodId,jdbcType=INTEGER}
   </update>
+
+
+<!--  自定义部分-->
+  <resultMap id="map1" type="com.zzzl.lemall.domain.Good">
+    <id column="good_id" jdbcType="INTEGER" property="goodId" />
+    <result column="good_name" jdbcType="VARCHAR" property="goodName" />
+    <result column="good_current_price" jdbcType="DECIMAL" property="goodCurrentPrice" />
+    <result column="good_original_price" jdbcType="DECIMAL" property="goodOriginalPrice" />
+    <result column="good_describe" jdbcType="VARCHAR" property="goodDescribe" />
+    <result column="good_inventory" jdbcType="INTEGER" property="goodInventory" />
+    <result column="good_sale" jdbcType="INTEGER" property="goodSale" />
+    <result column="good_state" jdbcType="VARCHAR" property="goodState" />
+    <result column="good_up_date" jdbcType="TIMESTAMP" property="goodUpDate" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+
+    <association property="pictureLocation" javaType="com.zzzl.lemall.domain.GoodDetails">
+      <id column="good_details_id" jdbcType="INTEGER" property="goodDetailsId" />
+      <result column="good_details_igm" jdbcType="VARCHAR" property="goodDetailsIgm" />
+      <result column="good_id" jdbcType="INTEGER" property="goodId" />
+    </association>
+   </resultMap>
+
+
+  <select id="selectGoodsByTitle" resultMap="map1">
+    SELECT g.*,gd.good_Details_igm
+    FROM category c
+    LEFT JOIN good g
+    on c.super_Id=g.category_Id
+    LEFT JOIN good_Details  gd
+    on g.good_Id=gd.good_Id
+    WHERE c.category_Name=#{title}
+  </select>
+
 </mapper>

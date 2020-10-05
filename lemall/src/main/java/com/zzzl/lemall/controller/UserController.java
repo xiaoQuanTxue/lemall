@@ -18,7 +18,8 @@ public class UserController {
 
     @CrossOrigin(value = "*")
     @RequestMapping("/login")
-    public String login(@RequestParam("username")String userName,@RequestParam("password") String password){
+    public String login(@RequestParam("username")String userName,
+                        @RequestParam("password") String password){
         if (userService.login(userName,password)){
             return "success";
         }
