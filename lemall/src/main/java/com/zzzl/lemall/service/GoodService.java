@@ -11,5 +11,13 @@ import java.util.List;
  */
 public interface GoodService {
 
+
+    /**
+     * 展示商品列表
+     * @param title
+     * @return
+     */
     List<Good> selectGoodsByTitle(String title);
+
+    List<Good> selectGoodsByValues(String value);
 }

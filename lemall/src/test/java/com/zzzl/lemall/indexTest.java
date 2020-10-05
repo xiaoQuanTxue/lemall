@@ -22,8 +22,17 @@ public class indexTest {
 
     @Test
     public void selectGoodsByTitle(){
-        String title="笔记本电脑";
+        String title="推荐";
         List<Good> goods = goodService.selectGoodsByTitle(title);
+        System.out.println(goods);
+
+    }
+
+
+    @Test
+    public void selectGoodsByValue(){
+        String title="出";
+        List<Good> goods = goodService.selectGoodsByValues(title);
         System.out.println(goods);
 
     }

@@ -36,6 +36,7 @@ public interface GoodMapper {
     //根据标题查找商品
     List<Good> selectGoodsByTitle(String title);
 
-
+//    根据输入框的词搜索商品，模糊查询
+    List<Good> selectGoodsByValues(String value);
 
 }

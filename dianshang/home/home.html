@@ -979,8 +979,8 @@
 				<div class="clear "></div>
 				<br><br>
 
-				<div class="changxiao">
-					<div class="danping">
+				 <div class="changxiao">
+				<!--	<div class="danping">
 						<div>
 							<img src="../images/picturea/单品1.webp" alt="">
 						</div>
@@ -1139,7 +1139,7 @@
 							<a class="price2">月销254笔</a>
 						</div>
 
-					</div>
+					</div> -->
 
 
 				</div>
@@ -1157,7 +1157,7 @@
 				<br><br>
 				<div class="tuijian">
 
-					<div class="danping">
+					<!-- <div class="danping">
 						<div>
 							<img src="../images/picturea/为你推荐1.webp" alt="">
 						</div>
@@ -1300,7 +1300,7 @@
 							<a class="price2"><s>￥258</s></a><br>
 							<a class="price2">月销79笔</a>
 						</div>
-					</div>
+					</div> -->
 
 
 				</div>
@@ -1317,7 +1317,7 @@
 				<br><br>
 				<div class="lingshi">
 
-					<div class="danping">
+					<!-- <div class="danping">
 						<div>
 							<img src="../images/picturea/零食1.webp" alt="">
 						</div>
@@ -1390,7 +1390,7 @@
 							<a class="price2"><s>￥9.9</s></a><br>
 							<a class="price2">月销5530笔</a>
 						</div>
-					</div>
+					</div> -->
 
 
 
@@ -1743,23 +1743,70 @@
 
 <script>
 	        $.ajax({
-            url: "http://localhost:8080/getpic",
-            data: "title=课堂直播2",
-            success: function(pic) {
+            url: "http://localhost:8080/index/getGoodsByTitle",
+            data: "title=笔记本电脑",
+            success: function(product) {
 
                 var li = '';
-                for (var i = 0; i < pic.length; i++) {
-                    var picture = pic[i];
+                for (var i = 0; i < product.length; i++) {
+					var pro = product[i];
 
-                    li += '<div class="teacher"><div class="teacher_img"><img src="' + picture.picture +
-                        '"></div><div class="miaoshu"><div class="mioashu1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今天 20:00 | <a style="color: green;">开启提醒</a></div><div class="mioashu2"><h4>' +
-                        picture.des1 + '</h4></div><div class="mioashu3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + picture
-                        .des2 +
-                        '</div></div></div>';
+						
+					li+='<div class="danping"><div><img src="'+pro.pictureLocation.goodDetailsIgm+
+						'" alt=""></div><br><div class="miaoshu">'+pro.goodDescribe+
+						'</div><br><div><a class="price1">￥'+pro.goodCurrentPrice+
+						'</a><a class="price2"><s>￥'+pro.goodOriginalPrice+
+						'</s></a><br><a class="price2">月销'+pro.goodSale+'笔</a></div></div>'
                 }
-                $("div[class='tt2']").append(li);
+                $("div[class='changxiao']").append(li);
             }
         });
+</script>
+
+
+<script>
+	$.ajax({
+	url: "http://localhost:8080/index/getGoodsByTitle",
+	data: "title=推荐",
+	success: function(product) {
+
+		var li = '';
+		for (var i = 0; i < product.length; i++) {
+			var pro = product[i];
+
+				
+			li+='<div class="danping"><div><img src="'+pro.pictureLocation.goodDetailsIgm+
+				'" alt=""></div><br><div class="miaoshu">'+pro.goodDescribe+
+				'</div><br><div><a class="price1">￥'+pro.goodCurrentPrice+
+				'</a><a class="price2"><s>￥'+pro.goodOriginalPrice+
+				'</s></a><br><a class="price2">月销'+pro.goodSale+'笔</a></div></div>'
+		}
+		$("div[class='tuijian']").append(li);
+	}
+});
+</script>
+
+
+<script>
+	$.ajax({
+	url: "http://localhost:8080/index/getGoodsByTitle",
+	data: "title=零食礼盒",
+	success: function(product) {
+
+		var li = '';
+		for (var i = 0; i < product.length; i++) {
+			var pro = product[i];
+
+				
+			li+='<div class="danping"><div><img src="'+pro.pictureLocation.goodDetailsIgm+
+				'" alt=""></div><br><div class="miaoshu">'+pro.goodDescribe+
+				'</div><br><div><a class="price1">￥'+pro.goodCurrentPrice+
+				'</a><a class="price2"><s>￥'+pro.goodOriginalPrice+
+				'</s></a><br><a class="price2">月销'+pro.goodSale+'笔</a></div></div>'
+		}
+		$("div[class='lingshi']").append(li);
+	}
+});
 </script>
 
 </html>

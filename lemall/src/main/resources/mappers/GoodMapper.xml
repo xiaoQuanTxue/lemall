@@ -312,14 +312,25 @@
    </resultMap>
 
 
+
+
   <select id="selectGoodsByTitle" resultMap="map1">
     SELECT g.*,gd.good_Details_igm
     FROM category c
     LEFT JOIN good g
-    on c.super_Id=g.category_Id
+    on c.category_id=g.category_Id
     LEFT JOIN good_Details  gd
     on g.good_Id=gd.good_Id
     WHERE c.category_Name=#{title}
+  </select>
+
+
+  <select id="selectGoodsByValues" resultMap="map1">
+    SELECT  g.*,gd.good_details_igm
+    FROM good g
+    LEFT JOIN good_details gd
+    on g.good_id=gd.good_id
+    WHERE g.good_name like #{value}
   </select>
 
 </mapper>

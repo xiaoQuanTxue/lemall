@@ -32,5 +32,13 @@ public class IndexController {
         return goods;
     }
 
+    @RequestMapping("/getGoodsByTitle")
+    @ResponseBody
+    public List<Good> selectGoodsByValues(String title) {
+        System.out.println(title);
+        List<Good> goods = goodService.selectGoodsByTitle(title);
+        return goods;
+    }
+
 
 }

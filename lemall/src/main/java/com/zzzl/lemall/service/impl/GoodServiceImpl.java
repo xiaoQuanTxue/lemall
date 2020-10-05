@@ -25,4 +25,10 @@ public class GoodServiceImpl  implements GoodService {
         List<Good> goods = goodMapper.selectGoodsByTitle(title);
         return goods;
     }
+
+    @Override
+    public List<Good> selectGoodsByValues(String value) {
+        List<Good> goods = goodMapper.selectGoodsByValues("%" + value + "%");
+        return goods;
+    }
 }
