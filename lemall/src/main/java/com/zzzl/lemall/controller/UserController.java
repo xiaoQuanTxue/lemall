@@ -27,5 +27,5 @@ public class UserController {
         return userService.iconURL(userid);
     }
 
-    
+
 }
