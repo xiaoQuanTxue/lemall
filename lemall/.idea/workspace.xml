@@ -2,236 +2,139 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf23997f-4d24-4434-b4ab-6e1e06d71618" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_8_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_38.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_38.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_16_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_3_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/smartfox_info.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lemall.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/controller/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/GoodDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/impl/GoodDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/zzzl/lemall/ctegoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/lemall.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/LemallApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/config/MvcConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/controller/CategoryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/controller/IndexController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Cart.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Collect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Ctegory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddress.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Good.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetails.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Orderitem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Orders.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Property.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Review.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Trace.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Value.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Vendor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/CartMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/CollectMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/CtegoryMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/DeliveryAddressMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/GoodDetailsMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/GoodMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/OrderitemMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/OrdersMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/PropertyMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/ReviewMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/TraceMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/ValueMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/mapper/VendorMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/CategoryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/GoodDetailsService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/GoodService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/impl/GoodDetailsServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/impl/GoodServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/util/TestGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/CartMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/CollectMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/CtegoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/DeliveryAddressMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/GoodDetailsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/GoodMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/OrderitemMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/OrdersMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/PropertyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/ReviewMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/TraceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/ValueMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mappers/VendorMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mbg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/zzzl/lemall/LemallApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/zzzl/lemall/ctegoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/zzzl/lemall/indexTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dianshang/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dianshang/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dianshang/home/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dianshang/home/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dianshang/home/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dianshang/home/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/mapper/CtegoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/mapper/CtegoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/mapper/GoodDetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/mapper/GoodDetailsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/CtegoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/GoodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/GoodService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/impl/CtegoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/impl/GoodServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/service/impl/GoodServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzzl/lemall/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dianshang/home/shopcart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dianshang/home/shopcart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_8_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_8_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_14.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_14.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_38.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_38.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_38.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_38.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_16_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_16_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_3_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_3_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_3_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_3_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_4_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_3_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_9_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/CtegoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/CtegoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/GoodDetailsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/GoodDetailsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/lemall.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CartExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CollectExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Ctegory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Ctegory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/CtegoryExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/DeliveryAddressExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Good.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Good.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodDetailsExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/GoodExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrderitemExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Orders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/OrdersExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Property.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Property.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/PropertyExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ReviewExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/TraceExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/UserExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Value.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/ValueExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Vendor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/Vendor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample$Criterion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/domain/VendorExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zzzl/lemall/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mbg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mbg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/zzzl/lemall/ctegoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zzzl/lemall/ctegoryTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,24 +158,11 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1iRqcYzxdGTwxS0WReFuVdfBNce" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -280,6 +170,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -290,7 +181,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RunManager" selected="Spring Boot.LemallApplication">
     <configuration name="ctegoryTest.selectCtegory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -356,18 +250,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -382,6 +264,7 @@
       <workItem from="1601901364814" duration="4971000" />
       <workItem from="1601944337780" duration="14545000" />
       <workItem from="1601970924897" duration="946000" />
+      <workItem from="1601980008538" duration="4303000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1601883956291</created>
@@ -429,7 +312,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
@@ -441,6 +324,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="加载轮播图" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="121" y="0" key="#Project_Structure" timestamp="1601980025296">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1601980025296" />
+    <state x="96" y="0" width="1142" height="680" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601980073935">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" width="1142" height="680" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1601980073935" />
     <state x="488" y="53" key="#com.intellij.ide.util.MemberChooser" timestamp="1601967968581">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -485,9 +376,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="402" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1601970550708" />
-    <state x="184" y="11" key="SettingsEditor" timestamp="1601880920390">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="-65" y="0" width="1297" height="680" key="SettingsEditor" timestamp="1601990028223">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="-65" y="0" width="1297" height="680" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1601990028223" />
     <state x="184" y="11" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1601880920390" />
     <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1601973506554">
       <screen x="0" y="0" width="1366" height="738" />

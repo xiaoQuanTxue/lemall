@@ -16,7 +16,7 @@ function appendUsername() {
                     // alert("后台返回用户名为" + username);
                     // getUserIcon();
                     var li = '<a >' + '你好， ' + '</a>' + '<a >' + user.userName + '</a>';
-                    $("#uusername").append(li);
+                    $("#uusername").replaceWith(li);
                 }
             }),
 
@@ -32,7 +32,7 @@ function appendUsername() {
 
         var li = '<a href="login.html" >' + '登录 ' + '</a>' + '<a href="register.html" >' + '注册 ' + '</a>';
 
-        $("div[id='uusername']").append(li);
+        $("div[id='uusername']").replaceWith(li);
 
     }
 
