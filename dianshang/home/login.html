@@ -37,11 +37,11 @@
                     <form id="login">
                         <div class="user-name">
                             <label for="user"><i class="am-icon-user"></i></label>
-                            <input type="text" name="" id="user" placeholder="邮箱/手机/用户名" required="required">
+                            <input type="text" name="username" id="username" placeholder="用户名" required="required">
                         </div>
                         <div class="user-pass">
                             <label for="password"><i class="am-icon-lock"></i></label>
-                            <input type="password" name="password" id="password" placeholder="请输入密码">
+                            <input type="password" name="password" id="password" required placeholder="请输入密码">
                         </div>
                     </form>
                 </div>
@@ -105,24 +105,26 @@
             e.preventDefault();
 
             $.ajax({
-                url: "http://localhost:8080/user/validate",
+                url: "http://localhost:8080/user/login",
                 type: "post",
                 data: $("#login").serialize(),
                 datatype: "json",
                 success: function(info) {
 
-                    if (info == 'failure') {
-                        alert(info);
-                        return;
-                    }
+                    alert(JSON.stringify(info));
 
 
                     //  存储登录的用户信息
-                    sessionStorage.setItem("userid", info);
-                    /* alert(sessionStorage.getItem("userid")); */
-                    $.cookie('userid', info + "");
+                    sessionStorage.setItem("user", info.userId);
 
-                    window.location.href = "index.html";
+
+                    /* alert(sessionStorage.getItem("userid")); */
+                    // $.cookie('userid', info.id + "");
+
+                    window.location.href = "home.html";
+                },
+                error: function() {
+                    alert("用户名或密码错误");
                 }
             });
 
