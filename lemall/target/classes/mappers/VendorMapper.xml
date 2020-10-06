@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzzl.lemall.mapper.VendorMapper">
+  <resultMap id="BaseResultMap" type="com.zzzl.lemall.domain.Vendor">
+    <id column="vendor_id" jdbcType="INTEGER" property="vendorId" />
+    <result column="vendor_name" jdbcType="VARCHAR" property="vendorName" />
+    <result column="vendor_address" jdbcType="VARCHAR" property="vendorAddress" />
+    <result column="vendor_phone" jdbcType="VARCHAR" property="vendorPhone" />
+    <result column="vendor_password" jdbcType="VARCHAR" property="vendorPassword" />
+    <result column="vendor_describe" jdbcType="VARCHAR" property="vendorDescribe" />
+    <result column="vendor_banner" jdbcType="VARCHAR" property="vendorBanner" />
+    <result column="vendor_icon" jdbcType="VARCHAR" property="vendorIcon" />
+    <result column="vendor_gnum" jdbcType="INTEGER" property="vendorGnum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    vendor_id, vendor_name, vendor_address, vendor_phone, vendor_password, vendor_describe, 
+    vendor_banner, vendor_icon, vendor_gnum
+  </sql>
+  <select id="selectByExample" parameterType="com.zzzl.lemall.domain.VendorExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from vendor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from vendor
+    where vendor_id = #{vendorId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from vendor
+    where vendor_id = #{vendorId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zzzl.lemall.domain.VendorExample">
+    delete from vendor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zzzl.lemall.domain.Vendor">
+    insert into vendor (vendor_id, vendor_name, vendor_address, 
+      vendor_phone, vendor_password, vendor_describe, 
+      vendor_banner, vendor_icon, vendor_gnum
+      )
+    values (#{vendorId,jdbcType=INTEGER}, #{vendorName,jdbcType=VARCHAR}, #{vendorAddress,jdbcType=VARCHAR}, 
+      #{vendorPhone,jdbcType=VARCHAR}, #{vendorPassword,jdbcType=VARCHAR}, #{vendorDescribe,jdbcType=VARCHAR}, 
+      #{vendorBanner,jdbcType=VARCHAR}, #{vendorIcon,jdbcType=VARCHAR}, #{vendorGnum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzzl.lemall.domain.Vendor">
+    insert into vendor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vendorId != null">
+        vendor_id,
+      </if>
+      <if test="vendorName != null">
+        vendor_name,
+      </if>
+      <if test="vendorAddress != null">
+        vendor_address,
+      </if>
+      <if test="vendorPhone != null">
+        vendor_phone,
+      </if>
+      <if test="vendorPassword != null">
+        vendor_password,
+      </if>
+      <if test="vendorDescribe != null">
+        vendor_describe,
+      </if>
+      <if test="vendorBanner != null">
+        vendor_banner,
+      </if>
+      <if test="vendorIcon != null">
+        vendor_icon,
+      </if>
+      <if test="vendorGnum != null">
+        vendor_gnum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vendorId != null">
+        #{vendorId,jdbcType=INTEGER},
+      </if>
+      <if test="vendorName != null">
+        #{vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorAddress != null">
+        #{vendorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorPhone != null">
+        #{vendorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorPassword != null">
+        #{vendorPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorDescribe != null">
+        #{vendorDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorBanner != null">
+        #{vendorBanner,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorIcon != null">
+        #{vendorIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorGnum != null">
+        #{vendorGnum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zzzl.lemall.domain.VendorExample" resultType="java.lang.Long">
+    select count(*) from vendor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update vendor
+    <set>
+      <if test="record.vendorId != null">
+        vendor_id = #{record.vendorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.vendorName != null">
+        vendor_name = #{record.vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorAddress != null">
+        vendor_address = #{record.vendorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorPhone != null">
+        vendor_phone = #{record.vendorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorPassword != null">
+        vendor_password = #{record.vendorPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorDescribe != null">
+        vendor_describe = #{record.vendorDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorBanner != null">
+        vendor_banner = #{record.vendorBanner,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorIcon != null">
+        vendor_icon = #{record.vendorIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vendorGnum != null">
+        vendor_gnum = #{record.vendorGnum,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update vendor
+    set vendor_id = #{record.vendorId,jdbcType=INTEGER},
+      vendor_name = #{record.vendorName,jdbcType=VARCHAR},
+      vendor_address = #{record.vendorAddress,jdbcType=VARCHAR},
+      vendor_phone = #{record.vendorPhone,jdbcType=VARCHAR},
+      vendor_password = #{record.vendorPassword,jdbcType=VARCHAR},
+      vendor_describe = #{record.vendorDescribe,jdbcType=VARCHAR},
+      vendor_banner = #{record.vendorBanner,jdbcType=VARCHAR},
+      vendor_icon = #{record.vendorIcon,jdbcType=VARCHAR},
+      vendor_gnum = #{record.vendorGnum,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzzl.lemall.domain.Vendor">
+    update vendor
+    <set>
+      <if test="vendorName != null">
+        vendor_name = #{vendorName,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorAddress != null">
+        vendor_address = #{vendorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorPhone != null">
+        vendor_phone = #{vendorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorPassword != null">
+        vendor_password = #{vendorPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorDescribe != null">
+        vendor_describe = #{vendorDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorBanner != null">
+        vendor_banner = #{vendorBanner,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorIcon != null">
+        vendor_icon = #{vendorIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="vendorGnum != null">
+        vendor_gnum = #{vendorGnum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where vendor_id = #{vendorId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzzl.lemall.domain.Vendor">
+    update vendor
+    set vendor_name = #{vendorName,jdbcType=VARCHAR},
+      vendor_address = #{vendorAddress,jdbcType=VARCHAR},
+      vendor_phone = #{vendorPhone,jdbcType=VARCHAR},
+      vendor_password = #{vendorPassword,jdbcType=VARCHAR},
+      vendor_describe = #{vendorDescribe,jdbcType=VARCHAR},
+      vendor_banner = #{vendorBanner,jdbcType=VARCHAR},
+      vendor_icon = #{vendorIcon,jdbcType=VARCHAR},
+      vendor_gnum = #{vendorGnum,jdbcType=INTEGER}
+    where vendor_id = #{vendorId,jdbcType=INTEGER}
+  </update>
+</mapper>

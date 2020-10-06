@@ -134,7 +134,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+
+    <update id="updateByExampleSelective" parameterType="map">
     update good_details
     <set>
       <if test="record.goodDetailsId != null">
@@ -178,4 +179,21 @@
       good_id = #{goodId,jdbcType=INTEGER}
     where good_details_id = #{goodDetailsId,jdbcType=INTEGER}
   </update>
+
+
+
+
+<!--  <resultMap id="BaseResultMap" type="com.zzzl.lemall.domain.GoodDetails">-->
+<!--    <id column="good_details_id" jdbcType="INTEGER" property="goodDetailsId" />-->
+<!--    <result column="good_details_igm" jdbcType="VARCHAR" property="goodDetailsIgm" />-->
+<!--    <result column="good_id" jdbcType="INTEGER" property="goodId" />-->
+<!--  </resultMap>-->
+
+<!--  自定义-->
+  <select id="selectLunBo" resultMap="BaseResultMap">
+    SELECT *
+    FROM good_details
+    WHERE good_id=0
+  </select>
+
 </mapper>

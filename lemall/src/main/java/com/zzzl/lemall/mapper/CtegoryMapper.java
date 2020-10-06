@@ -29,4 +29,10 @@ public interface CtegoryMapper {
     int updateByPrimaryKeySelective(Ctegory record);
 
     int updateByPrimaryKey(Ctegory record);
+
+//    自定义
+    /**
+     * 获取导航栏
+     */
+    List<Ctegory> selectCtegory();
 }
