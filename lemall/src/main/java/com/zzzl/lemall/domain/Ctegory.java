@@ -1,5 +1,7 @@
 package com.zzzl.lemall.domain;
 
+import java.util.List;
+
 public class Ctegory {
     private Integer categoryId;
 
@@ -8,6 +10,20 @@ public class Ctegory {
     private Integer superId;
 
     private Integer goodId;
+
+//    添加自身实体类  一对多
+    private List<Ctegory> categories;
+
+
+
+
+    public List<Ctegory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Ctegory> categories) {
+        this.categories = categories;
+    }
 
     public Integer getCategoryId() {
         return categoryId;
@@ -39,5 +55,17 @@ public class Ctegory {
 
     public void setGoodId(Integer goodId) {
         this.goodId = goodId;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Ctegory{" +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", superId=" + superId +
+                ", goodId=" + goodId +
+                ", categories=" + categories +
+                '}';
     }
 }
