@@ -1,6 +1,7 @@
 package com.zzzl.lemall.service.impl;
 
 import com.zzzl.lemall.domain.Good;
+import com.zzzl.lemall.domain.GoodDetails;
 import com.zzzl.lemall.mapper.GoodMapper;
 import com.zzzl.lemall.service.GoodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +32,6 @@ public class GoodServiceImpl  implements GoodService {
         List<Good> goods = goodMapper.selectGoodsByValues("%" + value + "%");
         return goods;
     }
+
+
 }

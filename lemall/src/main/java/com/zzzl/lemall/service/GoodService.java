@@ -1,6 +1,7 @@
 package com.zzzl.lemall.service;
 
 import com.zzzl.lemall.domain.Good;
+import com.zzzl.lemall.domain.GoodDetails;
 
 import java.util.List;
 
@@ -19,5 +20,12 @@ public interface GoodService {
      */
     List<Good> selectGoodsByTitle(String title);
 
+    /**
+     * 搜索结果商品
+     * @param value
+     * @return
+     */
     List<Good> selectGoodsByValues(String value);
+
+
 }

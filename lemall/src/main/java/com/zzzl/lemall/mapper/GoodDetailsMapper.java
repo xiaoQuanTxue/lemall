@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Mapper
 public interface GoodDetailsMapper {
     long countByExample(GoodDetailsExample example);
@@ -29,4 +31,8 @@ public interface GoodDetailsMapper {
     int updateByPrimaryKeySelective(GoodDetails record);
 
     int updateByPrimaryKey(GoodDetails record);
+
+
+//    自定义部分
+    List<GoodDetails>selectLunBo();
 }
