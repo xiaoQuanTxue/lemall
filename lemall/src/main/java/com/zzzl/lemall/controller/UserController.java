@@ -23,8 +23,9 @@ public class UserController {
 
     @CrossOrigin(value = "*")
     @RequestMapping("/icon/{userid}")
-    public String getIcon(@PathVariable("userid") int userid){
-        return userService.iconURL(userid);
+    public User getIcon(@PathVariable("userid") int userid){
+        System.out.println(userService.getUserById(userid));
+        return userService.getUserById(userid);
     }
 
 

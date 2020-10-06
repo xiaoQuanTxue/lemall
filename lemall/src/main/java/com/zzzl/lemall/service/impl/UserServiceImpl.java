@@ -29,8 +29,8 @@ public class UserServiceImpl implements com.zzzl.lemall.service.UserService {
     }
 
     @Override
-    public String iconURL(int userid) {
+    public User getUserById(int userid) {
         User user=userMapper.selectByPrimaryKey(userid);
-        return user.getUserIcon();
+        return user;
     }
 }
