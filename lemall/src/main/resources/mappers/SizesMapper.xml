@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zzzl.lemall.mapper.SizeMapper">
-    <resultMap id="sizeMaper" type="com.zzzl.lemall.domain.Size">
+<mapper namespace="com.zzzl.lemall.mapper.SizesMapper">
+    <resultMap id="sizeMaper" type="com.zzzl.lemall.domain.Sizes">
         <id column="size_id" javaType="INTEGER" property="sizeId"></id>
         <result column="prop_id" javaType="INTEGER" property="propId"></result>
         <result column="val_id" javaType="INTEGER" property="valId"></result>

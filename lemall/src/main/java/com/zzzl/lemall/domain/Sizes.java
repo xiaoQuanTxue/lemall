@@ -4,14 +4,16 @@ package com.zzzl.lemall.domain;
  * @Author 清山
  * @Date 2020/10/7 10:44
  */
-public class Size {
+public class Sizes {
     private Integer sizeId;
     private Integer propId;
     private Integer valId;
     private Integer cartId;
     private Integer orderitemId;
+    private Property property;
+    private Valuess value;
 
-    public Size() {
+    public Sizes() {
     }
 
     public Integer getSizeId() {
@@ -54,6 +56,22 @@ public class Size {
         this.orderitemId = orderitemId;
     }
 
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
+
+    public Valuess getValue() {
+        return value;
+    }
+
+    public void setValue(Valuess value) {
+        this.value = value;
+    }
+
     @Override
     public String toString() {
         return "Size{" +
@@ -62,6 +80,8 @@ public class Size {
                 ", valId=" + valId +
                 ", cartId=" + cartId +
                 ", orderitemId=" + orderitemId +
+                ", property=" + property +
+                ", value=" + value +
                 '}';
     }
 }

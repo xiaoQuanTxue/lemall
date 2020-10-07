@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @Date 2020/10/7 11:16
  */
 @Mapper
-public interface SizeMapper {
+public interface SizesMapper {
 }

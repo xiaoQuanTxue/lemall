@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzzl.lemall.mapper.ValuessMapper">
+  <resultMap id="BaseResultMap" type="com.zzzl.lemall.domain.Valuess">
+    <id column="val_id" jdbcType="INTEGER" property="valId" />
+    <result column="val_content" jdbcType="VARCHAR" property="valContent" />
+    <result column="val_img" jdbcType="VARCHAR" property="valImg" />
+    <result column="prop_id" jdbcType="INTEGER" property="propId" />
+  </resultMap>
+
+</mapper>
