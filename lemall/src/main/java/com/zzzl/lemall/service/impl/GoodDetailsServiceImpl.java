@@ -24,7 +24,7 @@ public class GoodDetailsServiceImpl implements GoodDetailsService {
     public List<GoodDetails> selectLunBo() {
 
         List<GoodDetails> lunBo = goodDetailsMapper.selectLunBo();
-        System.out.println("service........."+lunBo);
+
         return lunBo ;
     }
 }

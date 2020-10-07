@@ -15,8 +15,6 @@ public class Ctegory {
     private List<Ctegory> categories;
 
 
-
-
     public List<Ctegory> getCategories() {
         return categories;
     }
@@ -61,10 +59,7 @@ public class Ctegory {
     @Override
     public String toString() {
         return "Ctegory{" +
-                "categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
-                ", superId=" + superId +
-                ", goodId=" + goodId +
                 ", categories=" + categories +
                 '}';
     }
