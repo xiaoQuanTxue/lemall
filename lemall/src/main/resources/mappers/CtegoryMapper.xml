@@ -217,6 +217,7 @@
         </collection>
     </resultMap>
 
+
     <select id="selectCtegory" resultMap="map1">
         SELECT a.category_id  id,a.category_name ,b.category_name  bname,c.category_name cname
         FROM category a

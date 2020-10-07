@@ -4,6 +4,7 @@ import com.zzzl.lemall.domain.Ctegory;
 import com.zzzl.lemall.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +17,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/category")
+@CrossOrigin(value = "*")
 public class CategoryController {
 
     @Autowired
@@ -24,7 +26,11 @@ public class CategoryController {
     @ResponseBody
     @RequestMapping("/getAllCteGory")
     public List<Ctegory> selectAllCteGory() {
+        System.out.println("controller.....成功访问");
         List<Ctegory> ctegories = categoryService.selectCtegory();
+        for (Ctegory ctegory : ctegories) {
+            System.out.println(ctegory);
+        }
         return ctegories;
     }
 }
