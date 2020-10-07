@@ -1,6 +1,6 @@
 package com.zzzl.lemall.domain;
 
-public class Value {
+public class Valuess {
     private Integer valId;
 
     private String valContent;

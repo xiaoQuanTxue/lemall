@@ -1,6 +1,7 @@
 package com.zzzl.lemall.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class Cart {
     private Integer cartId;
@@ -10,6 +11,10 @@ public class Cart {
     private Integer goodId;
 
     private Date cartJoinTime;
+
+    private Good good;
+
+    private List<Sizes> sizes;
 
     public Integer getCartId() {
         return cartId;
@@ -41,5 +46,33 @@ public class Cart {
 
     public void setCartJoinTime(Date cartJoinTime) {
         this.cartJoinTime = cartJoinTime;
+    }
+
+    public Good getGood() {
+        return good;
+    }
+
+    public void setGood(Good good) {
+        this.good = good;
+    }
+
+    public List<Sizes> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(List<Sizes> sizes) {
+        this.sizes = sizes;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cartId=" + cartId +
+                ", userId=" + userId +
+                ", goodId=" + goodId +
+                ", cartJoinTime=" + cartJoinTime +
+                ", good=" + good +
+                ", sizes=" + sizes +
+                '}';
     }
 }
