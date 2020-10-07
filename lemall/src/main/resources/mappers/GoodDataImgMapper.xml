@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzzl.lemall.mapper.GoodDataImgMapper">
+    <resultMap id="goodDataImg" type="com.zzzl.lemall.domain.GoodDataImg">
+        <id property="goodDataImgId" jdbcType="INTEGER" column="good_data_img"></id>
+        <result property="goodDataImgSrc" jdbcType="VARCHAR"  column="good_data_id"></result>
+        <result property="goodDataId" javaType="INTEGER" column="good_data_id"></result>
+    </resultMap>
+</mapper>
