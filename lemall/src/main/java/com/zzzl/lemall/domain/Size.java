@@ -10,6 +10,7 @@ public class Size {
     private Integer valId;
     private Integer cartId;
     private Integer orderitemId;
+
     public Size() {
     }
 
