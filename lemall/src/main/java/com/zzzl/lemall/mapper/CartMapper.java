@@ -8,5 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface CartMapper {
-
+    List<Cart> selectCartsByUserId(int userid);
 }
