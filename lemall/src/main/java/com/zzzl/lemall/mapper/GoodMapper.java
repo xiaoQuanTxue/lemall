@@ -33,10 +33,26 @@ public interface GoodMapper {
 
 //    自定义部分
 
-    //根据标题查找商品
+    /**
+     *  //根据标题查找商品
+     * @param title
+     * @return
+     */
     List<Good> selectGoodsByTitle(String title);
 
-//    根据输入框的词搜索商品，模糊查询
+    /**
+     * 根据输入框的词搜索商品，模糊查询
+     * @param value
+     * @return
+     */
     List<Good> selectGoodsByValues(String value);
+
+
+    /**
+     * 根据商品id查找商品id
+     * @param id
+     * @return
+     */
+    Good selectGoodById(Integer id);
 
 }

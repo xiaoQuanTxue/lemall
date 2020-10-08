@@ -8,4 +8,6 @@
     <result column="prop_id" jdbcType="INTEGER" property="propId" />
   </resultMap>
 
+
+
 </mapper>

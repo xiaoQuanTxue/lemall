@@ -1,13 +1,17 @@
 package com.zzzl.lemall.domain;
 
+import java.util.List;
+
 /**
- * @Author 清山
+ * @Author 清山       商品详情页的大图展示
  * @Date 2020/10/7 10:32
  */
 public class GoodDataImg {
     private Integer goodDataImgId;
     private String goodDataImgSrc;
     private Integer goodDataId;
+
+
 
     public GoodDataImg() {
     }
@@ -35,6 +39,8 @@ public class GoodDataImg {
     public void setGoodDataId(Integer goodDataId) {
         this.goodDataId = goodDataId;
     }
+
+
 
     @Override
     public String toString() {

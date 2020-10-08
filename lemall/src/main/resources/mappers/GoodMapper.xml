@@ -333,4 +333,14 @@
     WHERE g.good_name like #{value}
   </select>
 
+
+
+  <!--  自定义-->
+
+  <select id="selectGoodById" resultMap="map1">
+        select *
+        from good
+        where good_id=#{id}
+  </select>
+
 </mapper>

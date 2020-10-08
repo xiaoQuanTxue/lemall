@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzzl.lemall.mapper.GoodDataMapper">
+
+
     <resultMap id="goodDataMap" type="com.zzzl.lemall.domain.GoodData">
         <id column="good_data_id"  property="goodDataId"></id>
         <result column="good_data_img"  property="goodDataImg"></result>
         <result column="good_data_scale" property="goodDataScale" ></result>
         <result column="good_id"  property="goodId"></result>
+
+        <collection property="bigImg" ofType="com.zzzl.lemall.domain.GoodDataImg">
+            <id property="goodDataImgId"  column="good_data_img_id"></id>
+
+            <result property="goodDataId" column="good_data_id"></result>
+
+            <result property="goodDataImgSrc" column="good_data_img_src"></result>
+        </collection>
     </resultMap>
+
+
+    <select id="getGoodDataByGoodId" resultMap="goodDataMap">
+
+        SELECT gd.good_data_id,gd.good_data_img,gd.good_data_scale,gdi.good_data_img_src,gdi.good_data_img_id
+        from good_data gd
+        left join good_data_img gdi
+        on gd.good_data_id=gdi.good_data_id
+        WHERE gd.good_id=#{id}
+    </select>
 </mapper>

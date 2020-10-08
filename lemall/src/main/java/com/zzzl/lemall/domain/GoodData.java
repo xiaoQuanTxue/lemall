@@ -1,14 +1,32 @@
 package com.zzzl.lemall.domain;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
- * @Author 清山
+ * @Author 清山       商品详情页的展示图片与商品产地信息
  * @Date 2020/10/7 10:24
  */
-public class GoodData {
+public class GoodData implements Serializable {
     private Integer goodDataId;
     private String goodDataImg;
     private String goodDataScale;
     private Integer goodId;
+
+    /**
+     * 一对多，添加商品详情页大图字段
+     */
+    private List<GoodDataImg> bigImg;
+
+
+
+    public List<GoodDataImg> getBigImg() {
+        return bigImg;
+    }
+
+    public void setBigImg(List<GoodDataImg> bigImg) {
+        this.bigImg = bigImg;
+    }
 
     public GoodData() {
     }
@@ -51,7 +69,8 @@ public class GoodData {
                 "goodDataId=" + goodDataId +
                 ", goodDataImg='" + goodDataImg + '\'' +
                 ", goodDataScale='" + goodDataScale + '\'' +
-                ", goodId='" + goodId + '\'' +
+                ", goodId=" + goodId +
+                ", bigImg=" + bigImg +
                 '}';
     }
 }

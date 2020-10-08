@@ -15,6 +15,7 @@ public interface GoodService {
 
     /**
      * 展示商品列表
+     *
      * @param title
      * @return
      */
@@ -22,10 +23,19 @@ public interface GoodService {
 
     /**
      * 搜索结果商品
+     *
      * @param value
      * @return
      */
     List<Good> selectGoodsByValues(String value);
+
+
+    /**
+     * 根据id查询商品详情
+     * @param id
+     * @return
+     */
+    Good selectGoodById(Integer id);
 
 
 }
