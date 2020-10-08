@@ -40,4 +40,14 @@ public class Valuess {
     public void setPropId(Integer propId) {
         this.propId = propId;
     }
+
+    @Override
+    public String toString() {
+        return "Valuess{" +
+                "valId=" + valId +
+                ", valContent='" + valContent + '\'' +
+                ", valImg='" + valImg + '\'' +
+                ", propId=" + propId +
+                '}';
+    }
 }

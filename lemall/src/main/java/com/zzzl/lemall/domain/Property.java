@@ -30,4 +30,13 @@ public class Property {
     public void setgId(Integer gId) {
         this.gId = gId;
     }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "propId=" + propId +
+                ", propName='" + propName + '\'' +
+                ", gId=" + gId +
+                '}';
+    }
 }

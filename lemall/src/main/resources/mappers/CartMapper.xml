@@ -39,30 +39,32 @@
         <result column="prop_name" property="propName"></result>
       </association>
       <association property="value" javaType="com.zzzl.lemall.domain.Valuess">
-        <result column="val_name" property="valName"></result>
+        <result column="val_content" property="valContent"></result>
       </association>
     </collection>
   </resultMap>
   <!--根据id查找购物车-->
   <select id="selectCartsByUserId" resultMap="carts">
-    select cartId,
-           goodName,
-           goodCurrentPrice,
-           goodOriginalPrice,
-           goodDetailsIgm,
-           propName,
-           valName
+    select c.cart_id,
+           g.good_name,
+           g.good_current_price,
+           g.good_original_price,
+           gd.good_details_igm,
+           p.prop_name,
+           v.val_content
     from   cart c
     join   good g
-    on c.cart_id=g.cart_id
+    on c.good_id=g.good_id
     join sizes s
     on c.cart_id=s.cart_id
     join property p
     on p.prop_id =s.prop_id
     join valuess v
     on v.val_id=s.val_id
+    join good_details gd
+    on g.good_id=gd.good_id
     where
-    c.userid =#{userid}
+    c.user_id =#{userid}
 
   </select>
 </mapper>
