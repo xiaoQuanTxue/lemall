@@ -4,6 +4,7 @@ import com.zzzl.lemall.domain.Cart;
 import com.zzzl.lemall.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,7 @@ public class CartController {
      */
     @CrossOrigin(value = "*")
     @RequestMapping("/display/{userid}")
-    public List<Cart> display(int userid){
+    public List<Cart> display(@PathVariable("userid") int userid){
         return cartService.getCartsByUserId(userid);
     }
 }
