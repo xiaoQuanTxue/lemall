@@ -273,7 +273,8 @@
 
 										<div class="theme-signin-left">
 
-											<div class="theme-options">
+											<!-- <div class="theme-options">
+												
 												<div class="cart-title">口味</div>
 												<ul>
 													<li class="sku-line selected">原味<i></i></li>
@@ -281,24 +282,19 @@
 													<li class="sku-line">炭烧<i></i></li>
 													<li class="sku-line">咸香<i></i></li>
 												</ul>
-											</div>
-											<div class="theme-options">
-												<div class="cart-title">包装</div>
-												<ul>
-													<li class="sku-line selected">手袋单人份<i></i></li>
-													<li class="sku-line">礼盒双人份<i></i></li>
-													<li class="sku-line">全家福礼包<i></i></li>
-												</ul>
-											</div>
+											</div> -->
 											
-											<div class="theme-options">
-												<div class="cart-title number">数量</div>
-						<dd>
+										
+											
+<!-- 											
+											<div class="theme-options" id="pnum">
+												<div class="cart-title number">数量</div> -->
+						<!-- <dd>
 							<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
 							<input id="text_box" name="" type="text" value="1" style="width:30px;" />
 							<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
 							<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
-						</dd>
+						</dd> -->
 
 				</div>
 				<div class="clear"></div>
@@ -1395,25 +1391,36 @@ $("span.tm-count").append(sellnum);
 
 
 // 添加属性
+
 	var li2 = '';
 	var li3 = '';
 	for (var i = 0; i < property.length; i++) {
 
 		var pro = property[i].propName;
-		li3 = '<div class="theme-options"><div class="cart-title">'+
-		pro+'</div></div>';
-		$("div.theme-options").append(li3);
+		var val=property[i].valuess;
+		
+		li3 = '<div class="theme-options"><div class="cart-title" >'+
+			pro+'</div><ul id="p'+i+'"></ul></div>';
+		$("div.theme-signin-left").append(li3);
 
 
-		// for(var j;j<pro.length;j++){
-		// 	var valu=pro[j];
-		// 	li2='<li class="sku-line">'+
-		// 	valu+'<i></i></li>';
-		// 	$("div#p"+i).append(li2);
-		// }
+		for(var j=0;j<val.length;j++){
+			var valu=val[j].valContent;
+			// alert(valu);
+			li2='<li class="sku-line">'+
+			valu+'<i></i></li>';
+			$("ul#p"+i).append(li2);
+		}
 
 	}
 
+	// 添加"商品数量"
+			$("div.theme-signin-left").append('<div class="theme-options" id="pnum"><div class="cart-title number">数量</div>'+
+							'<dd><input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />'+
+							'<input id="text_box" name="" type="text" value="1" style="width:30px;" />'+
+							'<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />'+
+							'<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>'+
+						'</dd>')
 
 
 
