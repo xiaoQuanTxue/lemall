@@ -290,6 +290,7 @@
 													<li class="sku-line">全家福礼包<i></i></li>
 												</ul>
 											</div>
+											
 											<div class="theme-options">
 												<div class="cart-title number">数量</div>
 						<dd>
@@ -1004,7 +1005,7 @@
 						<div class="clear"></div>
 
 			
-
+<!-- 推荐 -->
 					<!-- <div class="am-tab-panel am-fade">
 									<div class="like">
 										<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
@@ -1356,12 +1357,19 @@
 
 </body>
 
+
 <script>
 	var dD = JSON.parse(sessionStorage.getItem("deatailData"));
 
-	var goodData = dD["goodData"];
-	var good = dD["good"];
-	var property = dD["property"];
+	// var goodData = dD["goodData"];
+	// var good = dD["good"];
+	// var property = dD["property"];
+
+	var goodData=dD.goodData;
+	var good = dD.good;
+	var property = dD.property;
+
+
 
 
 // 添加商品产地
@@ -1385,25 +1393,26 @@ var sellnum=good.goodSale;
 $("span.tm-count").append(sellnum);
 
 
+
 // 添加属性
-	// var li2 = '';
-	// var li3 = '';
-	// for (var i = 0; i < property.length; i++) {
+	var li2 = '';
+	var li3 = '';
+	for (var i = 0; i < property.length; i++) {
 
-	// 	var pro = property[i].propName;
-	// 	li3 = '<div class="theme-options"><div class="cart-title">'+
-	// 	pro+'</div></div>';
-	// 	$("div.theme-options").append(li3);
+		var pro = property[i].propName;
+		li3 = '<div class="theme-options"><div class="cart-title">'+
+		pro+'</div></div>';
+		$("div.theme-options").append(li3);
 
 
-	// 	// for(var j;j<pro.length;j++){
-	// 	// 	var valu=pro[j];
-	// 	// 	li2='<li class="sku-line">'+
-	// 	// 	valu+'<i></i></li>';
-	// 	// 	$("div#p"+i).append(li2);
-	// 	// }
+		// for(var j;j<pro.length;j++){
+		// 	var valu=pro[j];
+		// 	li2='<li class="sku-line">'+
+		// 	valu+'<i></i></li>';
+		// 	$("div#p"+i).append(li2);
+		// }
 
-	// }
+	}
 
 
 

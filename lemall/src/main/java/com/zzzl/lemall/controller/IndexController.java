@@ -98,12 +98,12 @@ public class IndexController {
 
         map.put("property", properties);        //商品的选择项
 
-//        Set<String> strings = map.keySet();
-//        for (String string : strings) {
-//            System.out.println(string + "....." + map.get(string));
-//
-//            System.out.println(".....................................................");
-//        }
+        Set<String> strings = map.keySet();
+        for (String string : strings) {
+            System.out.println(string + "....." + map.get(string));
+
+            System.out.println(".....................................................");
+        }
 
         return map;
     }

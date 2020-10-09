@@ -1,11 +1,29 @@
 package com.zzzl.lemall.domain;
 
-public class Property {
+import java.io.Serializable;
+import java.util.List;
+
+
+public class Property implements Serializable {
     private Integer propId;
 
     private String propName;
 
     private Integer gId;
+
+    /**
+     * 一对多，添加values属性
+     */
+    private Valuess valuess;
+
+
+    public Valuess getValuess() {
+        return valuess;
+    }
+
+    public void setValuess(Valuess valuess) {
+        this.valuess = valuess;
+    }
 
     public Integer getPropId() {
         return propId;
@@ -31,12 +49,14 @@ public class Property {
         this.gId = gId;
     }
 
+
     @Override
     public String toString() {
         return "Property{" +
                 "propId=" + propId +
                 ", propName='" + propName + '\'' +
                 ", gId=" + gId +
+                ", valuess=" + valuess +
                 '}';
     }
 }
