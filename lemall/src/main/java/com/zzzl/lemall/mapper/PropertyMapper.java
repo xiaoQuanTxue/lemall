@@ -29,4 +29,14 @@ public interface PropertyMapper {
     int updateByPrimaryKeySelective(Property record);
 
     int updateByPrimaryKey(Property record);
+
+
+//    自定义
+
+    /**
+     * 根据商品id获取属性
+     * @param id
+     * @return
+     */
+    List<Property> getPropertyByGoodId(Integer id);
 }

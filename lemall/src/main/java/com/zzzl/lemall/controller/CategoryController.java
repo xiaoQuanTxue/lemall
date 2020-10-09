@@ -28,9 +28,7 @@ public class CategoryController {
     public List<Ctegory> selectAllCteGory() {
         System.out.println("controller.....成功访问");
         List<Ctegory> ctegories = categoryService.selectCtegory();
-        for (Ctegory ctegory : ctegories) {
-            System.out.println(ctegory);
-        }
+
         return ctegories;
     }
 }

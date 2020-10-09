@@ -1,5 +1,6 @@
 package com.zzzl.lemall.mapper;
 
+import com.zzzl.lemall.domain.GoodData;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -8,4 +9,16 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface GoodDataMapper {
+
+
+    /**
+     * 获取商品详情页的展示图片与信息
+     * @param id
+     * @return
+     */
+    GoodData getGoodDataByGoodId(Integer id);
+
+
+
+
 }

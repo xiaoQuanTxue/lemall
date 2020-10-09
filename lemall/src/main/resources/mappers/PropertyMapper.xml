@@ -134,7 +134,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+    <update id="updateByExampleSelective" parameterType="map">
     update property
     <set>
       <if test="record.propId != null">
@@ -178,4 +178,33 @@
       g_id = #{gId,jdbcType=INTEGER}
     where prop_id = #{propId,jdbcType=INTEGER}
   </update>
+
+
+<!--  自定义-->
+
+  <resultMap id="map1" type="com.zzzl.lemall.domain.Property">
+    <id column="prop_id" jdbcType="INTEGER" property="propId" />
+    <result property="propName" column="prop_name"/>
+    <result property="gId" column="g_id"/>
+
+    <collection property="valuess" ofType="com.zzzl.lemall.domain.Valuess">
+      <id column="val_id" jdbcType="INTEGER" property="valId" />
+
+      <result column="val_content" jdbcType="VARCHAR" property="valContent" />
+      <result column="val_img" jdbcType="VARCHAR" property="valImg" />
+      <result column="prop_id" jdbcType="INTEGER" property="propId" />
+    </collection>
+
+  </resultMap>
+
+
+
+  <select id="getPropertyByGoodId" resultMap="map1">
+    SELECT  p.prop_id,p.prop_name,v.val_content,v.val_img,v.val_id
+    from property p
+    LEFT JOIN valuess v
+    ON p.prop_id=v.prop_id
+    WHERE p.g_id=#{id}
+  </select>
+
 </mapper>

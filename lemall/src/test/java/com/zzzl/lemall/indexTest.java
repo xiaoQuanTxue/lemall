@@ -1,7 +1,9 @@
 package com.zzzl.lemall;
 
 import com.zzzl.lemall.domain.Good;
+import com.zzzl.lemall.domain.Property;
 import com.zzzl.lemall.service.GoodService;
+import com.zzzl.lemall.service.PropertyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,9 @@ public class indexTest {
 
     @Autowired
     private GoodService goodService;
+
+    @Autowired
+    private PropertyService propertyService;
 
 
     @Test
@@ -36,4 +41,26 @@ public class indexTest {
         System.out.println(goods);
 
     }
+
+    @Test
+    public void getPropertyByGoodId(){
+        Integer id=23;
+        List<Property> property =  propertyService.selectPropertyByGoodId(id);
+        System.out.println(property);
+//        Demo demo = new Demo();
+//        demo.setDate("sa","sa").setDate("l","j");
+    }
+
+
+
+    @Test
+    public void getGoodByGoodId(){
+        Integer id=23;
+        Good goods =  goodService.selectGoodById(id);
+        System.out.println(goods);
+
+    }
+
+
+
 }
