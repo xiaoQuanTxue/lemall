@@ -11,6 +11,7 @@ public class Property implements Serializable {
 
     private Integer gId;
 
+
     /**
      * 一对多，添加values属性
      */
