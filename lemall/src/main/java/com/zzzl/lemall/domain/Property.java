@@ -15,14 +15,14 @@ public class Property implements Serializable {
     /**
      * 一对多，添加values属性
      */
-    private Valuess valuess;
+    private List<Valuess> valuess;
 
 
-    public Valuess getValuess() {
+    public List<Valuess> getValuess() {
         return valuess;
     }
 
-    public void setValuess(Valuess valuess) {
+    public void setValuess(List<Valuess> valuess) {
         this.valuess = valuess;
     }
 
