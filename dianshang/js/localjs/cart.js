@@ -1,4 +1,5 @@
 //根据sessionstroryge里的userid加载购物车
+
 $.ajax({
     url: 'http://localhost:8080/cart/display/' + 1 + '',
     dataType: 'json',
@@ -19,8 +20,8 @@ $.ajax({
 
             var size1 = '<li class="td td-info"><div class="item-props item-props-can">';
             var size2 = '';
-            for (var j = 0; j < carts[i].sizes; j++) {
-                size2 += '<span class="sku-line">' + carts[i].sizes[j].property.propName + ':' + carts[i].sizes[j].value.valContent + '</span>';
+            for (var j = 0; j < carts[i].sizes.length; j++) {
+                size2 += '<span class="sku-line">' + carts[i].sizes[j].property.propName + ' : ' + carts[i].sizes[j].value.valContent + '</span></br>';
 
             }
             var size3 = '<span tabindex="0" class="btn-edit-sku theme-login">修改</span><i class="theme-login am-icon-sort-desc"></i></div></li>';
@@ -40,7 +41,7 @@ $.ajax({
 
 
 
-            var add2 = '<input class="text_box" name="" type="text" value="1" style="width:30px;" /><input class="add am-btn" name="" type="button" value="+" /></div></div></div></li>';
+            var add2 = '<input class="text_box" name="" type="text" readonly value="1" style="width:30px;" /><input class="add am-btn" name="" type="button" value="+" /></div></div></div></li>';
 
 
 
@@ -54,76 +55,85 @@ $.ajax({
             var collect = '<li class="td td-op"><div class="td-inner"><a title="移入收藏夹" class="btn-fav" href="#">移入收藏夹</a><a href="javascript:;" data-point-url="#" class="delete">删除</a></div></li></ul>';
             item += (checkbox + imgName + img + info + size1 + size2 + size3 + price1 + price2 + add1 + add2 + sumprice + collect);
         }
+
         $(".item-content").replaceWith(item);
     }
 });
 //全选
 validChecked();
-$(".check-all").click(
 
-    function() {
+$(document).on("click", ".check-all", function() {
+
         var state = this.checked;
         $(".check").prop("checked", state);
         addfunc();
+        addGoodNum();
     }
 
 );
 
 //点击普通checkbox
 
-$("input[name='item']").click(
 
-    function() {
+$(document).on("click", "input[name='item']", function() {
+
 
         addfunc();
 
         validChecked();
-
+        addGoodNum();
     }
 
 );
 //减号键
 
-$(".min").click(
-    function() {
-        var a = $(this).next().val();
-        var num = parseInt(a);
-        num -= 1;
-        if (num >= 1) {
-            $(this).next().val(num);
-            var ad = $(this).parents(".td-amount").prev().find(".price-now").text();
-            var adf = parseFloat(ad);
-            var mount = num * adf;
-            $(this).parents(".td-amount").next().find(".number").text(mount);
-        }
 
+$(document).on("click", ".min", function() {
 
-
-    }
-);
-
-//加号键
-$(".add").click(
-    function() {
-        var a = $(this).prev().val();
-        var num = parseInt(a);
-        if (num >= 1) {
-            num += 1;
-        }
-        $(this).prev().val(num);
-
-
-        //同类商品总价变化
-
+    var a = $(this).next().val();
+    var num = parseInt(a);
+    num -= 1;
+    if (num >= 1) {
+        $(this).next().val(num);
         var ad = $(this).parents(".td-amount").prev().find(".price-now").text();
         var adf = parseFloat(ad);
         var mount = num * adf;
         $(this).parents(".td-amount").next().find(".number").text(mount);
     }
-);
 
 
-//add
+    addfunc();
+    addGoodNum();
+});
+
+//加号键
+/** 
+ * 点加号的同时计算总价
+ * */
+$(document).on("click", ".add", function() {
+
+    var a = $(this).prev().val();
+    var num = parseInt(a);
+    if (num >= 1) {
+        num += 1;
+    }
+    $(this).prev().val(num);
+
+
+    //同类商品总价变化
+
+    var ad = $(this).parents(".td-amount").prev().find(".price-now").text();
+    var adf = parseFloat(ad);
+    var mount = num * adf;
+    $(this).parents(".td-amount").next().find(".number").text(mount);
+    addfunc();
+    addGoodNum();
+});
+
+
+/**
+ * 将所有被选中的商品的价格相加
+ */
 
 function addfunc() {
     var sums = $("input[name='item']:checked").parents(".td").siblings(".td-sum").find(".J_ItemSum");
@@ -136,10 +146,14 @@ function addfunc() {
 
     }
 
-    $("#J_SelectedItemsCount").text(sums.length);
+    // $("#J_SelectedItemsCount").text(sums.length);
     $("#total").text(sum);
 }
-
+/**
+ * 如果普通复选框被选中的数量等于普通复选的数量，
+ * 全选选中，
+ * 反之如果复选框被选中的数量不等于普通复选框的数量全，全选取消
+ */
 function validChecked() {
     var num = $("input[name='item']:checked").length;
     if (num < $("input[name='item']").length) {
@@ -147,4 +161,18 @@ function validChecked() {
     } else if (num == $("input[name='item']").length) {
         $(".check-all").attr("checked", true);
     }
+}
+/**
+ * 计算商品件数
+ * 将被选中的商品的件数相加
+ */
+function addGoodNum() {
+    var s = $("input[name='item']:checked").parents(".td-chk").siblings(".td-amount").find(".text_box");
+
+    var sum = 0;
+    for (var i = 0; i < s.length; i++) {
+
+        sum += parseInt(s[i].value);
+    }
+    $("#J_SelectedItemsCount").text(sum + '');
 }
