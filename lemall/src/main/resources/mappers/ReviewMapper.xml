@@ -230,8 +230,6 @@
 
 
 
-
-
 <!--  自定义-->
   <resultMap id="map1" type="com.zzzl.lemall.domain.Review">
     <id column="review_id" jdbcType="INTEGER" property="reviewId" />
