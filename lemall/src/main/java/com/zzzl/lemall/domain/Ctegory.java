@@ -63,4 +63,16 @@ public class Ctegory {
                 ", categories=" + categories +
                 '}';
     }
+
+
+//    @Override
+//    public String toString() {
+//        return "Ctegory{" +
+//                "categoryId=" + categoryId +
+//                ", categoryName='" + categoryName + '\'' +
+//                ", superId=" + superId +
+//                ", goodId=" + goodId +
+//                ", categories=" + categories +
+//                '}';
+//    }
 }

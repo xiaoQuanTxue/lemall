@@ -15,6 +15,19 @@ public class Review {
 
     private Date reviewDate;
 
+    /**
+     * 一对一，添加用户属性
+     */
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Integer getReviewId() {
         return reviewId;
     }
@@ -61,5 +74,19 @@ public class Review {
 
     public void setReviewDate(Date reviewDate) {
         this.reviewDate = reviewDate;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "reviewId=" + reviewId +
+                ", reviewContent='" + reviewContent + '\'' +
+                ", reviewReply=" + reviewReply +
+                ", userId=" + userId +
+                ", goodId=" + goodId +
+                ", reviewDate=" + reviewDate +
+                ", user=" + user +
+                '}';
     }
 }

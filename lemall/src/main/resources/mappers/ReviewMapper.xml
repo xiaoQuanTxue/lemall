@@ -216,6 +216,7 @@
     </set>
     where review_id = #{reviewId,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.zzzl.lemall.domain.Review">
     update review
     set review_content = #{reviewContent,jdbcType=VARCHAR},
@@ -225,4 +226,41 @@
       review_date = #{reviewDate,jdbcType=TIMESTAMP}
     where review_id = #{reviewId,jdbcType=INTEGER}
   </update>
+
+
+
+
+
+
+<!--  自定义-->
+  <resultMap id="map1" type="com.zzzl.lemall.domain.Review">
+    <id column="review_id" jdbcType="INTEGER" property="reviewId" />
+    <result column="review_content" jdbcType="VARCHAR" property="reviewContent" />
+    <result column="review_reply" jdbcType="INTEGER" property="reviewReply" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="good_id" jdbcType="INTEGER" property="goodId" />
+    <result column="review_date" jdbcType="TIMESTAMP" property="reviewDate" />
+
+    <association property="user"  javaType="com.zzzl.lemall.domain.User">
+      <id property="userId" column="user_id"/>
+
+      <result property="userName" column="user_name"/>
+      <result property="userIcon" column="user_icon"/>
+    </association>
+  </resultMap>
+
+
+  <select id="selectReviewByGoodId" resultMap="map1">
+    SELECT r.*,u.user_name
+    FROM review r
+    left JOIN `user` u
+    on r.user_id=u.user_id
+    WHERE r.good_id=#{id}
+  </select>
+
+
+
+
+
+
 </mapper>

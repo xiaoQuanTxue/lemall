@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
 @Mapper
 public interface ReviewMapper {
     long countByExample(ReviewExample example);
@@ -29,4 +31,10 @@ public interface ReviewMapper {
     int updateByPrimaryKeySelective(Review record);
 
     int updateByPrimaryKey(Review record);
+
+
+    List<Review> selectReviewByGoodId(Integer id);
+
+
+
 }

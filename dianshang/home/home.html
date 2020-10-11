@@ -683,7 +683,7 @@
                 <br><br>
 
                 <div class="changxiao">
-                    <!--	<div class="danping">
+                    <!--	<div class="danping" onclick="javascript:todetail(this.id);>
 						<div>
 							<img src="../images/picturea/单品1.webp" alt="">
 						</div>
@@ -1060,7 +1060,7 @@
 
 
                 li += '<div class="danping" id="' + (pro.goodId) +
-                    '" onclick="javascript:todetail(this.id);"><div><img src="' + pro.pictureLocation
+                    '" onclick="javascript:todetail(this.id)"><div><img src="' + pro.pictureLocation
                     .goodDetailsIgm +
                     '" alt=""></div><br><div class="miaoshu">' + pro.goodDescribe +
                     '</div><br><div><a class="price1">￥' + pro.goodCurrentPrice +
@@ -1135,6 +1135,8 @@
     });
 </script>
 
+
+<!-- 点击商品后，发送请求，获取map集合后存入session -->
 <script>
     function todetail(id) {
         alert(id);
