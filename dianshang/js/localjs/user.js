@@ -40,36 +40,3 @@ function appendUsername() {
 }
 /*用window.onload调用myfun() 加载页面的时候自动执行*/
 window.onload = appendUsername; //不要括号
-
-
-
-
-// //  获取当前登录用户的头像 
-// getUserIcon();
-
-// function getUserIcon() {
-//     $.ajax({
-//         url: "http://localhost:8080/user/icon/" + 1,
-//         dataType: 'string',
-//         success: function(pic) {
-//             alert(pic);
-//             var li = '';
-//             if (pic == null || pic == "") {
-//                 li +=
-//                     '<img id="a"  src="images/默认头像.webp" style="width: 40px;height: 40px;border-radius: 20px;">';
-
-//             } else {
-//                 li += '<img id="a" style="width: 40px;height: 40px;border-radius: 20px;" src="' + pic +
-//                     '">';
-
-//             }
-//             $("li[id='touxiang']").append(li);
-//         }
-//     });
-// }
-
-// function bb() {
-//     var v = "id=" + sessionStorage.getItem("userid");
-//     console.log(v);
-//     return v;
-// }

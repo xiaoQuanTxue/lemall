@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface CartService {
     List<Cart> getCartsByUserId(int userId);
+    boolean deleteCartByCartId(int cartId);
+    boolean moveToCollect(int carId);
 }

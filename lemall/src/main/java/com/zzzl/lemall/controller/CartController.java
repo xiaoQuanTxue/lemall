@@ -31,4 +31,23 @@ public class CartController {
     public List<Cart> display(@PathVariable("userid") int userid){
         return cartService.getCartsByUserId(userid);
     }
+
+    @CrossOrigin(value = "*")
+    @RequestMapping("/delete/{cartId}")
+    public String deleteCart(@PathVariable int cartId){
+        if(cartService.deleteCartByCartId(cartId)){
+            return "success";
+        }
+        return "fail";
+    }
+
+    @CrossOrigin(value="*")
+    @RequestMapping("/move/{cartId}")
+    public String toMove(@PathVariable("cartId") int cartId){
+        if(cartService.moveToCollect(cartId)){
+            return "success";
+        }
+        return "fail";
+    }
+
 }
