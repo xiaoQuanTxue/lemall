@@ -39,6 +39,9 @@ public class IndexController {
     @Autowired
     private PropertyService propertyService;
 
+    @Autowired
+    private ReviewService reviewService;
+
     /**
      * 获取分类商品
      *
@@ -84,20 +87,22 @@ public class IndexController {
     @RequestMapping("/getGoodDetails")
     @ResponseBody
     public Map<String, Object> getGoodDetails(Integer goodId) {
+        System.out.println(goodId);
 
         Map<String, Object> map = new HashMap(16);
 
         GoodData goodData = goodDataService.getGoodDataByGoodId(goodId);
         Good good = goodService.selectGoodById(goodId);
         List<Property> properties = propertyService.selectPropertyByGoodId(goodId);
+        List<Review> reviews = reviewService.selectReviewByGoodId(goodId);
 
 
         map.put("goodData", goodData);               //商品详情页的展示图片，商品产地等
-
         map.put("good", good);                    //商品的名字，月销量，价格等
-
         map.put("property", properties);        //商品的选择项
+        map.put("reviews",reviews);             //商品的评论
 
+//
 //        Set<String> strings = map.keySet();
 //        for (String string : strings) {
 //            System.out.println(string + "....." + map.get(string));

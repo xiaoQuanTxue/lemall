@@ -322,6 +322,7 @@
     LEFT JOIN good_Details  gd
     on g.good_Id=gd.good_Id
     WHERE c.category_Name=#{title}
+    order by g.good_sale desc
   </select>
 
 
