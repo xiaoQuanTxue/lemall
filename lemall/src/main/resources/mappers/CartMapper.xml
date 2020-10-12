@@ -43,6 +43,10 @@
       </association>
     </collection>
   </resultMap>
+<!--  根据cartid查找购物车-->
+  <select id="selectCartByPrimaryKey" resultMap="BaseResultMap">
+    select * from cart where cart_id=#{cartId}
+  </select>
   <!--根据id查找购物车-->
   <select id="selectCartsByUserId" resultMap="carts">
     select c.cart_id,
@@ -67,4 +71,7 @@
     c.user_id =#{userid}
 
   </select>
+  <delete id="deleteCartByCartId">
+    delete from cart where cart_id=#{cartId};
+  </delete>
 </mapper>

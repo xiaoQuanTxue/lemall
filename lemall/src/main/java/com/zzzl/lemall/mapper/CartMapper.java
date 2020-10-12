@@ -9,4 +9,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface CartMapper {
     List<Cart> selectCartsByUserId(int userid);
+    int deleteCartByCartId(@Param("cartId")int cartId);
+    Cart selectCartByPrimaryKey(int cartId);
 }
