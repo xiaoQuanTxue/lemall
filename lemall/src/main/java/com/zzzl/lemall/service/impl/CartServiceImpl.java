@@ -50,6 +50,15 @@ public class CartServiceImpl implements CartService {
         return false;
     }
 
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public boolean batchDeleteCart(int[] cartIds) {
+        if(cartMapper.batchDeleteCart(cartIds)>0&&sizesMapper.batchDeleteSizesByCartId(cartIds)>0){
+            return true;
+        }
+        return false;
+    }
+
     /**
      * 将购物车中内容先移到收藏中，
      * 然后删除cart中相应商品
@@ -66,9 +75,13 @@ public class CartServiceImpl implements CartService {
         collect.setGoodId(cart.getGoodId());
 
         collect.setCollectDate(new Date());
-        if (collectMapper.insert(collect)>0&&cartMapper.deleteCartByCartId(carId)>0){
+
+        if (collectMapper.insert(collect)>0
+                &&cartMapper.deleteCartByCartId(carId)>0
+                &&sizesMapper.deleteSizesByCartId(carId)>0) {
             return true;
         }
         return false;
     }
+
 }

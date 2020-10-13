@@ -8,8 +8,10 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+#logging:
+#  level: debug
 
 
 mybatis:
   mapper-locations: classpath:mappers/*Mapper.xml
-  type-aliases-package: com.zzzl.lemall.domain 
+  type-aliases-package: com.zzzl.lemall.domain

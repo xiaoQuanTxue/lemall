@@ -193,4 +193,18 @@
       collect_date = #{collectDate,jdbcType=TIMESTAMP}
     where collect_id = #{collectId,jdbcType=INTEGER}
   </update>
+  <insert id="batchInsertCollections" useGeneratedKeys="true" keyColumn="collect_id" keyProperty="collectId">
+    insert into collect (collect_id,
+                         user_id,
+                         good_id,
+                         collect_date)
+           values
+           <foreach collection="list" item="collect" separator=",">
+             (null,
+             #{collect.userId},
+             #{collect.goodId},
+             #{collect.collectDate})
+           </foreach>
+
+  </insert>
 </mapper>

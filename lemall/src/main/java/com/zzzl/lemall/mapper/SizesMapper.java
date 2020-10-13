@@ -9,4 +9,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SizesMapper {
     int deleteSizesByCartId(int cartId);
+    int batchDeleteSizesByCartId(int[] cartId);
 }

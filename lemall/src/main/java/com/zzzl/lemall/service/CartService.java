@@ -12,4 +12,5 @@ public interface CartService {
     List<Cart> getCartsByUserId(int userId);
     boolean deleteCartByCartId(int cartId);
     boolean moveToCollect(int carId);
+    boolean batchDeleteCart(int[] cartIds);
 }

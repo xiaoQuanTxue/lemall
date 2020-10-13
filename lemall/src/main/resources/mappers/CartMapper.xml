@@ -74,4 +74,12 @@
   <delete id="deleteCartByCartId">
     delete from cart where cart_id=#{cartId};
   </delete>
+  <delete id="batchDeleteCart">
+    delete from cart
+           where cart_id
+           in
+           <foreach collection="array" open="(" close=")" separator="," item="cartId">
+             #{cartId}
+           </foreach>
+  </delete>
 </mapper>
