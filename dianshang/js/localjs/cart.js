@@ -7,7 +7,7 @@ $.ajax({
         var item = "";
 
         for (var i = 0; i < carts.length; i++) {
-            var checkbox = '<ul class="item-content data-c="1" data-id="' + carts[i].cartId + '" clearfix"><li class="td td-chk"><div class="cart-checkbox "><input class="check" id="" name="item" value="170037950254" type="checkbox"><label for="J_CheckBox_170037950254"></label></div></li>';
+            var checkbox = '<ul class="item-content" data-id="' + carts[i].cartId + '" clearfix"><li class="td td-chk"><div class="cart-checkbox "><input class="check" id="" name="item" value="170037950254" type="checkbox"><label for="J_CheckBox_170037950254"></label></div></li>';
 
             var imgName = '<li class="td td-item"><div class="item-pic"><a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">';
             var img = '<img src="' + carts[i].good.pictureLocation.goodDetailsIgm + '" class="itempic J_ItemImg"></a></div>';
@@ -136,6 +136,7 @@ $(document).on("click", ".delete", function() {
             if (data === "success") {
                 addGoodNum();
                 addfunc();
+                validChecked();
                 // alert("删除成功");
             }
         }
@@ -148,19 +149,89 @@ $(document).on("click", ".delete", function() {
  */
 $(document).on("click", ".btn-fav", function() {
     var cartId = $(this).parents(".item-content").attr("data-id");
+    $(this).parents(".item-content").remove();
     $.ajax({
         url: 'http://localhost:8080/cart/move/' + cartId,
         dataType: 'text',
         success: function(data) {
-            $(this).parents(".item-content").remove();
+
 
             if (data === "success") {
+
                 addGoodNum();
                 addfunc();
+                validChecked();
                 // alert("移入收藏夹成功");
             }
         }
     });
+});
+
+/**
+ * 全选删除
+ */
+$(document).on("click", ".deleteAll", function() {
+    var state = $(".check-all").prop("checked");
+    // var$(".item-content").attr("data-id");
+
+    if (state) {
+        var a = [];
+        // alert($(".bundle-main .item-content").attr("data-id"));
+        $(".item-content").each(function() {
+            a.push(parseInt($(this).attr("data-id")));
+        });
+        alert(JSON.stringify(a));
+        $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8080/cart/deleteAll",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(a),
+            dataType: "text",
+            success: function(message) {
+                alert(message);
+                addGoodNum();
+                addfunc();
+                validChecked();
+            },
+            error: function(message) {
+                alert("提交失败" + JSON.stringify(message));
+            }
+        });
+    }
+});
+
+/**
+ * 全部移入收藏夹
+ */
+
+$(document).on("click", ".J_BatchFav", function() {
+    var state = $(".check-all").prop("checked");
+    // var$(".item-content").attr("data-id");
+
+    if (state) {
+        var a = [];
+        // alert($(".bundle-main .item-content").attr("data-id"));
+        $(".item-content").each(function() {
+            a.push(parseInt($(this).attr("data-id")));
+        });
+        alert(JSON.stringify(a));
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/cart/moveAll",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(a),
+            dataType: "text",
+            success: function(message) {
+                alert(message);
+                addGoodNum();
+                addfunc();
+                validChecked();
+            },
+            error: function(message) {
+                alert("提交失败" + JSON.stringify(message));
+            }
+        });
+    }
 });
 /**
  * 将所有被选中的商品的价格相加
