@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    delivery_id, delivery_postcode, delivery_phone, delivery_address, delivery_receiver, 
+    delivery_id, delivery_postcode, delivery_phone, delivery_address, delivery_receiver,
     user_id, vendor_id, delivery_default
   </sql>
   <select id="selectByExample" parameterType="com.zzzl.lemall.domain.DeliveryAddressExample" resultMap="BaseResultMap">
@@ -88,7 +88,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from delivery_address
     where delivery_id = #{deliveryId,jdbcType=INTEGER}
@@ -104,11 +104,11 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.zzzl.lemall.domain.DeliveryAddress">
-    insert into delivery_address (delivery_id, delivery_postcode, delivery_phone, 
-      delivery_address, delivery_receiver, user_id, 
+    insert into delivery_address (delivery_id, delivery_postcode, delivery_phone,
+      delivery_address, delivery_receiver, user_id,
       vendor_id, delivery_default)
-    values (#{deliveryId,jdbcType=INTEGER}, #{deliveryPostcode,jdbcType=VARCHAR}, #{deliveryPhone,jdbcType=VARCHAR}, 
-      #{deliveryAddress,jdbcType=VARCHAR}, #{deliveryReceiver,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+    values (#{deliveryId,jdbcType=INTEGER}, #{deliveryPostcode,jdbcType=VARCHAR}, #{deliveryPhone,jdbcType=VARCHAR},
+      #{deliveryAddress,jdbcType=VARCHAR}, #{deliveryReceiver,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
       #{vendorId,jdbcType=INTEGER}, #{deliveryDefault,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zzzl.lemall.domain.DeliveryAddress">
@@ -166,6 +166,7 @@
       </if>
     </trim>
   </insert>
+
   <select id="countByExample" parameterType="com.zzzl.lemall.domain.DeliveryAddressExample" resultType="java.lang.Long">
     select count(*) from delivery_address
     <if test="_parameter != null">
@@ -256,4 +257,47 @@
       delivery_default = #{deliveryDefault,jdbcType=INTEGER}
     where delivery_id = #{deliveryId,jdbcType=INTEGER}
   </update>
+
+
+
+  <!--  自定义-->
+  <resultMap id="map1" type="com.zzzl.lemall.domain.DeliveryAddress">
+    <id column="delivery_id" jdbcType="INTEGER" property="deliveryId" />
+    <result column="delivery_postcode" jdbcType="VARCHAR" property="deliveryPostcode" />
+    <result column="delivery_phone" jdbcType="VARCHAR" property="deliveryPhone" />
+    <result column="delivery_address" jdbcType="VARCHAR" property="deliveryAddress" />
+    <result column="delivery_receiver" jdbcType="VARCHAR" property="deliveryReceiver" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="vendor_id" jdbcType="INTEGER" property="vendorId" />
+    <result column="delivery_default" jdbcType="INTEGER" property="deliveryDefault" />
+    <result column="province" property="province"/>
+    <result column="city" property="city"/>
+    <result column="districtt" property="districtt"/>
+  </resultMap>
+
+
+  <select id="selectDeliveryAddressByUserId"  resultMap="map1">
+       SELECT *
+       FROM   delivery_address
+       WHERE user_id=#{id}
+  </select>
+
+
+
+  <insert id="addAddress">
+    INSERT INTO delivery_address(delivery_receiver,delivery_phone,province,city,districtt,delivery_address,user_id,delivery_default)
+    VALUES (#{deliveryReceiver},#{deliveryPhone},#{province},#{city},#{districtt},#{deliveryAddress},#{userId},#{deliveryDefault})
+  </insert>
+
+
+  <update id="DelAddress">
+        update delivery_address
+        set user_id=0
+        where delivery_id=#{id}
+  </update>
+
+
+
+
+
 </mapper>

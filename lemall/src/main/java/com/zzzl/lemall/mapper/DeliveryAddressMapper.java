@@ -29,4 +29,16 @@ public interface DeliveryAddressMapper {
     int updateByPrimaryKeySelective(DeliveryAddress record);
 
     int updateByPrimaryKey(DeliveryAddress record);
+
+
+//    自定义
+//    根据用户id查找收获地址信息
+    List<DeliveryAddress> selectDeliveryAddressByUserId(Integer id);
+
+//    新增收货地址
+    void addAddress(DeliveryAddress deliveryAddress);
+
+
+    //    删除收货地址
+    void DelAddress(Integer id);
 }

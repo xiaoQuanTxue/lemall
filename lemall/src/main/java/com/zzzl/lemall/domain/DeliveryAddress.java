@@ -11,11 +11,43 @@ public class DeliveryAddress {
 
     private String deliveryReceiver;
 
+
     private Integer userId;
 
     private Integer vendorId;
 
     private Integer deliveryDefault;
+
+    private String province;
+
+    private  String city;
+
+    private String districtt;
+
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrictt() {
+        return districtt;
+    }
+
+    public void setDistrictt(String districtt) {
+        this.districtt = districtt;
+    }
 
     public Integer getDeliveryId() {
         return deliveryId;
@@ -77,7 +109,25 @@ public class DeliveryAddress {
         return deliveryDefault;
     }
 
+
     public void setDeliveryDefault(Integer deliveryDefault) {
         this.deliveryDefault = deliveryDefault;
+    }
+
+    @Override
+    public String toString() {
+        return "DeliveryAddress{" +
+                "deliveryId=" + deliveryId +
+                ", deliveryPostcode='" + deliveryPostcode + '\'' +
+                ", deliveryPhone='" + deliveryPhone + '\'' +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", deliveryReceiver='" + deliveryReceiver + '\'' +
+                ", userId=" + userId +
+                ", vendorId=" + vendorId +
+                ", deliveryDefault=" + deliveryDefault +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", districtt='" + districtt + '\'' +
+                '}';
     }
 }
