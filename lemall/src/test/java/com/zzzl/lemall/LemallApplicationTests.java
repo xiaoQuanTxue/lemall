@@ -1,6 +1,7 @@
 package com.zzzl.lemall;
 
 import com.zzzl.lemall.mapper.CartMapper;
+import com.zzzl.lemall.mapper.SizesMapper;
 import com.zzzl.lemall.service.CartService;
 import com.zzzl.lemall.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,8 @@ class LemallApplicationTests {
     CartService  cartService;
     @Resource
     CartMapper cartMapper;
+    @Resource
+    SizesMapper sizesMapper;
     @Test
     void contextLoads() {
         System.out.println(userService.login("张三","123"));
@@ -28,5 +31,13 @@ class LemallApplicationTests {
     @Test
     void test3(){
         System.out.println(cartMapper.selectCartByPrimaryKey(1));
+    }
+    @Test
+    void test4(){
+        System.out.println(cartMapper.batchDeleteCart(new int[]{1,2,3}));
+    }
+    @Test
+    void test5(){
+
     }
 }

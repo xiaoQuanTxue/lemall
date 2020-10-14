@@ -3,10 +3,7 @@ package com.zzzl.lemall.controller;
 import com.zzzl.lemall.domain.Cart;
 import com.zzzl.lemall.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,4 +47,13 @@ public class CartController {
         return "fail";
     }
 
+    @CrossOrigin(value="*")
+    @DeleteMapping("/deleteAll")
+    public String deleteAll(@RequestBody int[] cartIds){
+        boolean flag=cartService.batchDeleteCart(cartIds);
+        if(flag){
+            return "success";
+        }
+        return "fail";
+    }
 }

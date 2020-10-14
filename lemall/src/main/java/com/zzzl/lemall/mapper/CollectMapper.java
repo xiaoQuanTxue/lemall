@@ -29,4 +29,5 @@ public interface CollectMapper {
     int updateByPrimaryKeySelective(Collect record);
 
     int updateByPrimaryKey(Collect record);
+    int batchInsertCollections(List<Collect> collects);
 }

@@ -12,4 +12,12 @@
     <delete id="deleteSizesByCartId">
         delete from sizes where cart_id=#{cartId};
     </delete>
+    <delete id="batchDeleteSizesByCartId">
+        delete from sizes
+               where cart_id
+               in
+               <foreach collection="array" item="cartId" separator="," open="(" close=")">
+                   #{cartId}
+               </foreach>
+    </delete>
 </mapper>
