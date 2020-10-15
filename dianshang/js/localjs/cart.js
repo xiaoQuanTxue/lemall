@@ -180,7 +180,7 @@ $(document).on("click", ".deleteAll", function() {
         $(".item-content").each(function() {
             a.push(parseInt($(this).attr("data-id")));
         });
-        alert(JSON.stringify(a));
+        // alert(JSON.stringify(a));
         $.ajax({
             type: "DELETE",
             url: "http://localhost:8080/cart/deleteAll",
@@ -188,6 +188,7 @@ $(document).on("click", ".deleteAll", function() {
             data: JSON.stringify(a),
             dataType: "text",
             success: function(message) {
+                $(".item-content").remove();
                 alert(message);
                 addGoodNum();
                 addfunc();
@@ -222,13 +223,14 @@ $(document).on("click", ".J_BatchFav", function() {
             data: JSON.stringify(a),
             dataType: "text",
             success: function(message) {
+                $(".item-content").remove();
                 alert(message);
                 addGoodNum();
                 addfunc();
                 validChecked();
             },
             error: function(message) {
-                alert("提交失败" + JSON.stringify(message));
+                alert(message);
             }
         });
     }

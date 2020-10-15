@@ -13,4 +13,5 @@ public interface CartService {
     boolean deleteCartByCartId(int cartId);
     boolean moveToCollect(int carId);
     boolean batchDeleteCart(int[] cartIds);
+    boolean moveAllToCollect(int[] cartIds);
 }

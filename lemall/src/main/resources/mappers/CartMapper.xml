@@ -82,4 +82,13 @@
              #{cartId}
            </foreach>
   </delete>
+  <select id="selectCartByCartIds" resultMap="BaseResultMap" >
+    select user_id,good_id from cart
+    <where>
+        cart_id in
+      <foreach collection="array" separator="," open="(" close=")" item="cartId">
+        #{cartId}
+      </foreach>
+    </where>
+  </select>
 </mapper>

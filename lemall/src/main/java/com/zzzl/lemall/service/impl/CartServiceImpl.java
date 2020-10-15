@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.SimpleFormatter;
@@ -84,4 +85,32 @@ public class CartServiceImpl implements CartService {
         return false;
     }
 
+    /**
+     * 批量获取购物车
+     * 构建collect移到list中
+     * 批量插入collect，批量删除cart，批量删除sizes
+     * @param cartIds
+     * @return
+     */
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public boolean moveAllToCollect(int[] cartIds) {
+        List<Cart> carts=cartMapper.selectCartByCartIds(cartIds);
+        List<Collect> collects=new ArrayList<>();
+        for (Cart cart:carts) {
+            Collect collect=new Collect();
+            collect.setUserId(cart.getUserId());
+            collect.setGoodId(cart.getGoodId());
+
+            collect.setCollectDate(new Date());
+            collects.add(collect);
+        }
+
+        if(collectMapper.batchInsertCollections(collects)>0
+                &&cartMapper.batchDeleteCart(cartIds)>0
+                &&sizesMapper.batchDeleteSizesByCartId(cartIds)>0){
+            return true;
+        }
+        return false;
+    }
 }
