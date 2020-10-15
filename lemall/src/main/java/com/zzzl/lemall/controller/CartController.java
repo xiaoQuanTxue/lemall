@@ -56,4 +56,13 @@ public class CartController {
         }
         return "fail";
     }
+    @CrossOrigin(value="*")
+    @PostMapping("/moveAll")
+    public String toCollect(@RequestBody int[] cartIds){
+        boolean flag=cartService.moveAllToCollect(cartIds);
+        if (flag){
+            return "success";
+        }
+        return "fail";
+    }
 }

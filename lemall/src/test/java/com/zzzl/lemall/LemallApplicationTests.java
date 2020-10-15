@@ -38,6 +38,7 @@ class LemallApplicationTests {
     }
     @Test
     void test5(){
-
+        int[] cartIds={0,1,2};
+        System.out.println(cartService.moveAllToCollect(cartIds));
     }
 }

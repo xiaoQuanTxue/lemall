@@ -11,4 +11,5 @@ public interface CartMapper {
     int deleteCartByCartId(@Param("cartId")int cartId);
     Cart selectCartByPrimaryKey(int cartId);
     int batchDeleteCart(int[] cartIds);
+    List<Cart> selectCartByCartIds(int[] cartIds);
 }
