@@ -7,5 +7,10 @@
     <result column="good_id" jdbcType="INTEGER" property="goodId" />
     <result column="orderitem_number" jdbcType="INTEGER" property="orderitemNumber" />
   </resultMap>
-
+  <insert id="batchInsertOrderitems" useGeneratedKeys="true" keyColumn="orderitem_id" keyProperty="orderitemId" parameterType="Orderitem">
+    insert into orderitem (orderitem_id,orders_id,good_id,orderitem_number) values
+    <foreach collection="list" item="item" separator=",">
+      (null,#{item.ordersId},#{item.goodId},#{item.orderitemNumber})
+    </foreach>
+  </insert>
 </mapper>

@@ -50,6 +50,7 @@
   <!--根据id查找购物车-->
   <select id="selectCartsByUserId" resultMap="carts">
     select c.cart_id,
+           g.good_id,
            g.good_name,
            g.good_current_price,
            g.good_original_price,

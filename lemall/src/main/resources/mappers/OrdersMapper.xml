@@ -225,4 +225,19 @@
       user_id = #{userId,jdbcType=INTEGER}
     where orders_id = #{ordersId,jdbcType=INTEGER}
   </update>
+  <!---->
+  <insert id="insertOneOrders" useGeneratedKeys="true" keyProperty="ordersId" keyColumn="orders_id" parameterType="Orders">
+    insert into orders (orders_id,orders_number,orders_time,orders_total,orders_state,user_id)
+    values
+    (#{ordersId},#{ordersNumber},#{ordersTime},#{ordersTotal},#{ordersState},#{userId})
+  </insert>
+  <!---->
+  <resultMap id="AllResultMap" type="com.zzzl.lemall.domain.Orders">
+    <id column="orders_id" jdbcType="INTEGER" property="ordersId" />
+    <result column="orders_number" jdbcType="VARCHAR" property="ordersNumber" />
+    <result column="orders_time" jdbcType="TIMESTAMP" property="ordersTime" />
+    <result column="orders_total" jdbcType="DECIMAL" property="ordersTotal" />
+    <result column="orders_state" jdbcType="VARCHAR" property="ordersState" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+  </resultMap>
 </mapper>

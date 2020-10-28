@@ -40,4 +40,14 @@ public class Orderitem {
     public void setOrderitemNumber(Integer orderitemNumber) {
         this.orderitemNumber = orderitemNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Orderitem{" +
+                "orderitemId=" + orderitemId +
+                ", ordersId=" + ordersId +
+                ", goodId=" + goodId +
+                ", orderitemNumber=" + orderitemNumber +
+                '}';
+    }
 }
