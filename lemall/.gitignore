@@ -1,5 +1,7 @@
 HELP.md
 target/
+EurekaServer.log
+EurekaServer_error.log
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
