@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @Author 清山       商品详情页的展示图片与商品产地信息
+ * @Author        商品详情页的展示图片与商品产地信息
  * @Date 2020/10/7 10:24
  */
 public class GoodData implements Serializable {

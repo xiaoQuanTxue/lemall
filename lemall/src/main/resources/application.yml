@@ -8,6 +8,11 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+  redis:
+    #配置redis0
+    database: 0
+    host: 127.0.0.1
+    port: 6379
 #logging:
 #  level: debug
 
