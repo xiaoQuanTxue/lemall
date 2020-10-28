@@ -3,7 +3,7 @@ package com.zzzl.lemall.domain;
 import java.util.Date;
 import java.util.List;
 
-public class Cart {
+public class Cart  {
     private Integer cartId;
 
     private Integer userId;

@@ -33,6 +33,8 @@ public interface ReviewMapper {
     int updateByPrimaryKey(Review record);
 
 
+
+
     List<Review> selectReviewByGoodId(Integer id);
 
 

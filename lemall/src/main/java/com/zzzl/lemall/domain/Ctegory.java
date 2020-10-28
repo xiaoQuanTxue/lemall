@@ -1,8 +1,9 @@
 package com.zzzl.lemall.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Ctegory {
+public class Ctegory implements Serializable {
     private Integer categoryId;
 
     private String categoryName;

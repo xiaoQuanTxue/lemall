@@ -1,12 +1,13 @@
 package com.zzzl.lemall.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @Author 清山       商品详情页的大图展示
  * @Date 2020/10/7 10:32
  */
-public class GoodDataImg {
+public class GoodDataImg implements Serializable {
     private Integer goodDataImgId;
     private String goodDataImgSrc;
     private Integer goodDataId;
