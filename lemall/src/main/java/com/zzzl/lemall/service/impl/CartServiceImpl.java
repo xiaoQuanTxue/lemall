@@ -1,19 +1,22 @@
 package com.zzzl.lemall.service.impl;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zzzl.lemall.domain.Cart;
 import com.zzzl.lemall.domain.Collect;
-import com.zzzl.lemall.domain.Orderitem;
-import com.zzzl.lemall.domain.Orders;
-import com.zzzl.lemall.mapper.*;
+import com.zzzl.lemall.mapper.CartMapper;
+import com.zzzl.lemall.mapper.CollectMapper;
+import com.zzzl.lemall.mapper.SizesMapper;
 import com.zzzl.lemall.service.CartService;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 /**
  * @Author 清山
@@ -27,10 +30,7 @@ public class CartServiceImpl implements CartService {
     SizesMapper sizesMapper;
     @Resource
     CollectMapper collectMapper;
-    @Resource
-    OrdersMapper ordersMapper;
-    @Resource
-    OrderitemMapper orderitemMapper;
+
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public List<Cart> getCartsByUserId(int userId) {
@@ -75,6 +75,7 @@ public class CartServiceImpl implements CartService {
         Collect collect=new Collect();
         collect.setUserId(cart.getUserId());
         collect.setGoodId(cart.getGoodId());
+
         collect.setCollectDate(new Date());
 
         if (collectMapper.insert(collect)>0
@@ -115,46 +116,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    @Transactional(rollbackFor = Throwable.class)
     public int submitToOrder(JSONObject jsonObject) {
-        Integer userId=jsonObject.getInteger("userId");
-        Orders orders=new Orders();
-        orders.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-",""));
-        orders.setUserId(userId);
-        orders.setOrdersState("待付款");
-        orders.setOrdersTime(new Date());
-        ordersMapper.insertOneOrders(orders);
-        JSONArray cartIds=jsonObject.getJSONArray("cartIds");
-        int[] cartids=new int[cartIds.size()];
-        for(int i=0;i<cartIds.size();i++){
-            cartids[i]=(Integer) cartIds.get(i);
-        }
-
-
-
-        cartMapper.batchDeleteCart(cartids);
-
-        sizesMapper.batchDeleteSizesByCartId(cartids);
-        JSONArray goods=jsonObject.getJSONArray("goods");
-        List<Orderitem> orderitems=new ArrayList<>();
-
-        for (int i=0;i<goods.size();i++){
-            JSONObject o = (JSONObject)goods.get(i);
-
-            int goodId=o.getInteger("goodId");
-            int goodNumber=o.getInteger("orderitemNumber");
-
-            Orderitem orderitem=new Orderitem();
-            orderitem.setOrdersId(orders.getOrdersId());
-            orderitem.setGoodId(goodId);
-            orderitem.setOrderitemNumber(goodNumber);
-            orderitems.add(orderitem);
-
-        }
-
-        if(orderitemMapper.batchInsertOrderitems(orderitems)>0){
-            return orders.getOrdersId();
-        }
         return 0;
     }
 }
