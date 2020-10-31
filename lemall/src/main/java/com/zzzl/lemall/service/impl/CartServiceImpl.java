@@ -1,21 +1,23 @@
 package com.zzzl.lemall.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.zzzl.lemall.domain.Cart;
-import com.zzzl.lemall.domain.Collect;
-import com.zzzl.lemall.mapper.CartMapper;
-import com.zzzl.lemall.mapper.CollectMapper;
-import com.zzzl.lemall.mapper.SizesMapper;
+import com.zzzl.lemall.domain.*;
+import com.zzzl.lemall.mapper.*;
 import com.zzzl.lemall.service.CartService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.json.JsonObject;
+import javax.persistence.criteria.Order;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.SimpleFormatter;
 
 /**
@@ -30,7 +32,10 @@ public class CartServiceImpl implements CartService {
     SizesMapper sizesMapper;
     @Resource
     CollectMapper collectMapper;
-
+    @Resource
+    OrdersMapper ordersMapper;
+    @Resource
+    OrderitemMapper orderitemMapper;
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public List<Cart> getCartsByUserId(int userId) {
@@ -117,6 +122,43 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public int submitToOrder(JSONObject jsonObject) {
-        return 0;
+        Integer userId=jsonObject.getInteger("userId");
+        Integer totalPrice=jsonObject.getInteger("total_price");
+        Orders order = new Orders();
+        order.setUserId(userId);
+        order.setOrdersTotal(new BigDecimal(totalPrice));
+        order.setOrdersTime(new Date());
+        order.setOrdersState("待发货");
+        order.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-",""));
+        ordersMapper.insertOneOrders(order);
+        JSONArray goods = jsonObject.getJSONArray("goods");
+        JSONArray carts = jsonObject.getJSONArray("carts");
+        for (int i = 0; i < goods.size(); i++) {
+            JSONObject jsonObject1 = carts.getJSONObject(i);
+            JSONObject good = goods.getJSONObject(i);
+            Integer goodId = good.getInteger("goodId");
+            Integer orderitemNumber = good.getInteger("orderitemNumber");
+            Orderitem orderitem = new Orderitem();
+            orderitem.setGoodId(goodId);
+            orderitem.setOrderitemNumber(orderitemNumber);
+            orderitem.setOrdersId(order.getOrdersId());
+            orderitemMapper.insertOneOrderitem(orderitem);
+            JSONObject jsonObject2=carts.getJSONObject(i);
+            System.out.println(jsonObject2.toJSONString());
+//            cartMapper.deleteCartByCartId(jsonObject2.getInteger("cartid"));
+            JSONArray sizesIds = jsonObject2.getJSONArray("sizeIds");
+            for (int j = 0; j < sizesIds.size(); j++) {
+
+                int sizesId=sizesIds.getIntValue(j);
+                System.out.println(sizesId);
+                Sizes sizes = new Sizes();
+                sizes.setSizeId(sizesId);
+                System.out.println(sizes);
+                sizes.setOrderitemId(orderitem.getOrderitemId());
+                sizesMapper.updateSizes(sizes);
+            }
+
+        }
+        return order.getOrdersId();
     }
 }

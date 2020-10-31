@@ -30,4 +30,6 @@ public interface OrdersMapper {
 
     int updateByPrimaryKey(Orders record);
     int insertOneOrders(Orders orders);
+    Orders selectOrdersById(@Param("ordersId")int ordersId);
+    Orders selectOneOrdersById(int orderId);
 }

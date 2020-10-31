@@ -20,4 +20,30 @@
                    #{cartId}
                </foreach>
     </delete>
+    <update id="updateSizes" parameterType="Sizes">
+        update sizes
+        <set>
+            <if test="sizeId!=null">
+                size_id=#{sizeId},
+            </if>
+            <if test="propId!=null">
+                prop_id=#{propId},
+            </if>
+            <if test="valId!=null">
+                val_id=#{valId},
+            </if>
+            <if test="cartId!=null">
+                cart_id=#{cartId}
+            </if>
+            <if test="orderitemId!=null">
+                orderitem_id=#{orderitemId}
+            </if>
+        </set>
+            <where>
+                size_id=#{sizeId}
+            </where>
+
+
+
+    </update>
 </mapper>

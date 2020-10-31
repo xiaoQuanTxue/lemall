@@ -17,7 +17,7 @@ $.ajax({
             var size1 = '<li class="td td-info"><div class="item-props item-props-can">';
             var size2 = '';
             for (var j = 0; j < carts[i].sizes.length; j++) {
-                size2 += '<span class="sku-line">' + carts[i].sizes[j].property.propName + ' : ' + carts[i].sizes[j].value.valContent + '</span></br>';
+                size2 += '<span class="sku-line" data-sizeid="' + carts[i].sizes[j].sizeId + '">' + carts[i].sizes[j].property.propName + ' : ' + carts[i].sizes[j].value.valContent + '</span></br>';
 
             }
             var size3 = '<span tabindex="0" class="btn-edit-sku theme-login">修改</span><i class="theme-login am-icon-sort-desc"></i></div></li>';
@@ -228,15 +228,32 @@ $(document).on("click", "#J_Go", function() {
     // var orders = new Map();
     // orders.set("userId", 1);
     // var good = new Map();
-    var a = [];
+    // var a = {
+    //     cartid: 0,
+    //     sizeIds: []
+    // };
+    var carts = [];
     // alert($(".bundle-main .item-content").attr("data-id"));
-    $("input[name='item']:checked").parents(".item-content").each(function() {
-        a.push(parseInt($(this).attr("data-id")));
-    });
+    var cart = $("input[name='item']:checked").parents(".item-content");
+    for (var k = 0; k < cart.length; k++) {
+        var a = {
+            cartid: 0,
+            sizeIds: []
+        };
+        a.cartid = parseInt($(cart[k]).attr("data-id"));
+        var ss = $(cart[k]).find(".sku-line");
+        for (var j = 0; j < ss.length; j++) {
+            // a.sizeIds.push(parseInt($(ss[j]).attr("data-sizeid")));
+            a.sizeIds[j] = $(ss[j]).attr("data-sizeid");
+        }
+        // carts.push(a);
+        carts[cart.length - k - 1] = a;
+    }
     var orders1 = {
         userId: 1,
+        total_price: parseInt($("#total").text()),
         goods: [],
-        cartIds: a
+        carts: carts
     };
 
 
@@ -251,8 +268,10 @@ $(document).on("click", "#J_Go", function() {
         };
         good.goodId = parseInt(goodId);
         good.orderitemNumber = parseInt(goodNum);
-        orders1.goods.push(good);
+        // orders1.goods.push(good);
+        orders1.goods[i] = good;
     }
+    alert(orders1);
     // orders.set("goods", good);
     console.log(JSON.stringify(orders1));
     $.ajax({
@@ -263,7 +282,12 @@ $(document).on("click", "#J_Go", function() {
         dataType: "text",
         success: function(msg) {
             alert(msg);
+            // if () {
             window.location.href = "pay.html?orderId=" + msg;
+            // } else {
+            //     alert("出错了");
+            // }
+
         }
     });
 

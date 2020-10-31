@@ -9,4 +9,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface OrderitemMapper {
     int batchInsertOrderitems(List<Orderitem> orderitems);
+    int insertOneOrderitem(Orderitem orderitem);
+    List<Orderitem> selectOrderitemsByOrderId(int orderId);
 }

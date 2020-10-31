@@ -18,18 +18,20 @@ import java.util.List;
 public class MvcConfig implements WebMvcConfigurer {
     /**
      * 配置消息转换器解决乱码
+     *
      * @return
      */
     @Bean
-    public StringHttpMessageConverter productStringConverter(){
-        StringHttpMessageConverter stringHttpMessageConverter=new StringHttpMessageConverter(Charset.forName("utf-8"));
+    public StringHttpMessageConverter productStringConverter() {
+        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("utf-8"));
         stringHttpMessageConverter.setWriteAcceptCharset(false);
         return stringHttpMessageConverter;
     }
+
     @Bean
-    public FastJsonHttpMessageConverter productFastJsonConverter(){
-        FastJsonHttpMessageConverter fastJsonHttpMessageConverter=new FastJsonHttpMessageConverter();
-        FastJsonConfig fastJsonConfig=new FastJsonConfig();
+    public FastJsonHttpMessageConverter productFastJsonConverter() {
+        FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
         fastJsonConfig.setSerializerFeatures(
                 SerializerFeature.WriteMapNullValue,
 
@@ -40,11 +42,13 @@ public class MvcConfig implements WebMvcConfigurer {
                 SerializerFeature.PrettyFormat
         );
         fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
-        List<MediaType> fastMediaTypes = new ArrayList<>(); fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+        List<MediaType> fastMediaTypes = new ArrayList<>();
+        fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
         fastJsonHttpMessageConverter.setSupportedMediaTypes(fastMediaTypes);
         fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
-        return  fastJsonHttpMessageConverter;
+        return fastJsonHttpMessageConverter;
     }
+
     /**
      * 将消息转换器添加到mvc配置中
      *

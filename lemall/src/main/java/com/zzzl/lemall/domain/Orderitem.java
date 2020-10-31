@@ -1,5 +1,7 @@
 package com.zzzl.lemall.domain;
 
+import java.util.List;
+
 public class Orderitem {
     private Integer orderitemId;
 
@@ -8,6 +10,10 @@ public class Orderitem {
     private Integer goodId;
 
     private Integer orderitemNumber;
+
+    private Good good;
+
+    private List<Sizes> sizes;
 
     public Integer getOrderitemId() {
         return orderitemId;
@@ -41,6 +47,22 @@ public class Orderitem {
         this.orderitemNumber = orderitemNumber;
     }
 
+    public Good getGood() {
+        return good;
+    }
+
+    public void setGood(Good good) {
+        this.good = good;
+    }
+
+    public List<Sizes> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(List<Sizes> sizes) {
+        this.sizes = sizes;
+    }
+
     @Override
     public String toString() {
         return "Orderitem{" +
@@ -48,6 +70,8 @@ public class Orderitem {
                 ", ordersId=" + ordersId +
                 ", goodId=" + goodId +
                 ", orderitemNumber=" + orderitemNumber +
+                ", good=" + good +
+                ", sizes=" + sizes +
                 '}';
     }
 }

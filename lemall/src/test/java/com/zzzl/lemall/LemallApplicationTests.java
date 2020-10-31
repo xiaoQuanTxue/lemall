@@ -1,7 +1,9 @@
 package com.zzzl.lemall;
 
 import com.zzzl.lemall.domain.Orders;
+import com.zzzl.lemall.domain.Sizes;
 import com.zzzl.lemall.mapper.CartMapper;
+import com.zzzl.lemall.mapper.OrderitemMapper;
 import com.zzzl.lemall.mapper.OrdersMapper;
 import com.zzzl.lemall.mapper.SizesMapper;
 import com.zzzl.lemall.service.CartService;
@@ -26,6 +28,8 @@ class LemallApplicationTests {
     SizesMapper sizesMapper;
     @Resource
     OrdersMapper ordersMapper;
+    @Resource
+    OrderitemMapper orderitemMapper;
     @Test
     void contextLoads() {
         System.out.println(userService.login("张三","123"));
@@ -61,5 +65,27 @@ class LemallApplicationTests {
         ordersMapper.insertOneOrders(orders);
         System.out.println(orders.getOrdersId());
 
+    }
+    @Test
+    void test8(){
+        Sizes sizes = new Sizes();
+        sizes.setSizeId(1);
+        sizes.setOrderitemId(1);
+        sizes.setPropId(0);
+        int i = sizesMapper.updateSizes(sizes);
+
+        System.out.println(i);
+    }
+    @Test
+    void test9(){
+        System.out.println(ordersMapper.selectOrdersById(37));
+    }
+    @Test
+    void test10(){
+        System.out.println(orderitemMapper.selectOrderitemsByOrderId(37));
+    }
+    @Test
+    void test11(){
+        System.out.println(ordersMapper.selectOrdersById(37));
     }
 }

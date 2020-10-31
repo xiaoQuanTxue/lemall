@@ -55,6 +55,7 @@
            g.good_current_price,
            g.good_original_price,
            gd.good_details_igm,
+           s.size_id,
            p.prop_name,
            v.val_content
     from   cart c
