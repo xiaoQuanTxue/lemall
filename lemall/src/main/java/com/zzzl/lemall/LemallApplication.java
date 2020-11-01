@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class LemallApplication {
 
+    
     public static void main(String[] args) {
         SpringApplication.run(LemallApplication.class, args);
     }

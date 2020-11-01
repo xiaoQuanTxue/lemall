@@ -42,11 +42,4 @@ public class ctegoryTest {
         System.out.println(o);
     }
 
-
-    @Test
-    public void test() {
-        while (true){
-            System.out.println("哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈");
-        }
-    }
 }

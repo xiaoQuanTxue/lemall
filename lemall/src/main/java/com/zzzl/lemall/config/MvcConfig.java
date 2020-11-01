@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -55,4 +55,17 @@ public class MvcConfig implements WebMvcConfigurer {
         converters.add(productStringConverter());
         converters.add(productFastJsonConverter());
     }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+
+        registry.addViewController("product-update.html").setViewName("product/product-update");
+        registry.addViewController("user-update.html").setViewName("user/user-update");
+
+    }
+
+
+
+
+
 }

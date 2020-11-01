@@ -24,6 +24,8 @@ public class Good {
 
     private Integer categoryId;
 
+    private Integer VendorId;
+
     //    一对一，添加图片字段
     private GoodDetails pictureLocation;
 
@@ -116,6 +118,14 @@ public class Good {
         this.categoryId = categoryId;
     }
 
+    public Integer getVendorId() {
+        return VendorId;
+    }
+
+    public void setVendorId(Integer vendorId) {
+        VendorId = vendorId;
+    }
+
     @Override
     public String toString() {
         return "Good{" +
@@ -129,6 +139,7 @@ public class Good {
                 ", goodState='" + goodState + '\'' +
                 ", goodUpDate=" + goodUpDate +
                 ", categoryId=" + categoryId +
+                ", VendorId=" + VendorId +
                 ", pictureLocation=" + pictureLocation +
                 '}';
     }
