@@ -7,5 +7,63 @@
     <result column="good_id" jdbcType="INTEGER" property="goodId" />
     <result column="orderitem_number" jdbcType="INTEGER" property="orderitemNumber" />
   </resultMap>
+  <insert id="batchInsertOrderitems" useGeneratedKeys="true" keyColumn="orderitem_id" keyProperty="orderitemId" parameterType="Orderitem">
+    insert into orderitem (orderitem_id,orders_id,good_id,orderitem_number) values
+    <foreach collection="list" item="item" separator=",">
+      (null,#{item.ordersId},#{item.goodId},#{item.orderitemNumber})
+    </foreach>
+  </insert>
+  <insert id="insertOneOrderitem" useGeneratedKeys="true" keyProperty="orderitemId" keyColumn="orderitem_id" parameterType="Orderitem">
+    insert into orderitem (orderitem_id,orders_id,good_id,orderitem_number) values
+    (null,#{ordersId},#{goodId},#{orderitemNumber})
+  </insert>
+  <resultMap id="orderitems" type="Orderitem">
+      <id column="orderitem_id" jdbcType="INTEGER" property="orderitemId" />
+      <result column="orders_id" jdbcType="INTEGER" property="ordersId" />
+      <result column="good_id" jdbcType="INTEGER" property="goodId" />
+      <result column="orderitem_number" jdbcType="INTEGER" property="orderitemNumber" />
+      <association property="good" javaType="Good">
+        <id column="good_id" jdbcType="INTEGER" property="goodId" />
+        <result column="good_name" jdbcType="VARCHAR" property="goodName" />
+        <result column="good_current_price" jdbcType="DECIMAL" property="goodCurrentPrice" />
+        <result column="good_original_price" jdbcType="DECIMAL" property="goodOriginalPrice" />
+        <result column="good_describe" jdbcType="VARCHAR" property="goodDescribe" />
+        <result column="good_inventory" jdbcType="INTEGER" property="goodInventory" />
+        <result column="good_sale" jdbcType="INTEGER" property="goodSale" />
+        <result column="good_state" jdbcType="VARCHAR" property="goodState" />
+        <result column="good_up_date" jdbcType="TIMESTAMP" property="goodUpDate" />
+        <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+        <association property="pictureLocation" javaType="com.zzzl.lemall.domain.GoodDetails">
+          <id column="good_details_id" jdbcType="INTEGER" property="goodDetailsId" />
+          <result column="good_details_igm" jdbcType="VARCHAR" property="goodDetailsIgm" />
+          <result column="good_id" jdbcType="INTEGER" property="goodId" />
+        </association>
+      </association>
+      <collection property="sizes" ofType="Sizes">
+        <id column="size_id" javaType="INTEGER" property="sizeId"></id>
+        <result column="prop_id" javaType="INTEGER" property="propId"></result>
+        <result column="val_id" javaType="INTEGER" property="valId"></result>
+        <result column="cart_id" property="cartId"></result>
+        <result column="orderitem_id" property="orderitemId"></result>
+        <association property="property" javaType="com.zzzl.lemall.domain.Property">
+          <result column="prop_name" property="propName"></result>
+        </association>
+        <association property="value" javaType="com.zzzl.lemall.domain.Valuess">
+          <result column="val_content" property="valContent"></result>
+        </association>
+      </collection>
 
+  </resultMap>
+  <select id="selectOrderitemsByOrderId" resultMap="orderitems">
+    select * from orderitem oi join good g on oi.good_id =g.good_id
+    join sizes s
+    on oi.orderitem_id=s.orderitem_id
+    join property p
+    on p.prop_id =s.prop_id
+    join valuess v
+    on v.val_id=s.val_id
+    join good_details gd
+    on g.good_id=gd.good_id
+    where oi.orders_id=#{ordersId}
+  </select>
 </mapper>

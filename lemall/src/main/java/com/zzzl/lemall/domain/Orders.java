@@ -2,6 +2,7 @@ package com.zzzl.lemall.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 public class Orders {
     private Integer ordersId;
@@ -15,6 +16,12 @@ public class Orders {
     private String ordersState;
 
     private Integer userId;
+
+    private Integer ordersAddress;
+
+    private List<Orderitem> orderitemList;
+
+    private DeliveryAddress deliveryAddress;
 
     public Integer getOrdersId() {
         return ordersId;
@@ -62,5 +69,44 @@ public class Orders {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public List<Orderitem> getOrderitemList() {
+        return orderitemList;
+    }
+
+    public void setOrderitemList(List<Orderitem> orderitemList) {
+        this.orderitemList = orderitemList;
+    }
+
+    public Integer getOrdersAddress() {
+        return ordersAddress;
+    }
+
+    public void setOrdersAddress(Integer ordersAddress) {
+        this.ordersAddress = ordersAddress;
+    }
+
+    public DeliveryAddress getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "ordersId=" + ordersId +
+                ", ordersNumber='" + ordersNumber + '\'' +
+                ", ordersTime=" + ordersTime +
+                ", ordersTotal=" + ordersTotal +
+                ", ordersState='" + ordersState + '\'' +
+                ", userId=" + userId +
+                ", ordersAddress=" + ordersAddress +
+                ", orderitemList=" + orderitemList +
+                ", deliveryAddress=" + deliveryAddress +
+                '}';
     }
 }

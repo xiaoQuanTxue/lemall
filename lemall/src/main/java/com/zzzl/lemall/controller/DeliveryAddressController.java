@@ -37,10 +37,10 @@ public class DeliveryAddressController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public String deliveryAddresses(String deliveryReceiver,String deliveryPhone,String province ,String city,String districtt,Integer userid,String deliveryAddress){
-        System.out.println(deliveryReceiver+".."+deliveryPhone+"..."+province+"..."+city+"..."+districtt+"..."+userid+deliveryAddress);
+    public String deliveryAddresses(String deliveryReceiver, String deliveryPhone, String province, String city, String districtt, Integer userid, String deliveryAddress) {
+        System.out.println(deliveryReceiver + ".." + deliveryPhone + "..." + province + "..." + city + "..." + districtt + "..." + userid + deliveryAddress);
 
-        DeliveryAddress da=new DeliveryAddress();
+        DeliveryAddress da = new DeliveryAddress();
 
         da.setDeliveryReceiver(deliveryReceiver);
         da.setDeliveryPhone(deliveryPhone);
@@ -59,8 +59,16 @@ public class DeliveryAddressController {
 
     @RequestMapping("/del")
     @ResponseBody
-    public String deliveryAddressesDel(Integer id){
+    public String deliveryAddressesDel(Integer id) {
         deliveryAddressService.DelAddress(id);
         return "删除成功";
+    }
+
+    @RequestMapping("/default")
+    @ResponseBody
+    public String setDefaut(int userId, int id) {
+        int i = deliveryAddressService.setDefault(userId, id);
+        if (i == 0) return "success";
+        return "fail";
     }
 }

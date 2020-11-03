@@ -41,4 +41,9 @@ public interface DeliveryAddressMapper {
 
     //    删除收货地址
     void DelAddress(Integer id);
+
+    //update delivery-address
+    int updateAddress(DeliveryAddress deliveryAddress);
+    //selectDefaultAddressByUserId
+    DeliveryAddress selectDefaultAddressByUserId(Integer userId);
 }

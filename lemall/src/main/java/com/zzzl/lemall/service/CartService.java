@@ -1,5 +1,6 @@
 package com.zzzl.lemall.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zzzl.lemall.domain.Cart;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface CartService {
     boolean moveToCollect(int carId);
     boolean batchDeleteCart(int[] cartIds);
     boolean moveAllToCollect(int[] cartIds);
+    int submitToOrder(JSONObject jsonObject);
 }

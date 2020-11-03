@@ -1,5 +1,6 @@
 package com.zzzl.lemall.mapper;
 
+import com.zzzl.lemall.domain.Sizes;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,4 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface SizesMapper {
     int deleteSizesByCartId(int cartId);
     int batchDeleteSizesByCartId(int[] cartId);
+    int updateSizes(Sizes sizes);
+
 }
