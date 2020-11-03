@@ -414,17 +414,24 @@
     // 删除按钮事件
     $(".am-icon-trash").live('click', function () {
 
-        $(this).parent().parent().remove();
-        var id = $(this).parent().parent().attr('id');
-        // alert(id);
-        $.ajax({
-            url: "http://localhost:8080/deliveryAddress/del",
-            data:"id="+id,
-            success(info){
-                
-                alert(info);
-            }
-        })
+        var r = confirm("确认删除？");
+        if (r == true) {
+            $(this).parent().parent().remove();
+            var id = $(this).parent().parent().attr('id');
+            // alert(id);
+            $.ajax({
+                url: "http://localhost:8080/deliveryAddress/del",
+                data: "id=" + id,
+                success(info) {
+
+                    alert(info);
+                }
+            })
+
+        } else {
+            
+        }
+
 
 
     });
