@@ -20,4 +20,7 @@ public interface DeliveryAddressService {
 
 //    根据收获id删除
     void DelAddress(Integer id);
+
+    //设置默认地址
+    int setDefault(Integer userId,Integer id);
 }

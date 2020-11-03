@@ -17,7 +17,11 @@ public class Orders {
 
     private Integer userId;
 
+    private Integer ordersAddress;
+
     private List<Orderitem> orderitemList;
+
+    private DeliveryAddress deliveryAddress;
 
     public Integer getOrdersId() {
         return ordersId;
@@ -75,6 +79,22 @@ public class Orders {
         this.orderitemList = orderitemList;
     }
 
+    public Integer getOrdersAddress() {
+        return ordersAddress;
+    }
+
+    public void setOrdersAddress(Integer ordersAddress) {
+        this.ordersAddress = ordersAddress;
+    }
+
+    public DeliveryAddress getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
@@ -84,7 +104,9 @@ public class Orders {
                 ", ordersTotal=" + ordersTotal +
                 ", ordersState='" + ordersState + '\'' +
                 ", userId=" + userId +
+                ", ordersAddress=" + ordersAddress +
                 ", orderitemList=" + orderitemList +
+                ", deliveryAddress=" + deliveryAddress +
                 '}';
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author zhl
@@ -21,20 +22,34 @@ import java.util.List;
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class OrdersServiceImpl implements OrderService {
     @Resource
-    public OrdersMapper ordersMapper;
+    private OrdersMapper ordersMapper;
 
     @Resource
-    public OrderitemMapper orderitemMapper;
+    private OrderitemMapper orderitemMapper;
 
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
 
     public Orders displayNewOrder(int ordId) {
-        List<Orderitem> orderitem=orderitemMapper.selectOrderitemsByOrderId(ordId);
-        Orders orders = ordersMapper.selectOrdersById(ordId);
+        List<Orderitem> orderitem = orderitemMapper.selectOrderitemsByOrderId(ordId);
+        Orders orders = ordersMapper.selectOneOrdersById(ordId);
         orders.setOrderitemList(orderitem);
         return orders;
     }
 
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public List<Orders> displayAllOrder(int userId) {
+        List<Orders> orders = ordersMapper.selectOrdersByUserId(userId);
+        List<Orders> collect = orders
+                .stream()
+                .map(x -> {
+                    List<Orderitem> orderitems = orderitemMapper.selectOrderitemsByOrderId(x.getOrdersId());
+                    x.setOrderitemList(orderitems);
+                    return x;
+                })
+                .collect(Collectors.toList());
+        return collect;
+    }
 }

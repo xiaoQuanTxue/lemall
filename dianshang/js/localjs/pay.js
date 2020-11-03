@@ -5,6 +5,7 @@ var str = window.location.search;
 str = str.substr(0);
 str = str.split("=")[1];
 
+//订单展示
 $.ajax({
     url: 'http://localhost:8080/order/displayOrder/' + str,
     type: 'post',
@@ -35,4 +36,180 @@ $.ajax({
         $("#payTable").replaceWith(head + str1);
 
     }
+});
+//邮寄地址
+$.ajax({
+    url: 'http://localhost:8080/deliveryAddress/select',
+    data: 'userid=' + 1,
+    dataType: 'json',
+    success: function(data) {
+
+    }
+});
+
+$.ajax({
+    url: "http://localhost:8080/deliveryAddress/select",
+    data: bb(),
+    success: function(info) {
+        var li1 = '';
+        var li2 = '';
+
+
+        for (var i = 0; i < info.length; i++) {
+            var phonenum = info[i].deliveryPhone;
+            var num1 = phonenum.substring(0, 3);
+            var num2 = phonenum.substring(7);
+            var adid = info[i].deliveryId;
+
+            if (info[i].deliveryDefault == 0) {
+                li1 +=
+                    '<div class="per-border"></div><li id="' + adid +
+                    '" class="user-addresslist ">' +
+                    '<div class="address-left"><div class="user DefaultAddr">' +
+                    '<span class="buy-address-detail">' +
+                    '<span class="buy-user">' + info[i].deliveryReceiver + '</span><span class="buy-phone">' + num1 + '****' + num2 + '</span>' +
+                    '</span></div><div class="default-address DefaultAddr"><span class="buy-line-title buy-line-title-type">收货地址：</span>' +
+                    '<span class="buy--address-detail">' +
+                    '<span class="province">' + info[i].province + '</span>省' +
+                    '<span class="city">' + info[i].city + '</span>市' +
+                    '<span class="dist">' + info[i].districtt + '</span>区' +
+                    '<span class="street">' + info[i].deliveryAddress + '</span>' +
+                    '</span></span></div><ins class="deftip hidden">默认地址</ins></div><div class="address-right">' +
+                    '<a href="../person/address.html">' +
+                    '<span class="am-icon-angle-right am-icon-lg"></span></a></div>' +
+                    '<div class="clear"></div><div class="new-addr-btn"><a href="#" class="default" >设为默认</a>' +
+                    '<span class="new-addr-bar">|</span>' +
+                    '<a href="#">编辑</a><span class="new-addr-bar">|</span>' +
+                    '<a href="javascript:void(0);" class="am-icon-trash">删除</a></div></li>';
+            } else {
+                li2 +=
+                    '<div class="per-border"></div><li id="' + adid +
+                    '" class="user-addresslist defaultAddr">' +
+                    '<div class="address-left"><div class="user DefaultAddr">' +
+                    '<span class="buy-address-detail">' +
+                    '<span class="buy-user">' + info[i].deliveryReceiver + '</span><span class="buy-phone">' + num1 + '****' + num2 + '</span>' +
+                    '</span></div><div class="default-address DefaultAddr"><span class="buy-line-title buy-line-title-type">收货地址：</span>' +
+                    '<span class="buy--address-detail">' +
+                    '<span class="province">' + info[i].province + '</span>省' +
+                    '<span class="city">' + info[i].city + '</span>市' +
+                    '<span class="dist">' + info[i].districtt + '</span>区' +
+                    '<span class="street">' + info[i].deliveryAddress + '</span>' +
+                    '</span></span></div><ins class="deftip">默认地址</ins></div><div class="address-right">' +
+                    '<a href="../person/address.html">' +
+                    '<span class="am-icon-angle-right am-icon-lg"></span></a></div>' +
+                    '<div class="clear"></div><div class="new-addr-btn"><a href="#" class="hidden">设为默认</a>' +
+                    '<span class="new-addr-bar hidden">|</span>' +
+                    '<a href="#">编辑</a><span class="new-addr-bar">|</span>' +
+                    '<a href="javascript:void(0);" class="am-icon-trash">删除</a></div></li>';
+            }
+        }
+        $("#address-list").replaceWith(li2 + li1);
+        var reciver = $(".defaultAddr").find(".buy-user").text();
+        var phone = $(".defaultAddr").find(".buy-phone").text();
+        var province = $(".defaultAddr").find(".province").text();
+        var city = $(".defaultAddr").find(".city").text();
+        var dist = $(".defaultAddr").find(".dist").text();
+        var street = $(".defaultAddr").find(".street").text();
+
+        $(".box").find(".province").text(province);
+        $(".box").find(".city").text(city);
+        $(".box").find(".dist").text(dist);
+        $(".box").find(".street").text(street);
+        $(".box").find(".buy-user").text(reciver);
+        $(".box").find(".buy-phone").text(phone);
+        // $("ul#ult").append(li1);
+    }
+
+});
+
+function bb() {
+    // var v = "userid=" + sessionStorage.getItem("userid");
+    var v = "userid=1";
+    console.log(v);
+    return v;
+}
+
+$("#add").click(
+    function name() {
+        $.ajax({
+            url: "http://localhost:8080/deliveryAddress/add",
+            data: {
+                "deliveryReceiver": $("#user-name").val(),
+                "deliveryPhone": $("#user-phone").val(),
+                "province": $('.province option:selected').val(),
+                "city": $('.city option:selected').val(),
+                "districtt": $('.districtt option:selected').val(),
+                // "userid": sessionStorage.get("userid"),
+                "userid": 1,
+                "deliveryAddress": document.getElementById("user-intro").value,
+            },
+            success: function(info) {
+                // alert(info);
+                // window.location.href = "address.html";
+
+                $(document.body).css("overflow", "visible");
+                $('.theme-login').removeClass("selected");
+                $('.item-props-can').removeClass("selected");
+                $('.theme-popover-mask').hide();
+
+                $('.theme-popover').slideUp(200);
+                parent.location.reload();
+            }
+        });
+    }
+);
+/**
+ * 删除
+ */
+$(".am-icon-trash").live('click', function() {
+
+    $(this).parent().parent().remove();
+    var id = $(this).parent().parent().attr('id');
+    // alert(id);
+    $.ajax({
+        url: "http://localhost:8080/deliveryAddress/del",
+        data: "id=" + id,
+        success: function(info) {
+
+            alert(info);
+        }
+    });
+
+
+});
+
+$(document).on("click", ".user-addresslist", function() {
+    // alert(";");
+    var reciver = $(this).find(".buy-user").text();
+    var phone = $(this).find(".buy-phone").text();
+    var province = $(this).find(".province").text();
+    var city = $(this).find(".city").text();
+    var dist = $(this).find(".dist").text();
+    var street = $(this).find(".street").text();
+    console.log(reciver + ';' + phone + ";" + province + ";" + city + ";" + dist + ";" + street);
+    $(".box").find(".province").html(province);
+    $(".box").find(".city").html(city);
+    $(".box").find(".dist").html(dist);
+    $(".box").find(".street").html(street);
+    $(".box").find(".buy-user").html(reciver);
+    $(".box").find(".buy-phone").html(phone);
+    console.log(";");
+    var s = $(".holyshit268").find(".province").text();
+    console.log(s);
+    //$("#J_Go")
+});
+
+//设为默认地址
+
+$(document).on("click", ".default", function() {
+    var userId = 1;
+    var id = $(this).parents(".user-addresslist ").attr("id");
+    $.ajax({
+        url: 'http://localhost:8080/deliveryAddress/default',
+        data: 'userId=' + userId + '&id=' + id,
+        success: function(data) {
+
+            window.location.reload();
+        }
+    });
 });

@@ -1,21 +1,21 @@
 package com.zzzl.lemall;
 
+import com.zzzl.lemall.domain.DeliveryAddress;
 import com.zzzl.lemall.domain.Orders;
 import com.zzzl.lemall.domain.Sizes;
-import com.zzzl.lemall.mapper.CartMapper;
-import com.zzzl.lemall.mapper.OrderitemMapper;
-import com.zzzl.lemall.mapper.OrdersMapper;
-import com.zzzl.lemall.mapper.SizesMapper;
+import com.zzzl.lemall.mapper.*;
 import com.zzzl.lemall.service.CartService;
 import com.zzzl.lemall.service.UserService;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.UUID;
-
+@RunWith(SpringRunner.class)
 @SpringBootTest
 class LemallApplicationTests {
     @Autowired
@@ -30,6 +30,8 @@ class LemallApplicationTests {
     OrdersMapper ordersMapper;
     @Resource
     OrderitemMapper orderitemMapper;
+    @Resource
+    DeliveryAddressMapper deliveryAddressMapper;
     @Test
     void contextLoads() {
         System.out.println(userService.login("张三","123"));
@@ -87,5 +89,20 @@ class LemallApplicationTests {
     @Test
     void test11(){
         System.out.println(ordersMapper.selectOrdersById(37));
+    }
+    @Test
+    void test12(){
+        DeliveryAddress deliveryAddress=new DeliveryAddress();
+        deliveryAddress.setUserId(1);
+        deliveryAddress.setDeliveryId(38);
+        System.out.println(deliveryAddressMapper.updateAddress(deliveryAddress));
+    }
+    @Test
+    void test13(){
+        System.out.println(deliveryAddressMapper.selectDefaultAddressByUserId(1));
+    }
+    @Test
+    void test14(){
+        System.out.println(ordersMapper.selectOrdersById(1));
     }
 }

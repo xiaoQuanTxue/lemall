@@ -5,6 +5,7 @@ import com.zzzl.lemall.service.impl.OrdersServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Author zhl
@@ -21,5 +22,13 @@ public class OrderController {
     @ResponseBody
     public Orders orders(@PathVariable("orderId")int orderId){
         return orderServiceImpl.displayNewOrder(orderId);
+    }
+
+    @CrossOrigin(value="*")
+    @RequestMapping("/allOrders/{userId}")
+    @ResponseBody
+    public List<Orders> getAllOrders(@PathVariable("userId") int userId){
+        List<Orders> orders = orderServiceImpl.displayAllOrder(userId);
+        return orders;
     }
 }

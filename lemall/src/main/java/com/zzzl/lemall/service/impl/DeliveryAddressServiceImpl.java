@@ -3,8 +3,11 @@ package com.zzzl.lemall.service.impl;
 import com.zzzl.lemall.domain.DeliveryAddress;
 import com.zzzl.lemall.mapper.DeliveryAddressMapper;
 import com.zzzl.lemall.service.DeliveryAddressService;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +17,7 @@ import java.util.List;
  * 4
  */
 @Service
+
 public class DeliveryAddressServiceImpl implements DeliveryAddressService {
 
     @Autowired
@@ -35,5 +39,18 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
     @Override
     public void DelAddress(Integer id) {
         deliveryAddressMapper.DelAddress(id);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public int setDefault(Integer userId,Integer id) {
+        DeliveryAddress deliveryAddress=deliveryAddressMapper.selectDefaultAddressByUserId(userId);
+        deliveryAddress.setDeliveryDefault(0);
+        deliveryAddressMapper.updateAddress(deliveryAddress);
+        DeliveryAddress defaultAddress=new DeliveryAddress();
+        defaultAddress.setDeliveryId(id);
+        defaultAddress.setDeliveryDefault(1);
+
+        return deliveryAddressMapper.updateAddress(defaultAddress);
     }
 }
