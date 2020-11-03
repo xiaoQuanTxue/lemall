@@ -128,20 +128,8 @@ public class NavigationController implements ServletContextAware {
                 //获取文件的字节数组
                 byte[] bytes = file.getBytes();
                 //创建file，文件上传之后的位置和名称
-                String realPath = servletContext.getRealPath("/upload");
-                System.out.println("servletContext.getRealPath" + realPath);
-                String realPath1 = servletContext.getRealPath("src/main/resources/upload/");
-                System.out.println("realPath1--------" + realPath1);
 
-                File f = new File(servletContext.getRealPath("src/main/resources/upload/") + fname);
-                System.out.println("-----------------");
-
-                String property = System.getProperty("user.dir");
-                Properties properties = System.getProperties();
-                properties.list(System.out);
-                System.out.println("-----------------");
-                System.out.println("System.getProperty" + property);
-
+                File f = new File(servletContext.getRealPath("/upload"+ fname));
 //                File f = new File("C:\\Users\\admin\\Desktop\\新建文件夹\\ " + name);
                 //写入
                 FileUtils.writeByteArrayToFile(f, bytes);
@@ -338,47 +326,6 @@ public class NavigationController implements ServletContextAware {
     }
 
 
-//    @RequestMapping("/member-list")
-//    public String toMemberList(Model model) {
-//        System.out.println("controller-----------");
-//
-//        List<Users> allUserss = usersService.getAllByState("启用");
-//        System.out.println(allUserss);
-//        model.addAttribute("users1", allUserss);
-//        return "member/member-list";
-//    }
-
-//    @RequestMapping("/member-del")
-//    public String toMemberDel(Model model) {
-//
-//        List<Users> allUserss = usersService.getAllByState("删除");
-//        System.out.println(allUserss);
-//        model.addAttribute("users2", allUserss);
-//        return "member/member-del";
-//    }
-
-
-//    @RequestMapping("/admin-role")
-//    public String toAdminRole() {
-//        return "admin/admin-role";
-//    }
-//
-//    @RequestMapping("/admin-permission")
-//    public String toAdminPermission() {
-//        return "admin/admin-permission";
-//    }
-//
-//    @RequestMapping("/admin-list")
-//    public String toAdminList() {
-//        return "admin/admin-list";
-//    }
-//
-//
-//    @RequestMapping("/charts1")
-//    public String toCharts1() {
-//        System.out.println("controller访问成功");
-//        return "charts/charts-1";
-//    }
 
     @RequestMapping("/charts1")
     public String toCharts1() {
