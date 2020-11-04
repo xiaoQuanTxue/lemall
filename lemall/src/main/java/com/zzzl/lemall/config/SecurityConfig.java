@@ -61,7 +61,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //BCryptPasswordEncoder加密的格式对密码进行加密
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
                 .withUser("v1").password(new BCryptPasswordEncoder().encode("1")).roles("Shopkeeper","admin").and()
-
                 .withUser("admin").password(new BCryptPasswordEncoder().encode("1")).roles("admin");
 
     }

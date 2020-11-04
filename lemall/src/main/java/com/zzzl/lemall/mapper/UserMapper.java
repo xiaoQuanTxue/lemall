@@ -79,4 +79,5 @@ public interface UserMapper {
     List<User> selectUserByBirth10To20();
 
 
+    void addUser(User user);
 }

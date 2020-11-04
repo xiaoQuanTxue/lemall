@@ -41,11 +41,11 @@ public class HouTaiServiceImpl implements HouTaiService {
         goodMapper.addGood(good);
 //        System.out.println("添加后good---------" + good);
 
-        goodMapper.addGOODImg(good);
     }
 
     @Override
     public void addGOODImg(Good good) {
+        goodMapper.addGOODImg(good);
 
     }
 
@@ -151,6 +151,11 @@ public class HouTaiServiceImpl implements HouTaiService {
     public List<User> selectDelUserByName(String keys) {
         List<User> users = userMapper.selectDelUserByName("%" + keys + "%");
         return users;
+    }
+
+    @Override
+    public void addUser(User user) {
+        userMapper.addUser(user);
     }
 
 }

@@ -63,7 +63,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品图片：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="fname" id="fname"/><br>
+<!--                <input type="text" name="fname" id="fname"/><br>-->
                 <input type="file" name="file" id="pictureLocation" onchange="show(this)"><br>
             </div>
         </div>
@@ -89,37 +89,19 @@
 <script type="text/javascript" src="/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 
 
-<script type="text/javascript">
-    function show(source) {
+<!--<script type="text/javascript">-->
+<!--    function show(source) {-->
 
-        //将图片的路径分割成数组
-        alert($(source).val());
-        var arrs = $(source).val().split("\\");
-        //取出图片的名称，设置给name输入框
-        var fileName = arrs[arrs.length - 1];
+<!--        //将图片的路径分割成数组-->
+<!--        alert($(source).val());-->
+<!--        var arrs = $(source).val().split("\\");-->
+<!--        //取出图片的名称，设置给name输入框-->
+<!--        var fileName = arrs[arrs.length - 1];-->
 
-        alert(fileName);
-        $("#fname").val(fileName);
-    }
-    // $("#sub").click(function () {
-    //     var key = $("#form-member-add").val();
-    //     alert(key);
-	// 	$.ajax({
-	// 		url: "http://localhost:8080/addgoood",
-	// 		type: "post",
-	// 		data: {
-	// 			"goodName": $("#goodName").val(),
-	// 			"goodCurrentPrice": $("#goodCurrentPrice").val(),
-	// 			"goodInventory": $("#goodInventory").val(),
-	// 			"goodDescribe": $("#goodDescribe").val(),
-	// 		},
-	// 		datatype: "json",
-	// 		success: function() {
-	// 			alert("新增成功");
-	// 		}
-	// 	});
-    // })
-</script>
+<!--        alert(fileName);-->
+<!--        $("#fname").val(fileName);-->
+<!--    }-->
+<!--</script>-->
 
 
 <!--<script type="text/javascript">-->

@@ -193,6 +193,7 @@
             </if>
         </trim>
     </insert>
+
     <select id="countByExample" parameterType="com.zzzl.lemall.domain.UserExample" resultType="java.lang.Long">
         select count(*) from user
         <if test="_parameter != null">
@@ -431,5 +432,10 @@
         set user_state=1
         where user_id=#{id}
     </update>
+
+    <insert id="addUser">
+            insert into user(user_name,user_password,user_birth,user_phone,user_mail,user_state)
+            values (#{userName},#{userPassword},#{userBirth},#{userPhone},#{userMail},#{userState})
+    </insert>
 
 </mapper>

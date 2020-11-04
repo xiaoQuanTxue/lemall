@@ -66,10 +66,11 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("product-update.html").setViewName("product/product-update");
         registry.addViewController("user-update.html").setViewName("user/user-update");
 
+
     }
 
-
-
-
-
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/localImg/**").addResourceLocations("file:D:/桌面文件/项目/lemall/dianshang/images/picturea/upload/");
+    }
 }
