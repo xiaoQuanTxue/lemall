@@ -30,7 +30,6 @@ public class OrdersServiceImpl implements OrderService {
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
-
     public Orders displayNewOrder(int ordId) {
         List<Orderitem> orderitem = orderitemMapper.selectOrderitemsByOrderId(ordId);
         Orders orders = ordersMapper.selectOneOrdersById(ordId);
@@ -51,5 +50,20 @@ public class OrdersServiceImpl implements OrderService {
                 })
                 .collect(Collectors.toList());
         return collect;
+    }
+
+
+
+//    新增
+    @Override
+    public List<Orders> displayAllOrder() {
+        List<Orders> orders = ordersMapper.displayAllOrder();
+        return orders;
+    }
+
+    @Override
+    public List<Orders> displayAllOrder1(String state) {
+        List<Orders> orders = ordersMapper.displayAllOrder1(state);
+        return orders;
     }
 }

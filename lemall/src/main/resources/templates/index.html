@@ -83,7 +83,7 @@
 <aside class="Hui-aside">
     <div class="menu_dropdown bk_2">
 
-        <dl sec:authorize="hasAnyRole('jigou','admin')" id="menu-article">
+        <dl sec:authorize="hasAnyRole('Shopkeeper','admin')" id="menu-article">
             <dt><i class="Hui-iconfont">&#xe616;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
@@ -110,12 +110,13 @@
 
 
 
-        <dl sec:authorize="hasRole('admin')" id="menu-">
+        <dl sec:authorize="hasRole('Shopkeeper')" id="menu-">
             <dt><i class="Hui-iconfont">&#xe60d;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="/order-list" data-title="已发货订单" href="javascript:;">机构列表</a></li>
-                    <li><a data-href="/order-del" data-title="未发货订单" href="javascript:;">删除的机构</a></li>
+                    <li><a data-href="/order-list0" data-title="所有订单" href="javascript:;">所有订单</a></li>
+                    <li><a data-href="/order-list1" data-title="未发货订单" href="javascript:;">未发货订单</a></li>
+                    <li><a data-href="/order-list2" data-title="已发货订单" href="javascript:;">已发货订单</a></li>
                 </ul>
             </dd>
         </dl>

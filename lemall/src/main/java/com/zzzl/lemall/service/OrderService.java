@@ -11,4 +11,11 @@ import java.util.List;
 public interface OrderService {
     Orders displayNewOrder(int ordId);
     List<Orders> displayAllOrder(int userId);
+
+
+//    新增
+    List<Orders> displayAllOrder();
+
+
+    List<Orders> displayAllOrder1(String state);
 }

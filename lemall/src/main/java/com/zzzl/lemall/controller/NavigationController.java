@@ -1,9 +1,9 @@
 package com.zzzl.lemall.controller;
 
-import com.zzzl.lemall.domain.Good;
-import com.zzzl.lemall.domain.GoodDetails;
-import com.zzzl.lemall.domain.User;
+import com.zzzl.lemall.domain.*;
+import com.zzzl.lemall.mapper.OrderitemMapper;
 import com.zzzl.lemall.service.HouTaiService;
+import com.zzzl.lemall.service.OrderService;
 import org.apache.commons.io.FileUtils;
 import org.bouncycastle.math.raw.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +39,12 @@ public class NavigationController implements ServletContextAware {
 
     @Autowired
     private HouTaiService houTaiService;
+
+    @Autowired
+    private OrderService orderService;
+
+    @Autowired
+    private OrderitemMapper orderitemMapper;
 
 
     @RequestMapping("/index")
@@ -349,15 +355,46 @@ public class NavigationController implements ServletContextAware {
 //    订单开始
 
     //    获取所有
-    @RequestMapping("/order-list")
+    @RequestMapping("/order-list0")
     public String toOrder(Model model) {
 //        System.out.println("成功访问....获取所有商品的controller");
 
+        List<Orders> all = orderService.displayAllOrder();
 
-        List<User> all = houTaiService.getAllUser();
-//        System.out.println(all);
-        model.addAttribute("alluser", all);
-        return "order/order-item";
+        model.addAttribute("allorders", all);
+        return "order/order-list0";
+    }
+
+    //    获取未发货
+    @RequestMapping("/order-list1")
+    public String toOrder1(Model model) {
+
+        String state = "待发货";
+        List<Orders> all = orderService.displayAllOrder1(state);
+
+        model.addAttribute("allorders1", all);
+        return "order/order-list1";
+    }
+
+
+    //    获取已发货
+    @RequestMapping("/order-list2")
+    public String toOrder2(Model model) {
+
+        String state = "已发货";
+        List<Orders> all = orderService.displayAllOrder1(state);
+
+        model.addAttribute("allorders2", all);
+        return "order/order-list2";
+    }
+
+
+    @RequestMapping("/orderitem")
+    public List<Orderitem> Orderitme(Model model, Integer id) {
+        System.out.println(id);
+        List<Orderitem> orderitems = orderitemMapper.selectOrderitemsByOrderId(id);
+        model.addAttribute("orderitem", orderitems);
+        return orderitems;
     }
 
 
@@ -399,76 +436,5 @@ public class NavigationController implements ServletContextAware {
     @Override
     public void setServletContext(ServletContext servletContext) {
         this.servletContext = servletContext;
-
     }
-
-
-//    @RequestMapping("/jigou-list")
-//    public String toJiGouList(Model model) {
-//        List<Institution> allJIGouByState = institutionService.getAllJIGouByState("已启用");
-//        System.out.println(allJIGouByState);
-//        model.addAttribute("jigou1", allJIGouByState);
-//        return "jigou/jigou-list";
-//    }
-//
-//    @RequestMapping("/jigou-del")
-//    public String toJiGouDel(Model model) {
-//        List<Institution> allJIGouByState = institutionService.getAllJIGouByState("已删除");
-//        System.out.println(allJIGouByState);
-//        model.addAttribute("jigou2", allJIGouByState);
-//        return "jigou/jigou-del";
-//    }
-//
-//    @RequestMapping("/touseradd")
-//    public String touseradd() {
-//        return "member/member-add";
-//    }
-//
-//    @RequestMapping("/useradd")
-//    public String touserUpdate() {
-//        return "member/member-add";
-//    }
-//
-
-
-//
-//
-//    @RequestMapping("touserupdate1")
-//    @ResponseBody
-//    public String toUserUpdate1(int id, Model model) {
-//        System.out.println(id);
-//        model.addAttribute("courseId", id);
-//        System.out.println("跳转修改用户页controller访问成功");
-//        return id + "";
-//    }
-//
-//    @RequestMapping("touserupdate2")
-//    public String toUserUpdate2() {
-//
-//        return "member/passwordr-update";
-//    }
-//
-//
-//    @RequestMapping("toaddjigou")
-//    public String tojigouadd() {
-//
-//        return "jigou/jigou-add";
-//    }
-//
-//
-//    @RequestMapping("tojigouupdate1")
-//    @ResponseBody
-//    public String toJiGouUpdate1(int id, Model model) {
-//        System.out.println(id);
-//        model.addAttribute("courseId", id);
-//        System.out.println("跳转修改机构页controller访问成功");
-//        return id + "";
-//    }
-//
-//    @RequestMapping("tojigouupdate2")
-//    public String toJiGouUpdate2() {
-//
-//        return "jigou/passwordr-update";
-//    }
-
 }
