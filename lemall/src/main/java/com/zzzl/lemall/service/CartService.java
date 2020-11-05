@@ -17,4 +17,5 @@ public interface CartService {
     boolean moveAllToCollect(int[] cartIds);
     int submitToOrder(JSONObject jsonObject);
     int cartNumber(int userid);
+    int submitGoodToCart(JSONObject jsonObject);
 }

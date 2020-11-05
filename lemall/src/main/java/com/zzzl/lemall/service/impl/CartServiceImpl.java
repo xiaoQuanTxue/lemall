@@ -163,4 +163,29 @@ public class CartServiceImpl implements CartService {
     public int cartNumber(int userid) {
         return cartMapper.selectCartCount(userid);
     }
+
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public int submitGoodToCart(JSONObject jsonObject) {
+        int userId=jsonObject.getInteger("userId");
+        int goodId=jsonObject.getInteger("goodId");
+        JSONArray jsonArray=jsonObject.getJSONArray("sizes");
+        Cart cart = new Cart();
+        cart.setCartJoinTime(new Date());
+        cart.setGoodId(goodId);
+        cart.setUserId(userId);
+        cartMapper.insertOneCart(cart);
+        List<Sizes>  list=new ArrayList<>();
+        for(int i=0;i<jsonArray.size();i++){
+            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+            Sizes sizes = new Sizes();
+            sizes.setPropId(jsonObject1.getInteger("propId"));
+            sizes.setValId(jsonObject1.getInteger("valId"));
+            sizes.setCartId(cart.getCartId());
+            sizes.setOrderitemId(0);
+            list.add(sizes);
+        }
+
+        return sizesMapper.batchInsertSizes(list);
+    }
 }

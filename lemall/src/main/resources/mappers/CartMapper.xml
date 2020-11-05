@@ -96,4 +96,8 @@
       </foreach>
     </where>
   </select>
+  <insert id="insertOneCart" parameterType="Cart" useGeneratedKeys="true" keyColumn="cart_id" keyProperty="cartId">
+    insert into cart (cart_id,user_id,good_id,cart_join_time) values
+    (null,#{userId},#{goodId},#{cartJoinTime});
+  </insert>
 </mapper>

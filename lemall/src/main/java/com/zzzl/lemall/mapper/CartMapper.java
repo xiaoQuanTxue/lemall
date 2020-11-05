@@ -13,4 +13,5 @@ public interface CartMapper {
     int batchDeleteCart(int[] cartIds);
     List<Cart> selectCartByCartIds(int[] cartIds);
     int selectCartCount(int userid);
+    int insertOneCart(Cart cart);
 }

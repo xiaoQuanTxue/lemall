@@ -44,9 +44,9 @@
             </where>
     </update>
     <insert id="batchInsertSizes" parameterType="Sizes" useGeneratedKeys="true" keyProperty="sizeId" keyColumn="size_id">
-        insert into sizes values (size_id,prop_id,val_id,cart_id,orderitem_id)values
+        insert into sizes  (size_id,prop_id,val_id,cart_id,orderitem_id) values
         <foreach collection="list" separator="," item="sizes">
-            (null,#{sizes.propId},#{sizes.valId},#{sizes.cartId},0)
+            (null,#{sizes.propId},#{sizes.valId},#{sizes.cartId},#{sizes.orderitemId})
         </foreach>
     </insert>
 </mapper>

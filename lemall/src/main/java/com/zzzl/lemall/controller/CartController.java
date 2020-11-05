@@ -89,4 +89,10 @@ public class CartController {
 //        return cartService.submitToOrder(jsonObject);
         return cartService.submitToOrder(jsonObject);
     }
+    @CrossOrigin(value="*")
+    @RequestMapping("/submitGood")
+    public String submit(@RequestBody JSONObject jsonObject){
+        int i=cartService.submitGoodToCart(jsonObject);
+        return i>0?"success":"fail";
+    }
 }
