@@ -371,7 +371,7 @@
                 </li>
                 <li>
                     <div class="clearfix tb-btn tb-btn-basket theme-login">
-                        <a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+                        <a id="LikBasket" title="加入购物车"><i></i>加入购物车</a>
                     </div>
                 </li>
             </div>
@@ -871,7 +871,7 @@
     var property = dD.property;
     var reviews = dD.reviews;
 
-
+    var userId = 1;
     // 添加商品名
     var goodname = good.goodName;
     $("h1#hh1").append(goodname);
@@ -943,15 +943,15 @@
         var pro = property[i].propName;
         var val = property[i].valuess;
 
-        li3 = '<div class="theme-options"><div class="cart-title" data-propId="' + property[i].propId + '">' +
-            pro + '</div><ul id="p' + i + '"></ul></div>';
+        li3 = '<div class="theme-options"><div class="cart-title" >' +
+            pro + '</div><ul data-propid="' + property[i].propId + '" class="prop" id="p' + i + '"></ul></div>';
         $("div.theme-signin-left").append(li3);
 
 
         for (var j = 0; j < val.length; j++) {
             var valu = val[j].valContent;
             // alert(valu);
-            li2 = '<li class="sku-line" data-valId="' + val[j].valId + '">' +
+            li2 = '<li class="sku-line val" data-valid="' + val[j].valId + '">' +
                 valu + '<i></i></li>';
             $("ul#p" + i).append(li2);
         }
@@ -978,6 +978,37 @@
 
     }
     $("div.twlistNews").append(li1);
+
+    //提交到购物车
+    $(document).on("click", "#LikBasket", function() {
+        var props = $(".prop");
+        var sizes = [];
+        alert(props.length);
+        for (var i = 0; i < props.length; i++) {
+            var propIds = $(props[i]).attr("data-propid");
+            var valIds = $(props[i]).find(".selected").attr("data-valid");
+
+            sizes[i] = {
+                propId: parseInt(propIds),
+                valId: parseInt(valIds)
+            }
+        }
+        var cart = {
+            userId: userId,
+            goodId: goodId,
+            sizes: sizes
+        }
+        $.ajax({
+            url: "http://localhost:8080/cart/submitGood",
+            type: 'post',
+            data: JSON.stringify(cart),
+            contentType: 'application/json',
+            success: function(data) {
+                alert(data);
+            }
+        })
+    });
+    //直接购买
 </script>
 <script src="../js/localjs/user.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
