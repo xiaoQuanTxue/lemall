@@ -45,7 +45,7 @@ public interface UserMapper {
     List<User> selectUserByName(String name);
 
     //    根据用户id更新用户信息
-    void updateUserById(User user);
+    int updateUserById(User user);
 
     /**
      * 根据用户id删除商品（不是真删除，更新用户状态）

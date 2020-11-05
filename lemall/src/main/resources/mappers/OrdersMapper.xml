@@ -8,6 +8,7 @@
     <result column="orders_total" jdbcType="DECIMAL" property="ordersTotal" />
     <result column="orders_state" jdbcType="VARCHAR" property="ordersState" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="orders_address" property="ordersAddress" javaType="INTEGER"></result>
   </resultMap>
 
 
@@ -43,6 +44,7 @@
     <result column="orders_total" jdbcType="DECIMAL" property="ordersTotal" />
     <result column="orders_state" jdbcType="VARCHAR" property="ordersState" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
+
     <collection property="orderitemList" ofType="Orderitem">
       <id column="orderitem_id" jdbcType="INTEGER" property="orderitemId" />
       <result column="orders_id" jdbcType="INTEGER" property="ordersId" />
@@ -113,4 +115,31 @@
   <select id="selectOrdersByUserId" resultMap="BaseResultMap">
     select * from orders where user_id=#{userId}
   </select>
+  <update id="updateOrders" parameterType="Orders">
+    update orders
+    <set>
+      <if test="ordersId != null">
+        orders_id=#{ordersId},
+      </if>
+      <if test="ordersNumber != null">
+        orders_number=#{ordersNumber},
+      </if>
+<!--      <if test="ordersTime ！= null">-->
+<!--        orders_time=#{ordersTime,jdbcType=TIMESTAMP},-->
+<!--      </if>-->
+      <if test="ordersTotal != null">
+        orders_total=#{ordersTotal},
+      </if>
+      <if test="ordersState != null">
+        orders_state=#{ordersState},
+      </if>
+      <if test="userId != null">
+        user_id=#{userId},
+      </if>
+      <if test="ordersAddress != null">
+        orders_address=#{ordersAddress},
+      </if>
+    </set>
+    where orders_id=#{ordersId}
+  </update>
 </mapper>

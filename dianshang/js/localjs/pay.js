@@ -213,3 +213,15 @@ $(document).on("click", ".default", function() {
         }
     });
 });
+//提交订单
+$(document).on("click", "#J_Go", function() {
+    $.ajax({
+        url: 'http://localhost:8080/pay/' + str + '/' + $(".defaultAddr").attr("id"),
+
+        dataType: 'text',
+        success: function(data) {
+            alert(data);
+            window.location.href = 'http://localhost:5500/home/success.html?ordersId=' + str;
+        }
+    });
+});

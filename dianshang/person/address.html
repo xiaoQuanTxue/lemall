@@ -27,7 +27,7 @@
                 <div class="am-container header">
                     <ul class="message-l">
                         <div class="topMessage">
-                            <div class="menu-hd">
+                            <div class="menu-hd" id="uusername">
                                 <a href="#" target="_top" class="h">亲，请登录</a>
                                 <a href="#" target="_top">免费注册</a>
                             </div>
@@ -50,27 +50,26 @@
                             <div class="menu-hd"><a href="#" target="_top"><i
                                         class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
                     </ul>
-                </div>
-
-                <!--悬浮搜索框-->
-
-                <div class="nav white">
-                    <div class="logoBig">
-                        <li><img src="../images/logobig.png" /></li>
                     </div>
 
-                    <div class="search-bar pr">
-                        <a name="index_none_header_sysc" href="#"></a>
-                        <form>
-                            <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索"
-                                autocomplete="off">
-                            <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
-                        </form>
-                    </div>
-                </div>
+                    <!--悬浮搜索框-->
 
-                <div class="clear"></div>
-            </div>
+                    <div class="nav white">
+                        <div class="logoBig">
+                            <li><img src="../images/logobig.png" /></li>
+                        </div>
+
+                        <div class="search-bar pr">
+                            <a name="index_none_header_sysc" href="#"></a>
+                            <form>
+                                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
+                                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
             </div>
         </article>
     </header>
@@ -179,8 +178,7 @@
                                     <div class="am-form-group">
                                         <label for="user-phone" class="am-form-label">手机号码</label>
                                         <div class="am-form-content">
-                                            <input id="user-phone" neme="deliveryPhone" placeholder="手机号必填"
-                                                type="email">
+                                            <input id="user-phone" neme="deliveryPhone" placeholder="手机号必填" type="email">
                                         </div>
                                     </div>
                                     <div class="am-form-group">
@@ -204,8 +202,7 @@
                                     <div class="am-form-group">
                                         <label for="user-intro" class="am-form-label">详细地址</label>
                                         <div class="am-form-content">
-                                            <textarea class="" rows="3" class="deliveryAddress" id="user-intro"
-                                                placeholder="输入详细地址"></textarea>
+                                            <textarea class="" rows="3" class="deliveryAddress" id="user-intro" placeholder="输入详细地址"></textarea>
                                             <small>100字以内写出你的详细地址...</small>
                                         </div>
                                     </div>
@@ -213,8 +210,7 @@
                                     <div class="am-form-group">
                                         <div class="am-u-sm-9 am-u-sm-push-3">
                                             <a class="am-btn am-btn-danger" id="add">保存</a>
-                                            <a href="javascript: void(0)" class="am-close am-btn am-btn-danger"
-                                                data-am-modal-close>取消</a>
+                                            <a href="javascript: void(0)" class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a>
                                         </div>
                                     </div>
                                 </form>
@@ -226,8 +222,8 @@
                 </div>
 
                 <script type="text/javascript">
-                    $(document).ready(function () {
-                        $(".new-option-r").live('click', function () {
+                    $(document).ready(function() {
+                        $(".new-option-r").live('click', function() {
                             $(this).parent('.user-addresslist').addClass("defaultAddr").siblings()
                                 .removeClass("defaultAddr");
                         });
@@ -280,7 +276,7 @@
                     <a href="#">个人资料</a>
                     <ul>
                         <li> <a href="information.html">个人信息</a></li>
-                        <li> <a href="safety.html">安全设置</a></li>
+                        <!-- <li> <a href="safety.html">安全设置</a></li> -->
                         <li class="active"> <a href="address.html">收货地址</a></li>
                     </ul>
                 </li>
@@ -291,14 +287,14 @@
                         <li> <a href="change.html">退款售后</a></li>
                     </ul>
                 </li>
-                <li class="person">
+                <!-- <li class="person">
                     <a href="#">我的资产</a>
                     <ul>
                         <li> <a href="coupon.html">优惠券 </a></li>
                         <li> <a href="bonus.html">红包</a></li>
                         <li> <a href="bill.html">账单明细</a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <li class="person">
                     <a href="#">我的小窝</a>
@@ -306,7 +302,7 @@
                         <li> <a href="collection.html">收藏</a></li>
                         <li> <a href="foot.html">足迹</a></li>
                         <li> <a href="comment.html">评价</a></li>
-                        <li> <a href="news.html">消息</a></li>
+                        <!-- <li> <a href="news.html">消息</a></li> -->
                     </ul>
                 </li>
 
@@ -334,7 +330,7 @@
                     if (info[i].deliveryDefault == 0) {
                         li1 +=
                             '<li id="' + adid +
-                            '" class="user-addresslist"><span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>' +
+                            '" class="user-addresslist"><span class="new-option-r"><i class="am-icon-check-circle default"></i>设为默认</span>' +
                             '<p class="new-tit new-p-re"><span class="new-txt">' +
                             info[i].deliveryReceiver + '</span><span class="new-txt-rd2">' +
                             num1 + '****' + num2 +
@@ -402,17 +398,32 @@
             },
 
 
-        )
+        );
+        //设为默认地址
+
+        $(document).on("click", ".default", function() {
+            var userId = 1;
+            var id = $(this).parents(".user-addresslist ").attr("id");
+            $.ajax({
+                url: 'http://localhost:8080/deliveryAddress/default',
+                data: 'userId=' + userId + '&id=' + id,
+                success: function(data) {
+
+                    window.location.reload();
+                }
+            });
+        });
     </script>
 
 
 </body>
+<script src="../js/localjs/user.js"></script>
 
 </html>
 
 <script>
     // 删除按钮事件
-    $(".am-icon-trash").live('click', function () {
+    $(".am-icon-trash").live('click', function() {
 
         var r = confirm("确认删除？");
         if (r == true) {
@@ -429,7 +440,7 @@
             })
 
         } else {
-            
+
         }
 
 

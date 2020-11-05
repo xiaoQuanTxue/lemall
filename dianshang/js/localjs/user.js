@@ -15,7 +15,8 @@ function appendUsername() {
                 success: function(user) {
                     // alert("后台返回用户名为" + username);
                     // getUserIcon();
-                    var li = '<a >' + '你好， ' + '</a>' + '<a >' + user.userName + '</a>';
+                    var li = '<span >' + '你好， ' + '</span>' + '<span >' + user.userName + '</span>';
+                    $("#username3").text(user.userName);
                     $("#uusername").replaceWith(li);
                 }
             }),
@@ -38,5 +39,21 @@ function appendUsername() {
 
 
 }
+var userid = 1;
+$.ajax({
+    url: 'http://localhost:8080/cart/count/' + userid,
+    success: function(data) {
+        if (data == null) data = '0';
+        $("#J_MiniCartNum").text("(" + data + ")");
+        $(".cart_num").text(data);
+    }
+});
+$(document).on("click", ".MyShangcheng", function() {
+    window.location.href = "http://localhost:5500/person/index.html";
+});
+//转到主页
+$(document).on("click", ".message-r .home", function() {
+    // window.location.href = "http://localhost:5500/home/home.html";
+});
 /*用window.onload调用myfun() 加载页面的时候自动执行*/
 window.onload = appendUsername; //不要括号

@@ -73,6 +73,9 @@
     c.user_id =#{userid}
 
   </select>
+  <select id="selectCartCount" resultType="_int">
+    select count(*) from cart where user_id=#{userid}
+  </select>
   <delete id="deleteCartByCartId">
     delete from cart where cart_id=#{cartId};
   </delete>

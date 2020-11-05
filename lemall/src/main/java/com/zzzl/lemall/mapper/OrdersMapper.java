@@ -14,4 +14,5 @@ public interface OrdersMapper {
     List<Orders> selectOrdersById(@Param("userId")int userId);
     Orders selectOneOrdersById(int orderId);
     List<Orders> selectOrdersByUserId(int userId);
+    int updateOrders(Orders orders);
 }

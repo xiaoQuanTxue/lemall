@@ -16,4 +16,5 @@ public interface CartService {
     boolean batchDeleteCart(int[] cartIds);
     boolean moveAllToCollect(int[] cartIds);
     int submitToOrder(JSONObject jsonObject);
+    int cartNumber(int userid);
 }

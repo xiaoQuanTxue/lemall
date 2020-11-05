@@ -33,4 +33,9 @@ public class UserServiceImpl implements com.zzzl.lemall.service.UserService {
         User user=userMapper.selectByPrimaryKey(userid);
         return user;
     }
+
+    @Override
+    public boolean updateUser(User user) {
+        return userMapper.updateUserById(user)>0;
+    }
 }

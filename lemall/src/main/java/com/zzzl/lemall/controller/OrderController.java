@@ -11,24 +11,30 @@ import java.util.List;
  * @Author zhl
  * @Date 2020/10/30 9:01
  */
+@CrossOrigin(value = "*")
 @RestController
 @RequestMapping("/order")
 public class OrderController {
     @Resource
     private OrdersServiceImpl orderServiceImpl;
 
-    @CrossOrigin(value="*")
     @RequestMapping("/displayOrder/{orderId}")
-    @ResponseBody
     public Orders orders(@PathVariable("orderId")int orderId){
         return orderServiceImpl.displayNewOrder(orderId);
     }
 
-    @CrossOrigin(value="*")
     @RequestMapping("/allOrders/{userId}")
-    @ResponseBody
     public List<Orders> getAllOrders(@PathVariable("userId") int userId){
         List<Orders> orders = orderServiceImpl.displayAllOrder(userId);
         return orders;
     }
+    @RequestMapping("/changeState/{ordersId}/{state}")
+    public String modify(@PathVariable("ordersId")int orderId,@PathVariable("state")String state){
+        boolean flag = orderServiceImpl.modifyOrdersStates(orderId, state);
+        if(flag)
+            return "success";
+        return "fail";
+    }
+
+
 }

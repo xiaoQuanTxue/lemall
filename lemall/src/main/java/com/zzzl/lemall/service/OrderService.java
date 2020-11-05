@@ -11,4 +11,7 @@ import java.util.List;
 public interface OrderService {
     Orders displayNewOrder(int ordId);
     List<Orders> displayAllOrder(int userId);
+    boolean modifyOrdersStates(int orderId,String state);
+    boolean pay(int orderId,int attrId);
+    Orders paySuccess(int ordersId);
 }

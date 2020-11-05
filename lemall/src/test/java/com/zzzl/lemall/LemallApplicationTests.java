@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -104,5 +106,21 @@ class LemallApplicationTests {
     @Test
     void test14(){
         System.out.println(ordersMapper.selectOrdersById(1));
+    }
+    @Test
+    void test15(){
+
+        Orders orders=new Orders();
+        orders.setOrdersId(37);
+        orders.setOrdersState("待评价");
+        ordersMapper.updateOrders(orders);
+    }
+    @Test
+    void test16(){
+        HashMap<String,String> map =new HashMap();
+        map.put("a","c");
+        map.put("c","a");
+        map.forEach((k,v)-> System.out.println(k+":"+v));
+
     }
 }

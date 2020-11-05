@@ -380,7 +380,9 @@
             <if test="userName != null">
                 user_name = #{userName},
             </if>
-
+            <if test="userNick != null">
+                user_nick=#{userNick},
+            </if>
             <if test="userPassword != null">
                 user_password = #{userPassword},
             </if>

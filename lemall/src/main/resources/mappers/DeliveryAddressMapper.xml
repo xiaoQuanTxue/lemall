@@ -10,6 +10,9 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="vendor_id" jdbcType="INTEGER" property="vendorId" />
     <result column="delivery_default" jdbcType="INTEGER" property="deliveryDefault" />
+    <result column="province" jdbcType="VARCHAR" property="province"></result>
+    <result column="city" jdbcType="VARCHAR" property="city"></result>
+    <result column="districtt" jdbcType="VARCHAR" property="districtt"></result>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     delivery_id, delivery_postcode, delivery_phone, delivery_address, delivery_receiver,
-    user_id, vendor_id, delivery_default
+    user_id, vendor_id, delivery_default,province,city,districtt
   </sql>
   <select id="selectByExample" parameterType="com.zzzl.lemall.domain.DeliveryAddressExample" resultMap="BaseResultMap">
     select

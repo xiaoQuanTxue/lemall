@@ -9,16 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import javax.json.JsonObject;
-import javax.persistence.criteria.Order;
 import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.SimpleFormatter;
 
 /**
  * @Author 清山
@@ -122,6 +117,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    @Transactional(rollbackFor = Throwable.class)
     public int submitToOrder(JSONObject jsonObject) {
         Integer userId=jsonObject.getInteger("userId");
         Integer totalPrice=jsonObject.getInteger("total_price");
@@ -130,7 +126,7 @@ public class CartServiceImpl implements CartService {
         order.setOrdersTotal(new BigDecimal(totalPrice));
         order.setOrdersTime(new Date());
         order.setOrdersState("待发货");
-        order.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-",""));
+        order.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-","").substring(0,16));
         ordersMapper.insertOneOrders(order);
         JSONArray goods = jsonObject.getJSONArray("goods");
         JSONArray carts = jsonObject.getJSONArray("carts");
@@ -161,5 +157,10 @@ public class CartServiceImpl implements CartService {
 
         }
         return order.getOrdersId();
+    }
+
+    @Override
+    public int cartNumber(int userid) {
+        return cartMapper.selectCartCount(userid);
     }
 }

@@ -19,6 +19,12 @@ public class CartController {
     @Autowired
     CartService cartService;
 
+    @CrossOrigin(value = "*")
+    @RequestMapping("/joinCart/{userId}/{goodId}")
+    public String joinCart(@PathVariable("userId") int userId, @PathVariable("goodId") int goodId) {
+        return "";
+    }
+
     /**
      * 从数据库取出特定user对象的集合返回前端
      *
@@ -67,6 +73,12 @@ public class CartController {
             return "success";
         }
         return "fail";
+    }
+
+    @CrossOrigin(value = "*")
+    @RequestMapping("/count/{userid}")
+    public int getCount(@PathVariable("userid") int userid) {
+        return cartService.cartNumber(userid);
     }
 
     @CrossOrigin(value = "*")

@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -28,5 +31,16 @@ public class UserController {
         return userService.getUserById(userid);
     }
 
+    @CrossOrigin
+    @RequestMapping("/modifyInformation")
+    public String updateUser(User user){
+        System.out.println(user);
+        boolean flag = userService.updateUser(user);
+        if(flag){
+            return "success";
+        }
+
+        return "fail";
+    }
 
 }
