@@ -1,13 +1,9 @@
 package com.zzzl.lemall.service.impl;
 
-import com.zzzl.lemall.domain.DeliveryAddress;
-import com.zzzl.lemall.domain.DeliveryAddressExample;
-import com.zzzl.lemall.domain.Orderitem;
-import com.zzzl.lemall.domain.Orders;
-import com.zzzl.lemall.mapper.DeliveryAddressMapper;
-import com.zzzl.lemall.mapper.GoodMapper;
-import com.zzzl.lemall.mapper.OrderitemMapper;
-import com.zzzl.lemall.mapper.OrdersMapper;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.zzzl.lemall.domain.*;
+import com.zzzl.lemall.mapper.*;
 import com.zzzl.lemall.service.OrderService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -15,7 +11,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -31,7 +31,8 @@ public class OrdersServiceImpl implements OrderService {
     private DeliveryAddressMapper deliveryAddressMapper;
     @Resource
     private OrderitemMapper orderitemMapper;
-
+    @Resource
+    private SizesMapper sizesMapper;
     @Resource
     private GoodMapper goodMapper;
     @Override
@@ -111,5 +112,39 @@ public class OrdersServiceImpl implements OrderService {
     public List<Orders> displayAllOrder1(String state) {
         List<Orders> orders = ordersMapper.displayAllOrder1(state);
         return orders;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public int buyGood(JSONObject jsonObject) {
+        Integer userId = jsonObject.getInteger("userId");
+        Integer goodId=jsonObject.getInteger("goodId");
+
+        Integer ordersTotal=jsonObject.getInteger("ordersTotal");
+        Orders orders = new Orders();
+        orders.setOrdersTotal(new BigDecimal(ordersTotal));
+        orders.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-","").substring(0,16));
+        orders.setOrdersState("待付款");
+        orders.setUserId(userId);
+        orders.setOrdersTime(new Date());
+        ordersMapper.insertOneOrders(orders);
+        Orderitem orderitem = new Orderitem();
+        orderitem.setOrdersId(orders.getOrdersId());
+        orderitem.setGoodId(goodId);
+        orderitem.setOrderitemNumber(1);
+        orderitemMapper.insertOneOrderitem(orderitem);
+        JSONArray jsonArray=jsonObject.getJSONArray("sizes");
+        List<Sizes>  list=new ArrayList<>();
+        for(int i=0;i<jsonArray.size();i++){
+            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+            Sizes sizes = new Sizes();
+            sizes.setPropId(jsonObject1.getInteger("propId"));
+            sizes.setValId(jsonObject1.getInteger("valId"));
+            sizes.setCartId(0);
+            sizes.setOrderitemId(orderitem.getOrderitemId());
+            list.add(sizes);
+        }
+        sizesMapper.batchInsertSizes(list);
+        return orders.getOrdersId();
     }
 }

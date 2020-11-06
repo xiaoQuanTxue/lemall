@@ -1,5 +1,6 @@
 package com.zzzl.lemall.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zzzl.lemall.domain.Orders;
 
 import java.util.List;
@@ -21,4 +22,5 @@ public interface OrderService {
     boolean modifyOrdersStates(int orderId,String state);
     boolean pay(int orderId,int attrId);
     Orders paySuccess(int ordersId);
+    int buyGood(JSONObject jsonObject);
 }

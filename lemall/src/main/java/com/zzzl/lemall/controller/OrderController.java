@@ -1,5 +1,6 @@
 package com.zzzl.lemall.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zzzl.lemall.domain.Orders;
 import com.zzzl.lemall.service.impl.OrdersServiceImpl;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +37,10 @@ public class OrderController {
         return "fail";
     }
 
+    @RequestMapping("directlyBuyGood")
+
+    public int buy(@RequestBody JSONObject jsonObject){
+        return  orderServiceImpl.buyGood(jsonObject);
+    }
 
 }

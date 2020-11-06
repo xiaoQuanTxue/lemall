@@ -322,8 +322,14 @@
 
         <!-- 自动获取搜索值，发起查询访问 -->
         <script>
+            addvalue();
+
             function addvalue() {
                 var v = sessionStorage.getItem("value");
+                // alert(v);
+                // var s = window.location.search;
+                // s = s.substr(1);
+                // v = s.split('=')[1];
                 // alert(v);
                 if (v != null || v != "") {
 

@@ -31,8 +31,8 @@
             <ul class="message-l">
                 <div class="topMessage">
                     <div class="menu-hd" id="uusername">
-                        <!-- <a href="#" target="_top" class="h">亲，请登录</a>
-						<a href="#" target="_top">免费注册</a> -->
+                        <a href="#" target="_top" class="h">亲，请登录</a>
+                        <a href="#" target="_top">免费注册</a>
                     </div>
                 </div>
             </ul>
@@ -974,7 +974,7 @@
         // alert(key);
         sessionStorage.setItem("value", key);
         if (key != null || key != "") {
-            window.location.href = "search.html";
+            window.location.href = "search.html?key=" + key;
         }
     })
 </script>

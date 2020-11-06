@@ -45,7 +45,7 @@
 							class="am-icon-user am-icon-fw"></i>个人中心</a></div>
             </div>
             <div class="topMessage mini-cart">
-                <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i
+                <div class="menu-hd"><a id="mc-menu-hd" href="shopcart.html"><i
 							class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
 							class="h">0</strong></a></div>
             </div>
@@ -366,7 +366,7 @@
                 </div>
                 <li>
                     <div class="clearfix tb-btn tb-btn-buy theme-login">
-                        <a id="LikBuy" title="点此按钮到下一步确认购买信息" href="#">立即购买</a>
+                        <a id="LikBuy" title="点此按钮到下一步确认购买信息">立即购买</a>
                     </div>
                 </li>
                 <li>
@@ -983,7 +983,7 @@
     $(document).on("click", "#LikBasket", function() {
         var props = $(".prop");
         var sizes = [];
-        alert(props.length);
+
         for (var i = 0; i < props.length; i++) {
             var propIds = $(props[i]).attr("data-propid");
             var valIds = $(props[i]).find(".selected").attr("data-valid");
@@ -1004,11 +1004,47 @@
             data: JSON.stringify(cart),
             contentType: 'application/json',
             success: function(data) {
+                window.location.reload();
                 alert(data);
             }
         })
     });
     //直接购买
+    $(document).on("click", "#LikBuy", function() {
+        var props = $(".prop");
+        var sizes = [];
+        alert(props.length);
+        for (var i = 0; i < props.length; i++) {
+            var propIds = $(props[i]).attr("data-propid");
+            var valIds = $(props[i]).find(".selected").attr("data-valid");
+
+            sizes[i] = {
+                propId: parseInt(propIds),
+                valId: parseInt(valIds)
+            }
+        }
+        var price = $(".sys_item_price").text();
+        var number = $("#text_box").val();
+
+        var order = {
+            userId: userId,
+            goodId: goodId,
+
+            ordersTotal: parseInt(price) * parseInt(number),
+            sizes: sizes
+        }
+        console.log(JSON.stringify(order));
+        $.ajax({
+            url: "http://localhost:8080/order/directlyBuyGood",
+            type: 'post',
+            data: JSON.stringify(order),
+            contentType: 'application/json',
+            success: function(data) {
+                alert(data);
+                window.location.href = "pay.html?orderId=" + data;
+            }
+        })
+    });
 </script>
 <script src="../js/localjs/user.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>

@@ -100,8 +100,8 @@
     <script>
         $("#button").click(function(e) {
 
-            e.preventDefaut();
-
+            // e.preventDefaut();
+            // window.location.href = "home.html";
             $.ajax({
                 url: "http://localhost:8080/user/login",
                 type: "post",
@@ -109,7 +109,7 @@
                 datatype: "json",
                 success: function(info) {
 
-                    alert(JSON.stringify(info));
+                    // alert(JSON.stringify(info));
 
 
                     //  存储登录的用户信息
@@ -130,7 +130,8 @@
     </script>
 
 
-    ody>
-    <script src="../js/localjs/user.js"></script>
-    ipt type="text/javascript" src="../js/jquery.js"></script>
-    l>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+</body>
+
+</html>
