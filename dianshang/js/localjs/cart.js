@@ -174,7 +174,7 @@ $(document).on("click", ".deleteAll", function() {
             dataType: "text",
             success: function(message) {
                 $(".item-content").remove();
-                alert(message);
+                // alert(message);
                 addGoodNum();
                 addfunc();
                 validChecked();
@@ -209,7 +209,7 @@ $(document).on("click", ".J_BatchFav", function() {
             dataType: "text",
             success: function(message) {
                 $(".item-content").remove();
-                alert(message);
+                // alert(message);
                 addGoodNum();
                 addfunc();
                 validChecked();
@@ -271,7 +271,7 @@ $(document).on("click", "#J_Go", function() {
         // orders1.goods.push(good);
         orders1.goods[i] = good;
     }
-    alert(orders1);
+    // alert(orders1);
     // orders.set("goods", good);
     console.log(JSON.stringify(orders1));
     $.ajax({
