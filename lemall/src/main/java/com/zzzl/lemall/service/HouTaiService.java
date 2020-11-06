@@ -84,4 +84,10 @@ public interface HouTaiService {
      * @param keys
      */
     List<User> selectDelUserByName(String keys);
+
+    /**
+     * 添加用户
+     * @param user
+     */
+    void addUser(User user);
 }

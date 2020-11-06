@@ -17,12 +17,12 @@
     insert into orderitem (orderitem_id,orders_id,good_id,orderitem_number) values
     (null,#{ordersId},#{goodId},#{orderitemNumber})
   </insert>
-  <resultMap id="orderitems" type="Orderitem">
+  <resultMap id="orderitems" type="com.zzzl.lemall.domain.Orderitem">
       <id column="orderitem_id" jdbcType="INTEGER" property="orderitemId" />
       <result column="orders_id" jdbcType="INTEGER" property="ordersId" />
       <result column="good_id" jdbcType="INTEGER" property="goodId" />
       <result column="orderitem_number" jdbcType="INTEGER" property="orderitemNumber" />
-      <association property="good" javaType="Good">
+      <association property="good" javaType="com.zzzl.lemall.domain.Good">
         <id column="good_id" jdbcType="INTEGER" property="goodId" />
         <result column="good_name" jdbcType="VARCHAR" property="goodName" />
         <result column="good_current_price" jdbcType="DECIMAL" property="goodCurrentPrice" />

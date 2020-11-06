@@ -142,4 +142,12 @@
     </set>
     where orders_id=#{ordersId}
   </update>
+
+    <select id="displayAllOrder" resultMap="BaseResultMap">
+       select * from orders
+    </select>
+
+  <select id="displayAllOrder1" resultMap="BaseResultMap">
+      select * from orders where orders_state=#{state}
+  </select>
 </mapper>

@@ -36,7 +36,6 @@ public class OrdersServiceImpl implements OrderService {
     private GoodMapper goodMapper;
     @Override
     @Transactional(rollbackFor = Throwable.class)
-
     public Orders displayNewOrder(int ordId) {
         List<Orderitem> orderitem = orderitemMapper.selectOrderitemsByOrderId(ordId);
         Orders orders = ordersMapper.selectOneOrdersById(ordId);
@@ -96,6 +95,21 @@ public class OrdersServiceImpl implements OrderService {
         Integer ordersAddress = orders.getOrdersAddress();
         DeliveryAddress deliveryAddress = deliveryAddressMapper.selectByPrimaryKey(ordersAddress);
         orders.setDeliveryAddress(deliveryAddress);
+        return orders;
+    }
+
+
+
+//    新增
+    @Override
+    public List<Orders> displayAllOrder() {
+        List<Orders> orders = ordersMapper.displayAllOrder();
+        return orders;
+    }
+
+    @Override
+    public List<Orders> displayAllOrder1(String state) {
+        List<Orders> orders = ordersMapper.displayAllOrder1(state);
         return orders;
     }
 }

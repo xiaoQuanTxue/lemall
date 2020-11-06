@@ -23,10 +23,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //请求访问需要的权限
         //例如：admin-role   admin-permission     admin-list  ，特点admin-*
         http.authorizeRequests().antMatchers("/admin-role", "/admin-permission", "/admin-list").hasRole("admin")
-                .antMatchers("/article-*").hasRole("admin")
-                .antMatchers("/member-*").hasRole("admin")
                 .antMatchers("/product-*").hasAnyRole("Shopkeeper", "admin")
-                .antMatchers("/charts-*").hasRole("admin");
+                .antMatchers("/charts-*").hasRole("admin")
+                .antMatchers("/order-*","/order-list0","/order-list1","/order-list2","/order-item").hasAnyRole("admin","Shopkeeper");
 
 
         // 登录页面表单提交时表示用户名和密码的请求参数是：username和password
@@ -60,9 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // passwordEncoder()
         //BCryptPasswordEncoder加密的格式对密码进行加密
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("v1").password(new BCryptPasswordEncoder().encode("1")).roles("Shopkeeper","admin").and()
-
-                .withUser("admin").password(new BCryptPasswordEncoder().encode("1")).roles("admin");
+                .withUser("v1").password(new BCryptPasswordEncoder().encode("1")).roles("Shopkeeper").and()
+                .withUser("admin").password(new BCryptPasswordEncoder().encode("1")).roles("admin","Shopkeeper");
 
     }
 }

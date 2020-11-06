@@ -1,9 +1,11 @@
 package com.zzzl.lemall.controller;
 
-import com.zzzl.lemall.domain.Good;
-import com.zzzl.lemall.domain.User;
+import com.zzzl.lemall.domain.*;
+import com.zzzl.lemall.mapper.OrderitemMapper;
 import com.zzzl.lemall.service.HouTaiService;
+import com.zzzl.lemall.service.OrderService;
 import org.apache.commons.io.FileUtils;
+import org.bouncycastle.math.raw.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,18 +40,11 @@ public class NavigationController implements ServletContextAware {
     @Autowired
     private HouTaiService houTaiService;
 
+    @Autowired
+    private OrderService orderService;
 
-//    @Autowired
-//    private
-
-//    @Autowired
-//    private UsersService usersService;
-//
-//    @Autowired
-//    private InstitutionService institutionService;
-//
-//    @Autowired
-//    private CourseService courseService;
+    @Autowired
+    private OrderitemMapper orderitemMapper;
 
 
     @RequestMapping("/index")
@@ -98,7 +93,6 @@ public class NavigationController implements ServletContextAware {
     public String addGood(Model model, String goodName,
                           BigDecimal goodCurrentPrice,
                           Integer goodInventory, String goodDescribe,
-                          String fname,
                           @RequestParam("file") MultipartFile file) {
 
         Good good = new Good();
@@ -109,15 +103,12 @@ public class NavigationController implements ServletContextAware {
         good.setGoodState("1");
 
         Date date = new Date();
-//        SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-//        String format = sf.format(date);
         good.setGoodUpDate(date);
 
-
+        String fname = file.getOriginalFilename();
         System.out.println("controller   good--------------" + good);
         System.out.println("fname------------" + fname);
         houTaiService.addGood(good);
-        houTaiService.addGOODImg(good);
 
 
         //name：图片的名称
@@ -125,14 +116,34 @@ public class NavigationController implements ServletContextAware {
         if (!file.isEmpty()) {
             //不为空才执行上传
             try {
-                //获取文件的字节数组
-                byte[] bytes = file.getBytes();
+
                 //创建file，文件上传之后的位置和名称
 
-                File f = new File(servletContext.getRealPath("/upload"+ fname));
-//                File f = new File("C:\\Users\\admin\\Desktop\\新建文件夹\\ " + name);
+//                File f = new File(servletContext.getRealPath("/upload"+ fname));
+
+                String fileName = file.getOriginalFilename();  // 文件名
+                System.out.println("filename-----------" + fileName);
+
+                String suffixName = fileName.substring(fileName.lastIndexOf("."));  // 后缀名
+                System.out.println("suffixname------" + suffixName);
+
+                String filePath = "D:\\桌面文件\\项目\\lemall\\dianshang\\images\\picturea\\upload\\"; // 上传后的路径
+//                fileName = UUID.randomUUID() + suffixName; // 新文件名
+
+                File dest = new File(filePath + fileName);
+                if (!dest.getParentFile().exists()) {
+                    dest.getParentFile().mkdirs();
+                }
                 //写入
-                FileUtils.writeByteArrayToFile(f, bytes);
+                file.transferTo(dest);
+
+
+                GoodDetails gd = new GoodDetails();
+                gd.setGoodDetailsIgm("localImg/" + fileName);
+                good.setPictureLocation(gd);
+                houTaiService.addGOODImg(good);
+                System.out.println(good);
+
                 //上传成功
                 model.addAttribute("msg", fname + "上传成功!");
 
@@ -261,9 +272,21 @@ public class NavigationController implements ServletContextAware {
 
     //跳转到添加用户
     @RequestMapping("/touseradd")
-    public String adduser() {
+    public String toadduser() {
 
         return "user/user-add";
+    }
+
+    @RequestMapping("/adduser")
+    public String adduser(Model model, User user) {
+        user.setUserBirth(new Date());
+        user.setUserState("1");
+        houTaiService.addUser(user);
+
+        List<User> users = houTaiService.getAllUser();
+//        System.out.println(users);
+        model.addAttribute("alluser", users);
+        return "user/user-list";
     }
 
     //    根据用户id更新用户信息
@@ -302,6 +325,7 @@ public class NavigationController implements ServletContextAware {
 
     /**
      * 恢复用户
+     *
      * @param model
      * @param id
      * @return
@@ -325,6 +349,53 @@ public class NavigationController implements ServletContextAware {
         return "user/user-del";
     }
 
+//    用户结束
+
+
+//    订单开始
+
+    //    获取所有
+    @RequestMapping("/order-list0")
+    public String toOrder(Model model) {
+//        System.out.println("成功访问....获取所有商品的controller");
+
+        List<Orders> all = orderService.displayAllOrder();
+
+        model.addAttribute("allorders", all);
+        return "order/order-list0";
+    }
+
+    //    获取未发货
+    @RequestMapping("/order-list1")
+    public String toOrder1(Model model) {
+
+        String state = "待发货";
+        List<Orders> all = orderService.displayAllOrder1(state);
+
+        model.addAttribute("allorders1", all);
+        return "order/order-list1";
+    }
+
+
+    //    获取已发货
+    @RequestMapping("/order-list2")
+    public String toOrder2(Model model) {
+
+        String state = "已发货";
+        List<Orders> all = orderService.displayAllOrder1(state);
+
+        model.addAttribute("allorders2", all);
+        return "order/order-list2";
+    }
+
+
+    @RequestMapping("/orderitem")
+    public List<Orderitem> Orderitme(Model model, Integer id) {
+        System.out.println(id);
+        List<Orderitem> orderitems = orderitemMapper.selectOrderitemsByOrderId(id);
+        model.addAttribute("orderitem", orderitems);
+        return orderitems;
+    }
 
 
     @RequestMapping("/charts1")
@@ -365,76 +436,5 @@ public class NavigationController implements ServletContextAware {
     @Override
     public void setServletContext(ServletContext servletContext) {
         this.servletContext = servletContext;
-
     }
-
-
-//    @RequestMapping("/jigou-list")
-//    public String toJiGouList(Model model) {
-//        List<Institution> allJIGouByState = institutionService.getAllJIGouByState("已启用");
-//        System.out.println(allJIGouByState);
-//        model.addAttribute("jigou1", allJIGouByState);
-//        return "jigou/jigou-list";
-//    }
-//
-//    @RequestMapping("/jigou-del")
-//    public String toJiGouDel(Model model) {
-//        List<Institution> allJIGouByState = institutionService.getAllJIGouByState("已删除");
-//        System.out.println(allJIGouByState);
-//        model.addAttribute("jigou2", allJIGouByState);
-//        return "jigou/jigou-del";
-//    }
-//
-//    @RequestMapping("/touseradd")
-//    public String touseradd() {
-//        return "member/member-add";
-//    }
-//
-//    @RequestMapping("/useradd")
-//    public String touserUpdate() {
-//        return "member/member-add";
-//    }
-//
-
-
-//
-//
-//    @RequestMapping("touserupdate1")
-//    @ResponseBody
-//    public String toUserUpdate1(int id, Model model) {
-//        System.out.println(id);
-//        model.addAttribute("courseId", id);
-//        System.out.println("跳转修改用户页controller访问成功");
-//        return id + "";
-//    }
-//
-//    @RequestMapping("touserupdate2")
-//    public String toUserUpdate2() {
-//
-//        return "member/passwordr-update";
-//    }
-//
-//
-//    @RequestMapping("toaddjigou")
-//    public String tojigouadd() {
-//
-//        return "jigou/jigou-add";
-//    }
-//
-//
-//    @RequestMapping("tojigouupdate1")
-//    @ResponseBody
-//    public String toJiGouUpdate1(int id, Model model) {
-//        System.out.println(id);
-//        model.addAttribute("courseId", id);
-//        System.out.println("跳转修改机构页controller访问成功");
-//        return id + "";
-//    }
-//
-//    @RequestMapping("tojigouupdate2")
-//    public String toJiGouUpdate2() {
-//
-//        return "jigou/passwordr-update";
-//    }
-
 }
