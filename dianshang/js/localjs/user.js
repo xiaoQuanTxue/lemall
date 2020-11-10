@@ -53,7 +53,7 @@ $(document).on("click", ".MyShangcheng", function() {
 });
 //转到主页
 $(document).on("click", ".message-r .home", function() {
-    // window.location.href = "http://localhost:5500/home/home.html";
+    window.location.href = "http://localhost:5500/home/home.html";
 });
 /*用window.onload调用myfun() 加载页面的时候自动执行*/
 window.onload = appendUsername; //不要括号

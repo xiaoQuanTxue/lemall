@@ -4,8 +4,11 @@ $.ajax({
     url: 'http://localhost:8080/cart/display/' + 1 + '',
     dataType: 'json',
     success: function(carts) {
+        alert(carts);
         var item = "";
-
+        if (carts === undefined) {
+            $(".item-content").replaceWith(item);
+        }
         for (var i = 0; i < carts.length; i++) {
             var checkbox = '<ul class="item-content" data-id="' + carts[i].cartId + '" data-gid="' + carts[i].good.goodId + '" clearfix"><li class="td td-chk"><div class="cart-checkbox "><input class="check" id="" name="item" value="170037950254" type="checkbox"><label for="J_CheckBox_170037950254"></label></div></li>';
 

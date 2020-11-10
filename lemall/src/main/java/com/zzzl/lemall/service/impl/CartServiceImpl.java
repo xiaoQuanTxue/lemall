@@ -32,6 +32,7 @@ public class CartServiceImpl implements CartService {
     OrdersMapper ordersMapper;
     @Resource
     OrderitemMapper orderitemMapper;
+
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public List<Cart> getCartsByUserId(int userId) {
@@ -40,6 +41,7 @@ public class CartServiceImpl implements CartService {
 
     /**
      * 添加事务管理
+     *
      * @param cartId
      * @return
      */
@@ -47,7 +49,7 @@ public class CartServiceImpl implements CartService {
     @Transactional(rollbackFor = Throwable.class)
     public boolean deleteCartByCartId(int cartId) {
 
-        if(sizesMapper.deleteSizesByCartId(cartId)>0&&cartMapper.deleteCartByCartId(cartId)>0){
+        if (sizesMapper.deleteSizesByCartId(cartId) > 0 && cartMapper.deleteCartByCartId(cartId) > 0) {
             return true;
         }
         return false;
@@ -56,7 +58,7 @@ public class CartServiceImpl implements CartService {
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public boolean batchDeleteCart(int[] cartIds) {
-        if(cartMapper.batchDeleteCart(cartIds)>0&&sizesMapper.batchDeleteSizesByCartId(cartIds)>0){
+        if (cartMapper.batchDeleteCart(cartIds) > 0 && sizesMapper.batchDeleteSizesByCartId(cartIds) > 0) {
             return true;
         }
         return false;
@@ -65,6 +67,7 @@ public class CartServiceImpl implements CartService {
     /**
      * 将购物车中内容先移到收藏中，
      * 然后删除cart中相应商品
+     *
      * @param carId
      * @return
      */
@@ -73,15 +76,15 @@ public class CartServiceImpl implements CartService {
     public boolean moveToCollect(int carId) {
         Cart cart = cartMapper.selectCartByPrimaryKey(carId);
 
-        Collect collect=new Collect();
+        Collect collect = new Collect();
         collect.setUserId(cart.getUserId());
         collect.setGoodId(cart.getGoodId());
 
         collect.setCollectDate(new Date());
 
-        if (collectMapper.insert(collect)>0
-                &&cartMapper.deleteCartByCartId(carId)>0
-                &&sizesMapper.deleteSizesByCartId(carId)>0) {
+        if (collectMapper.insert(collect) > 0
+                && cartMapper.deleteCartByCartId(carId) > 0
+                && sizesMapper.deleteSizesByCartId(carId) > 0) {
             return true;
         }
         return false;
@@ -91,16 +94,17 @@ public class CartServiceImpl implements CartService {
      * 批量获取购物车
      * 构建collect移到list中
      * 批量插入collect，批量删除cart，批量删除sizes
+     *
      * @param cartIds
      * @return
      */
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public boolean moveAllToCollect(int[] cartIds) {
-        List<Cart> carts=cartMapper.selectCartByCartIds(cartIds);
-        List<Collect> collects=new ArrayList<>();
-        for (Cart cart:carts) {
-            Collect collect=new Collect();
+        List<Cart> carts = cartMapper.selectCartByCartIds(cartIds);
+        List<Collect> collects = new ArrayList<>();
+        for (Cart cart : carts) {
+            Collect collect = new Collect();
             collect.setUserId(cart.getUserId());
             collect.setGoodId(cart.getGoodId());
 
@@ -108,9 +112,9 @@ public class CartServiceImpl implements CartService {
             collects.add(collect);
         }
 
-        if(collectMapper.batchInsertCollections(collects)>0
-                &&cartMapper.batchDeleteCart(cartIds)>0
-                &&sizesMapper.batchDeleteSizesByCartId(cartIds)>0){
+        if (collectMapper.batchInsertCollections(collects) > 0
+                && cartMapper.batchDeleteCart(cartIds) > 0
+                && sizesMapper.batchDeleteSizesByCartId(cartIds) > 0) {
             return true;
         }
         return false;
@@ -119,14 +123,14 @@ public class CartServiceImpl implements CartService {
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public int submitToOrder(JSONObject jsonObject) {
-        Integer userId=jsonObject.getInteger("userId");
-        Integer totalPrice=jsonObject.getInteger("total_price");
+        Integer userId = jsonObject.getInteger("userId");
+        Integer totalPrice = jsonObject.getInteger("total_price");
         Orders order = new Orders();
         order.setUserId(userId);
         order.setOrdersTotal(new BigDecimal(totalPrice));
         order.setOrdersTime(new Date());
         order.setOrdersState("待发货");
-        order.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-","").substring(0,16));
+        order.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-", "").substring(0, 16));
         ordersMapper.insertOneOrders(order);
         JSONArray goods = jsonObject.getJSONArray("goods");
         JSONArray carts = jsonObject.getJSONArray("carts");
@@ -140,13 +144,13 @@ public class CartServiceImpl implements CartService {
             orderitem.setOrderitemNumber(orderitemNumber);
             orderitem.setOrdersId(order.getOrdersId());
             orderitemMapper.insertOneOrderitem(orderitem);
-            JSONObject jsonObject2=carts.getJSONObject(i);
+            JSONObject jsonObject2 = carts.getJSONObject(i);
             System.out.println(jsonObject2.toJSONString());
-//            cartMapper.deleteCartByCartId(jsonObject2.getInteger("cartid"));
+            cartMapper.deleteCartByCartId(jsonObject2.getInteger("cartid"));
             JSONArray sizesIds = jsonObject2.getJSONArray("sizeIds");
             for (int j = 0; j < sizesIds.size(); j++) {
 
-                int sizesId=sizesIds.getIntValue(j);
+                int sizesId = sizesIds.getIntValue(j);
                 System.out.println(sizesId);
                 Sizes sizes = new Sizes();
                 sizes.setSizeId(sizesId);
@@ -167,17 +171,17 @@ public class CartServiceImpl implements CartService {
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public int submitGoodToCart(JSONObject jsonObject) {
-        int userId=jsonObject.getInteger("userId");
-        int goodId=jsonObject.getInteger("goodId");
-        JSONArray jsonArray=jsonObject.getJSONArray("sizes");
+        int userId = jsonObject.getInteger("userId");
+        int goodId = jsonObject.getInteger("goodId");
+        JSONArray jsonArray = jsonObject.getJSONArray("sizes");
         Cart cart = new Cart();
         cart.setCartJoinTime(new Date());
         cart.setGoodId(goodId);
         cart.setUserId(userId);
         cartMapper.insertOneCart(cart);
-        List<Sizes>  list=new ArrayList<>();
-        for(int i=0;i<jsonArray.size();i++){
-            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+        List<Sizes> list = new ArrayList<>();
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
             Sizes sizes = new Sizes();
             sizes.setPropId(jsonObject1.getInteger("propId"));
             sizes.setValId(jsonObject1.getInteger("valId"));
