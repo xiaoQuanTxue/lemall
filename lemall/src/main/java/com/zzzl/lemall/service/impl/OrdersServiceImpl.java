@@ -35,6 +35,7 @@ public class OrdersServiceImpl implements OrderService {
     private SizesMapper sizesMapper;
     @Resource
     private GoodMapper goodMapper;
+
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public Orders displayNewOrder(int ordId) {
@@ -66,27 +67,29 @@ public class OrdersServiceImpl implements OrderService {
         orders.setOrdersId(orderId);
         orders.setOrdersState(state);
 
-        return ordersMapper.updateOrders(orders)>0;
+        return ordersMapper.updateOrders(orders) > 0;
     }
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
-    public boolean pay(int orderId,int attrId) {
+    public boolean pay(int orderId, int attrId) {
 
         List<Orderitem> orderitems = orderitemMapper.selectOrderitemsByOrderId(orderId);
         orderitems
                 .stream()
-                .map(x-> x.getGood())
-                .forEach(x->
-                {x.setGoodSale(x.getGoodSale()+1);
-                    goodMapper.updateByPrimaryKeySelective(x);}
+                .map(x -> x.getGood())
+                .forEach(x ->
+                        {
+                            x.setGoodSale(x.getGoodSale() + 1);
+                            goodMapper.updateByPrimaryKeySelective(x);
+                        }
 
                 );
 //goodMapper.up
         Orders orders = ordersMapper.selectOneOrdersById(orderId);
         orders.setOrdersState("待发货");
         orders.setOrdersAddress(attrId);
-        return ordersMapper.updateOrders(orders)>0;
+        return ordersMapper.updateOrders(orders) > 0;
     }
 
     @Override
@@ -100,8 +103,7 @@ public class OrdersServiceImpl implements OrderService {
     }
 
 
-
-//    新增
+    //    新增
     @Override
     public List<Orders> displayAllOrder() {
         List<Orders> orders = ordersMapper.displayAllOrder();
@@ -118,12 +120,12 @@ public class OrdersServiceImpl implements OrderService {
     @Transactional(rollbackFor = Throwable.class)
     public int buyGood(JSONObject jsonObject) {
         Integer userId = jsonObject.getInteger("userId");
-        Integer goodId=jsonObject.getInteger("goodId");
+        Integer goodId = jsonObject.getInteger("goodId");
 
-        Integer ordersTotal=jsonObject.getInteger("ordersTotal");
+        Integer ordersTotal = jsonObject.getInteger("ordersTotal");
         Orders orders = new Orders();
         orders.setOrdersTotal(new BigDecimal(ordersTotal));
-        orders.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-","").substring(0,16));
+        orders.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-", "").substring(0, 16));
         orders.setOrdersState("待付款");
         orders.setUserId(userId);
         orders.setOrdersTime(new Date());
@@ -133,10 +135,10 @@ public class OrdersServiceImpl implements OrderService {
         orderitem.setGoodId(goodId);
         orderitem.setOrderitemNumber(1);
         orderitemMapper.insertOneOrderitem(orderitem);
-        JSONArray jsonArray=jsonObject.getJSONArray("sizes");
-        List<Sizes>  list=new ArrayList<>();
-        for(int i=0;i<jsonArray.size();i++){
-            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+        JSONArray jsonArray = jsonObject.getJSONArray("sizes");
+        List<Sizes> list = new ArrayList<>();
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
             Sizes sizes = new Sizes();
             sizes.setPropId(jsonObject1.getInteger("propId"));
             sizes.setValId(jsonObject1.getInteger("valId"));

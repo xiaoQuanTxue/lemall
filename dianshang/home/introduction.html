@@ -1005,7 +1005,7 @@
             contentType: 'application/json',
             success: function(data) {
                 window.location.reload();
-                alert(data);
+                // alert(data);
             }
         })
     });
@@ -1013,7 +1013,7 @@
     $(document).on("click", "#LikBuy", function() {
         var props = $(".prop");
         var sizes = [];
-        alert(props.length);
+        // alert(props.length);
         for (var i = 0; i < props.length; i++) {
             var propIds = $(props[i]).attr("data-propid");
             var valIds = $(props[i]).find(".selected").attr("data-valid");
@@ -1040,7 +1040,7 @@
             data: JSON.stringify(order),
             contentType: 'application/json',
             success: function(data) {
-                alert(data);
+                // alert(data);
                 window.location.href = "pay.html?orderId=" + data;
             }
         })

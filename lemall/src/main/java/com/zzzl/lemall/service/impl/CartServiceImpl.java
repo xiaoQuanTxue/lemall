@@ -129,7 +129,7 @@ public class CartServiceImpl implements CartService {
         order.setUserId(userId);
         order.setOrdersTotal(new BigDecimal(totalPrice));
         order.setOrdersTime(new Date());
-        order.setOrdersState("待发货");
+        order.setOrdersState("待付款");
         order.setOrdersNumber(UUID.randomUUID().toString().replaceAll("-", "").substring(0, 16));
         ordersMapper.insertOneOrders(order);
         JSONArray goods = jsonObject.getJSONArray("goods");

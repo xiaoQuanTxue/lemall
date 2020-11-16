@@ -4,7 +4,7 @@ $.ajax({
     url: 'http://localhost:8080/cart/display/' + 1 + '',
     dataType: 'json',
     success: function(carts) {
-        alert(carts);
+        // alert(carts);
         var item = "";
         if (carts === undefined) {
             $(".item-content").replaceWith(item);
@@ -203,7 +203,7 @@ $(document).on("click", ".J_BatchFav", function() {
         $(".item-content").each(function() {
             a.push(parseInt($(this).attr("data-id")));
         });
-        alert(JSON.stringify(a));
+        // alert(JSON.stringify(a));
         $.ajax({
             type: "POST",
             url: "http://localhost:8080/cart/moveAll",
@@ -284,7 +284,7 @@ $(document).on("click", "#J_Go", function() {
         contentType: "application/json",
         dataType: "text",
         success: function(msg) {
-            alert(msg);
+            // alert(msg);
             // if () {
             window.location.href = "pay.html?orderId=" + msg;
             // } else {

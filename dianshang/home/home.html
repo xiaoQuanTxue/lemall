@@ -985,7 +985,7 @@
 
     function getUserIcon() {
         $.ajax({
-            url: "http://localhost:8080/user/icon/1",
+            url: "http://localhost:8080/user/icon/" + sessionStorage.getItem("userid"),
             // data: bb(),
             dataType: "json",
             success: function(user) {
@@ -1151,7 +1151,7 @@
 <!-- 点击商品后，发送请求，获取map集合后存入session -->
 <script>
     function todetail(id) {
-        alert(id);
+        // alert(id);
 
         $.ajax({
             url: "http://localhost:8080/index/getGoodDetails",
